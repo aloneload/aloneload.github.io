@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/letter71.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/letter71.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/letter71.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="经济漫谈," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="我们可以将人类文明快进一下：1.刚开变成人的时候，大家都各自为王，自给自足，A部落肥羊三千，顿顿吃荤，B家族良田五亩，天天绿色食品，过着幸福的生活2.过了几百年，大家都吃腻了，于是约了个地方，你提羊来我送菜，荤素结合，过上了幸福的生活3.又过了几百年，A家族不仅吃的饱，还想穿C家族的裤头，但C是出家人，于是顺手牵着羊跟B换了青菜，拿着青菜换裤头穿，这样子大家都很麻烦，交易成本太高了，于是后来A就拿">
+<meta name="keywords" content="经济漫谈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员看经济">
+<meta property="og:url" content="http://aloneload.github.io/2018/05/07/economy/index.html">
+<meta property="og:site_name" content="aloneload的博客">
+<meta property="og:description" content="我们可以将人类文明快进一下：1.刚开变成人的时候，大家都各自为王，自给自足，A部落肥羊三千，顿顿吃荤，B家族良田五亩，天天绿色食品，过着幸福的生活2.过了几百年，大家都吃腻了，于是约了个地方，你提羊来我送菜，荤素结合，过上了幸福的生活3.又过了几百年，A家族不仅吃的饱，还想穿C家族的裤头，但C是出家人，于是顺手牵着羊跟B换了青菜，拿着青菜换裤头穿，这样子大家都很麻烦，交易成本太高了，于是后来A就拿">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-07T12:07:38.786Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序员看经济">
+<meta name="twitter:description" content="我们可以将人类文明快进一下：1.刚开变成人的时候，大家都各自为王，自给自足，A部落肥羊三千，顿顿吃荤，B家族良田五亩，天天绿色食品，过着幸福的生活2.过了几百年，大家都吃腻了，于是约了个地方，你提羊来我送菜，荤素结合，过上了幸福的生活3.又过了几百年，A家族不仅吃的饱，还想穿C家族的裤头，但C是出家人，于是顺手牵着羊跟B换了青菜，拿着青菜换裤头穿，这样子大家都很麻烦，交易成本太高了，于是后来A就拿">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://aloneload.github.io/2018/05/07/economy/"/>
+
+
+
+
+
+  <title>程序员看经济 | aloneload的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">aloneload的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">精于工、匠于心、品于行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://aloneload.github.io/2018/05/07/economy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aloneload">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aloneload的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">程序员看经济</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T19:45:03+08:00">
+                2018-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我们可以将人类文明快进一下：<br>1.刚开变成人的时候，大家都各自为王，自给自足，A部落肥羊三千，顿顿吃荤，B家族良田五亩，天天绿色食品，过着幸福的生活<br>2.过了几百年，大家都吃腻了，于是约了个地方，你提羊来我送菜，荤素结合，过上了幸福的生活<br>3.又过了几百年，A家族不仅吃的饱，还想穿C家族的裤头，但C是出家人，于是顺手牵着羊跟B换了青菜，拿着青菜换裤头穿，这样子大家都很麻烦，交易成本太高了，于是后来A就拿羊从X那里换了块石头，这石头带着方便，而且大家都认可，还能存着，想穿裤头就去找和尚换。这石头后来只有金色的大家才认可，于是又过上了幸福的生活<br>4.又过了几百年，有个100单位金子的S商人自己开一家店，花了10个金子建造房子（固有资产），90个金子借给那些急需要的人，报酬是还回来的除了本金，还要加点小小的金石头，这下没钱的乐坏了，过了几年，大家都来借钱，余额不足，S想了一个办法，大家可以把石头放进来，要用的时候还能在额外多给些小石头，这下有钱的乐坏了，于是S靠收到的额外的金子减去支出的金子剩下的利润活着。如果没有S,有idea但没钱的那些家伙就只能干着急，所以S极大的促进了社会生产力，资本经济就是好，从此大家都过着幸福的生活<br>5.很多人听说S很能赚钱，大家都纷纷效仿，可这个时候某一个出了状况，比如某家把所有的金钱都放出去了，有人来取钱，竟然说没钱，大家一传十，十传百，都很恐慌，蜂拥来取钱，实际情况是，他们所能给的钱远远小于人家当时存的钱，因为部分放出去了嘛。造成的后果就是他们纷纷倒闭，人民也苦不堪言。（银行挤兑）<br>6.大家去找县长，这种事发生的多了，县长也有经验了，为了防止人民取不出来钱，县长告诉所有S,要想开店，就得交一部分金子来，（存款储备金）好出事了我分给大家，维持社会安定<br>7.当然上述情况S也想了办法，就是把羊画在纸上（各种票据），承诺自己见到票据也会兑换金子，同时在多给些小金子（贴现），要是有很多在诱惑下选择相信，那么他们彼此之间也可以用票据进行交易。这样子大家都有自己造票据，相信的人也很有限，于是县长把自己的头像画在纸上，强制大家使用，也过着幸福的生活<br>8.这个县长一心为民，随着生产力的提高，产品也会越来越多，如果县长的纸币不增加的画，那就会通货物紧缩，于是县长就加班生产纸币，但也不能加太多，不然物价也会上涨。这个时候县长和S其实干的事一样的事情，只不过县长大公无私，不赚取利益，若果市场萧条，有idea的N人贷不到款，实现不了自己的理想，也是社会的损失，于是县长就会降低给S的利率，自然S也会N降低利率，这样市场欣欣向荣，于是，那种小毛贼idea也很多啊，他们也能轻易的贷款，结果啥也不干，本金也还不了了，这是整个社会的损失。为防止弱鸡也玩这种游戏，于是县长又提高了利率，均衡在县长手里。可能你要问了，县长大公无私，收取利率算怎么回事。想想县长有必要吗，人家真要用钱，自己多生产去了，收取的东西他也会平衡整个市场进行销毁或者在流通，大家过上了幸福的生活<br>（未完待续，下次写todo）<br>资产=负债+所有者权益<br>利润=收入-支出<br>权责发生制，收付制记账<br>会记科目计算及意义</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/经济漫谈/" rel="tag"># 经济漫谈</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/docker/" rel="next" title="docker 命令速记">
+                <i class="fa fa-chevron-left"></i> docker 命令速记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/07/git/" rel="prev" title="git命令速记">
+                git命令速记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpg"
+                alt="aloneload" />
+            
+              <p class="site-author-name" itemprop="name">aloneload</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/aloneload" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://my.csdn.net/" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aloneload</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

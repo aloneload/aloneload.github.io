@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/letter71.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/letter71.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/letter71.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="异步,多线程," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="编程语言模型思考之异步和多线程 各种类型的编程语言在解决特定领域问题上具有独有的编程模型，例如异步模型和多线程模型，语言最初设计者考虑哪种模型至关重要 目的：不管哪种模型，其目的是为了程序的运行可持续性，也就是多任务执行解决方案。不能因为某些任务一直阻塞，而其资源（主要CPU）处于不工作状态，因此衡量一个语言的优劣，大部分评论文章针对是否充分利用处理器，以及对于编程人员在该模型上编程的易用性  两">
+<meta name="keywords" content="异步,多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步和多线程">
+<meta property="og:url" content="http://aloneload.github.io/2018/05/07/programming-think/index.html">
+<meta property="og:site_name" content="aloneload的博客">
+<meta property="og:description" content="编程语言模型思考之异步和多线程 各种类型的编程语言在解决特定领域问题上具有独有的编程模型，例如异步模型和多线程模型，语言最初设计者考虑哪种模型至关重要 目的：不管哪种模型，其目的是为了程序的运行可持续性，也就是多任务执行解决方案。不能因为某些任务一直阻塞，而其资源（主要CPU）处于不工作状态，因此衡量一个语言的优劣，大部分评论文章针对是否充分利用处理器，以及对于编程人员在该模型上编程的易用性  两">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-07T12:19:26.533Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="异步和多线程">
+<meta name="twitter:description" content="编程语言模型思考之异步和多线程 各种类型的编程语言在解决特定领域问题上具有独有的编程模型，例如异步模型和多线程模型，语言最初设计者考虑哪种模型至关重要 目的：不管哪种模型，其目的是为了程序的运行可持续性，也就是多任务执行解决方案。不能因为某些任务一直阻塞，而其资源（主要CPU）处于不工作状态，因此衡量一个语言的优劣，大部分评论文章针对是否充分利用处理器，以及对于编程人员在该模型上编程的易用性  两">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://aloneload.github.io/2018/05/07/programming-think/"/>
+
+
+
+
+
+  <title>异步和多线程 | aloneload的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">aloneload的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">精于工、匠于心、品于行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://aloneload.github.io/2018/05/07/programming-think/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aloneload">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aloneload的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">异步和多线程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T19:45:03+08:00">
+                2018-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="编程语言模型思考之异步和多线程"><a href="#编程语言模型思考之异步和多线程" class="headerlink" title="编程语言模型思考之异步和多线程"></a>编程语言模型思考之异步和多线程</h2><ol>
+<li>各种类型的编程语言在解决特定领域问题上具有独有的编程模型，例如异步模型和多线程模型，语言最初设计者考虑哪种模型至关重要</li>
+<li>目的：不管哪种模型，其目的是为了程序的运行可持续性，也就是多任务执行解决方案。不能因为某些任务一直阻塞，而其资源（主要CPU）处于不工作状态，因此衡量一<br>个语言的优劣，大部分评论文章针对是否充分利用处理器，以及对于编程人员在该模型上编程的易用性</li>
+</ol>
+<h2 id="两种模型的比较"><a href="#两种模型的比较" class="headerlink" title="两种模型的比较"></a>两种模型的比较</h2><ol>
+<li>异步模型：不论是操作系统还是语言运行库所提供的异步模型，为了不阻塞程序运行，对于一些耗时不确定的响应比较长时的操作可注册一个回调，为了管理这些回调<br>处理完后的通知，一般语言运行库（比如js）提供事件编程模型，或者操作系统（异步IO）直接支持，其背后原理是运行事件的任务所在进程或线程提供调度策略，轮询<br>频率以及任务优先级都交由事件调度完成。因为这种情况下不会阻塞，所以理论上一个逻辑控制流（一个cpu核充分利用）足已，而且对于资源的访问由于是单个的顺序访问<br>，因此很适合对于资源操作建模，不如js对于dom的操作，java swing对于UI的双事件机制，redis对于内存的控制。其缺点是代码层面的可读性，要面对回调地狱问题，js<br>常见很多层回调，java swing监听内部类的化会更复杂，由于纯面向对象编程，用一个回调函数非得封装成类来传入，导致好多代码，只不过java其他地方没有那么多回调<br>需求而已，庆幸的是这类语言会陆续更新一些高级的语法糖，java8推出一系列面向函数式编程的特性：lambda表达式，高阶函数，方法引用，FutureCompletable异步等<br>来全面拥抱新的编程生态。js 的promise以及c#最先推出的async/await可谓是回调天堂。随着多核硬件的技术发展，这种模型已不太能充分利用硬件优势，有些模型会<br>采取迂回措施，比如redis可以启动多个进程，资源控制用slot编号控制，Python解释器由于设计时有GIL全局锁，导致了多线程无法利用多核。多线程的并发在Python中<br>就是一个美丽的梦。</li>
+<li>多线程模型：其实我这里表达的不太准确，应该是逻辑控制流不在是上述一条，而是至少两条以上，也就是并发，多线程只是并发的其一种解决方案。操作系统在单核cpu<br>上通过时间片轮换来实现，此处不考虑时间片轮换实现的进程，因为进程本质上资源隔离，不在此讨论范畴。同样为了多任务不阻塞，充分利用资源（cpu）,在该模型下<br>将耗时操作新开一个线程，主调方程序完全以同步代码执行且无阻塞，可是新开线程的状态管理成了很大问题，甚至不可控，java 实现runable()接口的新线程其返回值<br>和其中的异常都丢失，当然可以用callable()改善。线程间通信可通过共享对象完成，因此有及其复杂的同步控制还有各种锁来达到程序出错，还有一种解决方案，<br>这些共享对象在web编程中大多数都已经持久化，其复杂的资源控制转移到数据库管理。只有java编程高手才能轻松驾驭这些模型。那这种复杂编程模型换来的优势就是<br>在多核cpu或者超线程（一个核提供两并行逻辑流）上能物尽其用，能充分发挥硬件能力，因此后端语言大多选用此模型。随着语言的更新，java推出的线程池其在调度策略<br>上的不可控（系统级线程实现，调度由操作提供）有所改善，防止无用线程的空转，其ForkJoin池更是能将任务几乎平均在各个线程中并行。由于线程创建所需资源依然很大，<br>而线程池的解决方案对于编程人员来说依然很复杂。于是协程（可看做在线程上的子线程）应用而生，大多数程序执行时通过线程栈压栈出栈操作，本地方法栈一经弹出，<br>其上下文立马摧毁，协程切换必须要实现这种能保存上下文环境的方法，以便之后恢复，并在语言层运行库上支持调度，python js 的Generator/yield就提供这种支持，<br>当然支持闭包的语言其实在函数栈弹出后也会保存环境（函数式语言的coniuenation不只有返回值，任意时间点都能保存），go语言便是将协程亲民化的最好实现，<br>协程与线程的比例为M:N,只需要go关键字就可以轻松的开启新的协程，其channel更是轻松的实现协程间的通信，及其易于编程服务器高并发程序。由于操作系统提供线程<br>调度，那共享同一个线程的所有协程也共享同样的调度策略，一般协程携带的代码片段可看成在一些队列里，新开线程或者重用空闲线程来执行他们，但是这种协作式调度依然<br>对于资源的控制还是要加锁理论上不如直接的事件驱动+合理的线程池 来的快。go的goroutine目的是简化代码逻辑，而不是使程序运行的更快，随着其运行库的不断发展和完善，<br>其性能一定会越来越好，尤其是在CPU核数越来越多的未来，终有一天我们会为了代码的简洁和可维护性而放弃那一点点性能的差别。</li>
+</ol>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ol>
+<li>并发编程就这样结束了吗？上述是针对cpu有限，尽可能挖掘其利用率的解决方案，对于目前分布式下动不动成千上万节点的并发又该如何处理？<br>Akka框架是自管理+消息通信，自管理意味着各个节点自己处理自己的收到的消息，然后通过发送消息来通信，或者新开一个子节点，各个父节点管理各自的子节点，<br>当某些节点挂掉后重建节点，消息不可达时重复发送消息。这就要求代码片段易于分割重建以及不变性，于是函数式编程大行其道，这种情况下通过消息通信的机制来避免<br>竞态条件而不再是精确控制资源。在面向对象里调用方控制着被调用的对象，Actor这种模式只管与消息的通信，解决了很多并发<br>的难点，正如Akka官方所说<code>We believe that writing correct concurrent, fault-tolerantand scalable applications is too hard.
+Most of the time it’s because we are using the wrong tools and the wrong level of abstraction. —— Akka，</code> 之所以并发这么难，就是用了错误的抽象。随着廉价的硬件资源增多，软件解决方案又再次发生改变。这种模式已经大量运用在容器以及微服务管理上，以前的并发控制单一<br>资源，现在都是复制副本以便可以创建新的节点，用廉价易得的空间换取着宝贵的时间。</li>
+<li>举个栗子：公司晨会后，领导给每个人下达任务，并不等一个人完成后在去给其他人下达，而是我们都说OK后，领导干其他事去了，等我们干完活了再通知领导<br>做出下一步指使，领导异步工作。后来人员增多，需要再增加一个二领导同时协助下达任务，两个领导并行工作。再到后来公司规模无限大，领导也没精力亲力亲为下达<br>任务了，每个人每天只处理自己受到的邮件任务，这便是第三种模式。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/异步/" rel="tag"># 异步</a>
+          
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/go/" rel="next" title="go语言介绍">
+                <i class="fa fa-chevron-left"></i> go语言介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.jpg"
+                alt="aloneload" />
+            
+              <p class="site-author-name" itemprop="name">aloneload</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/aloneload" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://my.csdn.net/" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编程语言模型思考之异步和多线程"><span class="nav-number">1.</span> <span class="nav-text">编程语言模型思考之异步和多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种模型的比较"><span class="nav-number">2.</span> <span class="nav-text">两种模型的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aloneload</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
