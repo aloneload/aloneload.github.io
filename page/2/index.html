@@ -362,8 +362,9 @@
       
         
           
-          概览
-Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Str
+           概览
+
+Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark S
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -511,12 +512,14 @@ Apache Spark是一个高效的通用的集群计算系统。 它提供高层级�
       
         
           
-          JVM体系结构
+           JVM体系结构
+
 GC作用在粉红色区域，即方法区和堆
-GC算法
+ GC算法
+
 常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法）
 引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现
-跟踪算法从称为gc root
+跟踪算法从称为gc 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -664,10 +667,11 @@ GC算法
       
         
           
-          jdk8
+           jdk8
+
 Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。
 
-1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &#123;
+1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &#12
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -815,10 +819,13 @@ Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数�
       
         
           
-          为什么学习函数式编程
+           为什么学习函数式编程
+
+
 不可变性带来的好处：不会有竞态条件发生，很适合多核分布式下并发；重现使得测试调试非常方便；由于不依赖状态，可实现热部署。
 
-编程生态的变化：各种语言加入lambda表达式（匿名函数），写法上都是类似的箭头表达式（Python是lambda关键字）；声明式编程专注想要得到什么比命
+
+编程生态的变化：各种语言加入lambda表达式（匿名函数），写法上都是类似的箭头表达式（Python是lambda关键字）；声明式编程专注想要得到
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -966,9 +973,11 @@ Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数�
       
         
           
-          背景希尔伯特的第十个问题，就是不定方程(又称为丢番图方程)的可解答性。随后哥德尔不完备定理指出，对于形式化系统，存在既不能证真，也不能证伪的问题。那么哪些问题是可判定，或者说可计算的呢？Turing 和 Church 分别推出了两种不同的模型来解决可计算问题。
+           背景
+希尔伯特的第十个问题，就是不定方程(又称为丢番图方程)的可解答性。随后哥德尔不完备定理指出，对于形式化系统，存在既不能证真，也不能证伪的问题。那么哪些问题是可判定，或者说可计算的呢？Turing 和 Church 分别推出了两种不同的模型来解决可计算问题。
 
-Church 提出 lambda 演
+
+Church 提出 lambd
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1095,11 +1104,14 @@ Church 提出 lambda 演
         
           
           (使用hexo重构之前博客)
-Quick StartCreate a new post1$ hexo new "My New Post"
+ Quick Start
+ Create a new post
+1$ hexo new "My New Post"
 More info: Writing
-Run server1$ hexo server
+ Run server
+1$ hexo server
 More info: Server
-Generate static fil
+ Generate sta
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1434,6 +1446,11 @@ Generate static fil
     
 <!-- END LOCAL -->
 
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
     
 
     

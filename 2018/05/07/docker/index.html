@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Docker for Beginners 安装 在Alpine Linux容器中运行单个任务docker container run alpine hostname 列出所有容器docker container ls --all 列出正在运行的容器 docker container ls 运行Docker容器并访问其shelldocker container run --interactive -">
+<meta name="description" content="Docker for Beginners  安装 在Alpine Linux容器中运行单个任务docker container run alpine hostname 列出所有容器docker container ls --all 列出正在运行的容器 docker container ls 运行Docker容器并访问其shelldocker container run --interactive">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker 命令速记">
 <meta property="og:url" content="http://aloneload.github.io/2018/05/07/docker/index.html">
 <meta property="og:site_name" content="吴永强的博客">
-<meta property="og:description" content="Docker for Beginners 安装 在Alpine Linux容器中运行单个任务docker container run alpine hostname 列出所有容器docker container ls --all 列出正在运行的容器 docker container ls 运行Docker容器并访问其shelldocker container run --interactive -">
+<meta property="og:description" content="Docker for Beginners  安装 在Alpine Linux容器中运行单个任务docker container run alpine hostname 列出所有容器docker container ls --all 列出正在运行的容器 docker container ls 运行Docker容器并访问其shelldocker container run --interactive">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-05-15T03:41:32.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker 命令速记">
-<meta name="twitter:description" content="Docker for Beginners 安装 在Alpine Linux容器中运行单个任务docker container run alpine hostname 列出所有容器docker container ls --all 列出正在运行的容器 docker container ls 运行Docker容器并访问其shelldocker container run --interactive -">
+<meta name="twitter:description" content="Docker for Beginners  安装 在Alpine Linux容器中运行单个任务docker container run alpine hostname 列出所有容器docker container ls --all 列出正在运行的容器 docker container ls 运行Docker容器并访问其shelldocker container run --interactive">
 
 
 
@@ -369,30 +369,33 @@
       
 
       
-        <h3 id="Docker-for-Beginners"><a href="#Docker-for-Beginners" class="headerlink" title="Docker for Beginners"></a>Docker for Beginners</h3><ul>
+        <h3 id="docker-for-beginners"><a class="markdownIt-Anchor" href="#docker-for-beginners"></a> Docker for Beginners</h3>
+<ul>
 <li>安装</li>
 <li>在Alpine Linux容器中运行单个任务<code>docker container run alpine hostname</code></li>
 <li>列出所有容器<code>docker container ls --all</code></li>
 <li>列出正在运行的容器 <code>docker container ls</code></li>
-<li>运行Docker容器并访问其shell<code>docker container run --interactive --tty --rm ubuntu bash</code><ul>
-<li>—interactive 说你想要一个互动会话。</li>
-<li>—tty 分配一个伪tty。</li>
-<li>—rm 告诉Docker继续操作并在完成执行时移除容器。</li>
+<li>运行Docker容器并访问其shell<code>docker container run --interactive --tty --rm ubuntu bash</code>
+<ul>
+<li>–interactive 说你想要一个互动会话。</li>
+<li>–tty 分配一个伪tty。</li>
+<li>–rm 告诉Docker继续操作并在完成执行时移除容器。</li>
 </ul>
 </li>
 <li>键入exit退出shell会话。这将终止bash进程，导致容器退出<code>exit</code></li>
-<li>运行新的MySQL容器<code>docker container run  --detach --name mydb -e MYSQL_ROOT_PASSWORD=my-secret-pw  mysql:latest</code></li>
+<li>运行新的MySQL容器<code>docker container run --detach --name mydb -e MYSQL_ROOT_PASSWORD=my-secret-pw mysql:latest</code></li>
 <li>显示了MySQL Docker容器中的日志<code>docker container logs mydb</code></li>
-<li>容器内运行的进程<code>docker container top mydb</code> </li>
+<li>容器内运行的进程<code>docker container top mydb</code></li>
 <li>连接到已经运行的容器中的新shell进程 <code>docker exec -it mydb sh</code></li>
 <li>使用Dockerfile中的说明创建新的Docker镜像<code>docker image build --tag $DOCKERID/linux_tweet_app:1.0 .</code></li>
 <li>从镜像启动一个新的容器<code>docker container run --detach --publish 80:80 --name linux_tweet_app $DOCKERID/linux_tweet_app:1.0</code></li>
 <li>优雅地停止容器 <code>docker container stop</code></li>
 <li>启动容器<code>docker start dockker_name</code></li>
 <li>删除 <code>docker container rm</code></li>
-<li>强制删除 <code>docker container rm --force linux_tweet_app</code><br>— 查看镜像<code>docker image ls</code></li>
-<li>挂载目录到容器 <code>docker container run --detach --publish 80:80 --name linux_tweet_app --mount type=bind,source=&quot;$(pwd)&quot;,target=/usr/share/nginx/html  $DOCKERID/linux_tweet_app:1.0</code></li>
-<li><code>docker container run --detach --publish 27017:27017 --name heuristic_shtern --mount type=bind,source=&quot;c:/data/db/&quot;,target=/data/db/  mongo</code></li>
+<li>强制删除 <code>docker container rm --force linux_tweet_app</code><br>
+– 查看镜像<code>docker image ls</code></li>
+<li>挂载目录到容器 <code>docker container run --detach --publish 80:80 --name linux_tweet_app --mount type=bind,source=&quot;$(pwd)&quot;,target=/usr/share/nginx/html $DOCKERID/linux_tweet_app:1.0</code></li>
+<li><code>docker container run --detach --publish 27017:27017 --name heuristic_shtern --mount type=bind,source=&quot;c:/data/db/&quot;,target=/data/db/ mongo</code></li>
 <li>搜索Docker主机上的镜像<code>docker image ls -f reference=&quot;$DOCKERID/*&quot;</code></li>
 <li>在推送图像之前，您需要登录Docker Hub<code>docker login</code>提供Docker ID凭据后推送<code>docker image push $DOCKERID/linux_tweet_app:1.0</code>,浏览<code>https://hub.docker.com/r/&lt;your docker id&gt;/</code></li>
 <li>docker镜像检索<code>docker search 镜像名字</code></li>
@@ -600,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-for-Beginners"><span class="nav-number">1.</span> <span class="nav-text">Docker for Beginners</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-for-beginners"><span class="nav-number">1.</span> <span class="nav-text"> Docker for Beginners</span></a></li></ol></div>
             
 
           </div>
@@ -788,6 +791,11 @@
     
 <!-- END LOCAL -->
 
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
     
 
     

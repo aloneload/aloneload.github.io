@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="JVM体系结构 GC作用在粉红色区域，即方法区和堆 GC算法 常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法） 引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现 跟踪算法从称为gc root的根节点基于图搜索，最后回收不连通图的对象  其中，跟踪算法考虑以下场景引入：如果现在要清理D:盘可">
+<meta name="description" content="JVM体系结构  GC作用在粉红色区域，即方法区和堆  GC算法  常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法） 引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现 跟踪算法从称为gc root的根节点基于图搜索，最后回收不连通图的对象  其中，跟踪算法考虑以下场景 引入：如果现在要清">
 <meta name="keywords" content="java,JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM与GC">
 <meta property="og:url" content="http://aloneload.github.io/2018/05/07/JVM/index.html">
 <meta property="og:site_name" content="吴永强的博客">
-<meta property="og:description" content="JVM体系结构 GC作用在粉红色区域，即方法区和堆 GC算法 常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法） 引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现 跟踪算法从称为gc root的根节点基于图搜索，最后回收不连通图的对象  其中，跟踪算法考虑以下场景引入：如果现在要清理D:盘可">
+<meta property="og:description" content="JVM体系结构  GC作用在粉红色区域，即方法区和堆  GC算法  常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法） 引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现 跟踪算法从称为gc root的根节点基于图搜索，最后回收不连通图的对象  其中，跟踪算法考虑以下场景 引入：如果现在要清">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.blog.csdn.net/20170926190651863?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170926193247759?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -106,7 +106,7 @@
 <meta property="og:updated_time" content="2018-05-07T12:32:22.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM与GC">
-<meta name="twitter:description" content="JVM体系结构 GC作用在粉红色区域，即方法区和堆 GC算法 常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法） 引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现 跟踪算法从称为gc root的根节点基于图搜索，最后回收不连通图的对象  其中，跟踪算法考虑以下场景引入：如果现在要清理D:盘可">
+<meta name="twitter:description" content="JVM体系结构  GC作用在粉红色区域，即方法区和堆  GC算法  常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法） 引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现 跟踪算法从称为gc root的根节点基于图搜索，最后回收不连通图的对象  其中，跟踪算法考虑以下场景 引入：如果现在要清">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170926190651863?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -379,37 +379,90 @@
       
 
       
-        <h2 id="JVM体系结构"><a href="#JVM体系结构" class="headerlink" title="JVM体系结构"></a>JVM体系结构</h2><p><img src="http://img.blog.csdn.net/20170926190651863?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+        <h2 id="jvm体系结构"><a class="markdownIt-Anchor" href="#jvm体系结构"></a> JVM体系结构</h2>
+<p><img src="http://img.blog.csdn.net/20170926190651863?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><strong>GC作用在粉红色区域，即方法区和堆</strong></p>
-<h2 id="GC算法"><a href="#GC算法" class="headerlink" title="GC算法"></a>GC算法</h2><ul>
+<h2 id="gc算法"><a class="markdownIt-Anchor" href="#gc算法"></a> GC算法</h2>
+<ul>
 <li>常采用两种算法：引用计数算法和基于root根节点图搜索的算法（跟踪算法）</li>
 <li>引用算法是每次引用对象计数器加一，gc回收计数为0的对象，缺点是较难处理循环引用（可通过弱软引用解除循环中一方），Python有其实现</li>
 <li>跟踪算法从称为gc root的根节点基于图搜索，最后回收不连通图的对象</li>
 </ul>
-<p>其中，跟踪算法考虑以下场景<br>引入：如果现在要清理D:盘可有三种策略：<br>1.如果无效文件很多，有用文件很少，可将有用文件选定后复制到C:,在格式化D盘，之前文件拷回去<br>2.如果无效文件很少，有用文件很多，可选定无效文件后直接删除<br>3.如果2执行好多次以后，比如风景文件夹下有人物照片，人物照片底下有家人照片，这时候可能选择盘下所有的人物照片放到人物文件夹下，相当于整理文件</p>
+<p>其中，跟踪算法考虑以下场景<br>
+引入：如果现在要清理D:盘可有三种策略：<br>
+1.如果无效文件很多，有用文件很少，可将有用文件选定后复制到C:,在格式化D盘，之前文件拷回去<br>
+2.如果无效文件很少，有用文件很多，可选定无效文件后直接删除<br>
+3.如果2执行好多次以后，比如风景文件夹下有人物照片，人物照片底下有家人照片，这时候可能选择盘下所有的人物照片放到人物文件夹下，相当于整理文件</p>
 <ul>
 <li>上述1为复制（copying）,2标记-清除（mark-sweep）,3标记-压缩（mark-compact）</li>
 </ul>
-<p>gc涉及内存图<br><img src="http://img.blog.csdn.net/20170926193247759?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>1.复制算法发生在新生代（New/Young）,因为大部分对象在伊甸园（Eden）刚创建就夭折了，选取eden,s0存活对象复制到s1(存活1区),回收这两个区，交换两个存活区（也叫from to 区）<br>2.当对象进行上述1默认15次回收后，对象晋升到old区，或者对象非常大（vip）,将直接在年老代创建，老年到刚开始会实行标记-清理<br>3.当2进行多次，内存碎片过多，大对象将难以创建，于是实行标记整理到内存一端，留下可用连续空间</p>
+<p>gc涉及内存图<br>
+<img src="http://img.blog.csdn.net/20170926193247759?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
+1.复制算法发生在新生代（New/Young）,因为大部分对象在伊甸园（Eden）刚创建就夭折了，选取eden,s0存活对象复制到s1(存活1区),回收这两个区，交换两个存活区（也叫from to 区）<br>
+2.当对象进行上述1默认15次回收后，对象晋升到old区，或者对象非常大（vip）,将直接在年老代创建，老年到刚开始会实行标记-清理<br>
+3.当2进行多次，内存碎片过多，大对象将难以创建，于是实行标记整理到内存一端，留下可用连续空间</p>
 <ul>
 <li>根据各代算法应用不同的gc算法，提高gc效率</li>
 </ul>
-<p>GC类型<br>1.Minor GC 针对新生代的GC<br>2.Major GC 针对旧生代的GC<br>3.Full GC 针对永久代，新生代，旧生代三者的GC</p>
-<p>搜集器<br><img src="http://img.blog.csdn.net/20170926195137623?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>1.串行收集器（serial），顺序搜集，单线程资源好控制，stop the world(stw)<br>2.并行收集器（parall），并行搜集，回收速度快，资源同步复杂，stop the world<br>3.并发收集器（Concurrent），不中断应用，资源更为复杂</p>
-<p>Young Gen :<br>均采用复制算法，eden不足时触发，eden官方建议此值为堆的3/8<br>serial copying:单cpu32位系统client模式均采用此<br>parallel scavenge:多cpu,64位,server默认模式<br>parNew：serial copying多线程版本，可搭配cms<br>Old Gen:<br>Serial MSC:串行使用标记清除算法整理算法，client或者32默认<br>Parallel Compacting:并行标记整理算法，并行标记串行计算对象要移动的地址，最后并行整理，server或者多核默认<br>Concurrent Mark Sweep(CMS):并发使用标记清除算法，暂停时间短，但相当复杂，GC总时间长，暂停时间主要是发生在GC root 刚开始以及重新标记阶段，算法简述：1串行标记gc root 直达对象（stw）2并发标记可达对象3调整2期间应用产生的新建及变化对象(stw)4并行回收</p>
-<p>组合选择<br>单核小内存单机程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+UseSerialGC</span><br></pre></td></tr></table></figure></p>
-<p>多CPU，吞吐量优先，计算型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:UseParellGC</span><br><span class="line">-XX:UseParellOldGC</span><br></pre></td></tr></table></figure></p>
-<p>多CPU，响应优先，低暂停<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:UseConcMarkSweepGC</span><br><span class="line">-XX:ParNewGC</span><br></pre></td></tr></table></figure></p>
-<h2 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h2><p>堆：越大越好，过大会增加GC时间和产生垃圾对象，堆每次调整都会发生Full GC,因此一般将以下两值设置为同样大小，但是要预防系统宕机，可将最大堆设置的大点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-Xms=1024MB:堆的最小值</span><br><span class="line">-Xmx=1024MB:堆得最大值</span><br></pre></td></tr></table></figure></p>
-<p>新生代：增大Eden会减低Minor GC的频率，一般固定新生代大小<br>由于永久代和老年代回收会触发Full GC,尽可能让对象待在survivor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-XX:NewSize=1024MB 新生代初始大小</span><br><span class="line">-XX:MaxNewSize=1024MB 新生代最大值</span><br><span class="line">-XX:NewRadio=m New与Old的比值</span><br><span class="line">-Xmn:1024MB 新生代大小</span><br><span class="line">-XX:SurvivorRadio=m Eden和Survivor的比值，官方建议8：1，但自己测试好多都是1：1？</span><br></pre></td></tr></table></figure></p>
+<p>GC类型<br>
+1.Minor GC 针对新生代的GC<br>
+2.Major GC 针对旧生代的GC<br>
+3.Full GC 针对永久代，新生代，旧生代三者的GC</p>
+<p>搜集器<br>
+<img src="http://img.blog.csdn.net/20170926195137623?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>1.串行收集器（serial），顺序搜集，单线程资源好控制，stop the world(stw)<br>
+2.并行收集器（parall），并行搜集，回收速度快，资源同步复杂，stop the world<br>
+3.并发收集器（Concurrent），不中断应用，资源更为复杂</p>
+<p>Young Gen :<br>
+均采用复制算法，eden不足时触发，eden官方建议此值为堆的3/8<br>
+serial copying:单cpu32位系统client模式均采用此<br>
+parallel scavenge:多cpu,64位,server默认模式<br>
+parNew：serial copying多线程版本，可搭配cms<br>
+Old Gen:<br>
+Serial MSC:串行使用标记清除算法整理算法，client或者32默认<br>
+Parallel Compacting:并行标记整理算法，并行标记串行计算对象要移动的地址，最后并行整理，server或者多核默认<br>
+Concurrent Mark Sweep(CMS):并发使用标记清除算法，暂停时间短，但相当复杂，GC总时间长，暂停时间主要是发生在GC root 刚开始以及重新标记阶段，算法简述：1串行标记gc root 直达对象（stw）2并发标记可达对象3调整2期间应用产生的新建及变化对象(stw)4并行回收</p>
+<p>组合选择<br>
+单核小内存单机程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+UseSerialGC</span><br></pre></td></tr></table></figure>
+<p>多CPU，吞吐量优先，计算型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:UseParellGC</span><br><span class="line">-XX:UseParellOldGC</span><br></pre></td></tr></table></figure>
+<p>多CPU，响应优先，低暂停</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-XX:UseConcMarkSweepGC</span><br><span class="line">-XX:ParNewGC</span><br></pre></td></tr></table></figure>
+<h2 id="调优"><a class="markdownIt-Anchor" href="#调优"></a> 调优</h2>
+<p>堆：越大越好，过大会增加GC时间和产生垃圾对象，堆每次调整都会发生Full GC,因此一般将以下两值设置为同样大小，但是要预防系统宕机，可将最大堆设置的大点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-Xms=1024MB:堆的最小值</span><br><span class="line">-Xmx=1024MB:堆得最大值</span><br></pre></td></tr></table></figure>
+<p>新生代：增大Eden会减低Minor GC的频率，一般固定新生代大小<br>
+由于永久代和老年代回收会触发Full GC,尽可能让对象待在survivor</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-XX:NewSize=1024MB 新生代初始大小</span><br><span class="line">-XX:MaxNewSize=1024MB 新生代最大值</span><br><span class="line">-XX:NewRadio=m New与Old的比值</span><br><span class="line">-Xmn:1024MB 新生代大小</span><br><span class="line">-XX:SurvivorRadio=m Eden和Survivor的比值，官方建议8：1，但自己测试好多都是1：1？</span><br></pre></td></tr></table></figure>
 <p>旧生代（随便叫了）：太大，单次GC时间过长，太小，GC频率高</p>
-<h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><p>JVM参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-XX:+PrintGC 输出GC简要信息</span><br><span class="line">-XX:+PrintGCDetail 输出GC详单</span><br><span class="line">-XX:+PrintGCTimeStamps 输出GC时间戳</span><br><span class="line">-XX:+PrintGCAppicationStopedTime 输出GC暂停时间</span><br></pre></td></tr></table></figure></p>
-<p>命令行工具<br>top观察CPU负载<br><img src="http://img.blog.csdn.net/20170927160751005?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>vmstat观察上下文切换<br>free -m 查看内存<br>jps 找到java程序的pid<br><img src="http://img.blog.csdn.net/20170927152245828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>jstack主要用来查看某个Java进程内的线程堆栈信息<br> jmap（Memory Map）和jhat（Java Heap Analysis Tool）<br> <img src="http://img.blog.csdn.net/20170927153239053?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> dump 用法：<br> jmap -dump:format=b,file=dumpFileName pid<br> jhat查看 ：jhat -port 7000 dumpFileName<br> 浏览器输入host:port 查看<br> <img src="http://img.blog.csdn.net/20170927155106557?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> jstat（JVM统计监测工具<br> <img src="http://img.blog.csdn.net/20170927153855063?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="监控"><a class="markdownIt-Anchor" href="#监控"></a> 监控</h2>
+<p>JVM参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-XX:+PrintGC 输出GC简要信息</span><br><span class="line">-XX:+PrintGCDetail 输出GC详单</span><br><span class="line">-XX:+PrintGCTimeStamps 输出GC时间戳</span><br><span class="line">-XX:+PrintGCAppicationStopedTime 输出GC暂停时间</span><br></pre></td></tr></table></figure>
+<p>命令行工具<br>
+top观察CPU负载<br>
+<img src="http://img.blog.csdn.net/20170927160751005?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
+vmstat观察上下文切换<br>
+free -m 查看内存<br>
+jps 找到java程序的pid<br>
+<img src="http://img.blog.csdn.net/20170927152245828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
+jstack主要用来查看某个Java进程内的线程堆栈信息<br>
+jmap（Memory Map）和jhat（Java Heap Analysis Tool）<br>
+<img src="http://img.blog.csdn.net/20170927153239053?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
+dump 用法：<br>
+jmap -dump:format=b,file=dumpFileName pid<br>
+jhat查看 ：jhat -port 7000 dumpFileName<br>
+浏览器输入host:port 查看<br>
+<img src="http://img.blog.csdn.net/20170927155106557?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
+jstat（JVM统计监测工具<br>
+<img src="http://img.blog.csdn.net/20170927153855063?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">S0C、S1C、S0U、S1U：Survivor 0/1区容量（Capacity）和使用量（Used）</span><br><span class="line">EC、EU：Eden区容量和使用量</span><br><span class="line">OC、OU：年老代容量和使用量</span><br><span class="line">PC、PU：永久代容量和使用量</span><br><span class="line">YGC、YGT：年轻代GC次数和GC耗时</span><br><span class="line">FGC、FGCT：Full GC次数和Full GC耗时</span><br><span class="line">GCT：GC总耗时</span><br></pre></td></tr></table></figure>
-<p> Jconsole</p>
-<p>有以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class JvmTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">		List&lt;JvmTest&gt; global = new ArrayList&lt;&gt;();</span><br><span class="line">		while (true) &#123;</span><br><span class="line">			global.add(new JvmTest());</span><br><span class="line">			Thread.sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20170927163230726?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>一般出现阶梯上升或波形上升时，内存迟早要耗尽，常见的就是全局集合中的对象未释放，如图所示，jvm8移除了持久代，非堆增加了几个概念。<br>观察以上代码10分钟，分别切换Eden，survivor，old,便能轻易理解垃圾回收的整个过程，由于不停地new对象，因此非堆中的code chche 也逐渐增多。</p>
+<p>Jconsole</p>
+<p>有以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class JvmTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">		List&lt;JvmTest&gt; global = new ArrayList&lt;&gt;();</span><br><span class="line">		while (true) &#123;</span><br><span class="line">			global.add(new JvmTest());</span><br><span class="line">			Thread.sleep(1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20170927163230726?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
+一般出现阶梯上升或波形上升时，内存迟早要耗尽，常见的就是全局集合中的对象未释放，如图所示，jvm8移除了持久代，非堆增加了几个概念。<br>
+观察以上代码10分钟，分别切换Eden，survivor，old,便能轻易理解垃圾回收的整个过程，由于不停地new对象，因此非堆中的code chche 也逐渐增多。</p>
 
       
     </div>
@@ -613,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM体系结构"><span class="nav-number">1.</span> <span class="nav-text">JVM体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC算法"><span class="nav-number">2.</span> <span class="nav-text">GC算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调优"><span class="nav-number">3.</span> <span class="nav-text">调优</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控"><span class="nav-number">4.</span> <span class="nav-text">监控</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jvm体系结构"><span class="nav-number">1.</span> <span class="nav-text"> JVM体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gc算法"><span class="nav-number">2.</span> <span class="nav-text"> GC算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调优"><span class="nav-number">3.</span> <span class="nav-text"> 调优</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控"><span class="nav-number">4.</span> <span class="nav-text"> 监控</span></a></li></ol></div>
             
 
           </div>
@@ -801,6 +854,11 @@
     
 <!-- END LOCAL -->
 
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
     
 
     
