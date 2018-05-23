@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="概览  Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Streaming。   速度  比内存中的HadoopMapReduce快10倍 比硬盘上的Hado">
+<meta name="description" content="概览 Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Streaming。  速度 比内存中的HadoopMapReduce快10倍 比硬盘上的HadoopMa">
 <meta name="keywords" content="spark,大数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据之Spark">
 <meta property="og:url" content="http://aloneload.github.io/2018/05/07/Spark/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="概览  Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Streaming。   速度  比内存中的HadoopMapReduce快10倍 比硬盘上的Hado">
+<meta property="og:description" content="概览 Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Streaming。  速度 比内存中的HadoopMapReduce快10倍 比硬盘上的HadoopMa">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://spark.apache.org/images/spark-stack.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1506524100289&di=9451b302322da49e3533bfadaaf4bde6&imgtype=0&src=http://images2015.cnblogs.com/blog/1004194/201608/1004194-20160829174157699-296881431.png">
@@ -102,7 +102,7 @@
 <meta property="og:updated_time" content="2018-05-07T12:14:49.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据之Spark">
-<meta name="twitter:description" content="概览  Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Streaming。   速度  比内存中的HadoopMapReduce快10倍 比硬盘上的Hado">
+<meta name="twitter:description" content="概览 Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Streaming。  速度 比内存中的HadoopMapReduce快10倍 比硬盘上的HadoopMa">
 <meta name="twitter:image" content="http://spark.apache.org/images/spark-stack.png">
 
 
@@ -375,82 +375,47 @@
       
 
       
-        <h2 id="概览"><a class="markdownIt-Anchor" href="#概览"></a> 概览</h2>
-<ul>
+        <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ul>
 <li>Apache Spark是一个高效的通用的集群计算系统。 它提供高层级的Java, Scala 和 Python 接口，和优化的通用图计算引擎。 同时支持丰富的高级工具集，如处理SQL和结 构化数据的 Spark SQL ，机器学习 MLlib，图处理的 GraphX ，和 Spark Streaming。</li>
 </ul>
-<h2 id="速度"><a class="markdownIt-Anchor" href="#速度"></a> 速度</h2>
-<ul>
+<h2 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h2><ul>
 <li>比内存中的HadoopMapReduce快10倍 比硬盘上的HadoopMapReduce快100 倍</li>
 <li>Spark 有一个高级的 DAG 执行引擎，支持循环迭代的数据流和内存中的计算</li>
 </ul>
-<h2 id="易用"><a class="markdownIt-Anchor" href="#易用"></a> 易用</h2>
-<ul>
+<h2 id="易用"><a href="#易用" class="headerlink" title="易用"></a>易用</h2><ul>
 <li>用 Java、Scala 或者 Python 迅速开发应用</li>
 </ul>
-<h2 id="通用"><a class="markdownIt-Anchor" href="#通用"></a> 通用</h2>
-<ul>
+<h2 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h2><ul>
 <li>Spark提供一套高层工具栈，包括 SparkSQL，机器学习的MLlib，GraphX，和 Spark Streaming。你可以在一个应用中无缝地结合这些框架。</li>
 </ul>
 <p><img src="http://spark.apache.org/images/spark-stack.png" alt="这里写图片描述"></p>
-<h2 id="集成-hadoop"><a class="markdownIt-Anchor" href="#集成-hadoop"></a> 集成 Hadoop</h2>
-<ul>
+<h2 id="集成-Hadoop"><a href="#集成-Hadoop" class="headerlink" title="集成 Hadoop"></a>集成 Hadoop</h2><ul>
 <li>Spark也很容 易独立运行，可以读取任 何Hadoop数据源</li>
 </ul>
-<h2 id="下载-spark"><a class="markdownIt-Anchor" href="#下载-spark"></a> 下载 Spark</h2>
-<p>官网下载：<a href="https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz" target="_blank" rel="noopener">https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz</a><br>
-Maven依赖：</p>
+<h2 id="下载-Spark"><a href="#下载-Spark" class="headerlink" title="下载 Spark"></a>下载 Spark</h2><p>官网下载：<a href="https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz" target="_blank" rel="noopener">https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz</a><br>Maven依赖：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupId: org.apache.spark</span><br><span class="line">artifactId: spark-core_2.11</span><br><span class="line">version: 2.2.0</span><br></pre></td></tr></table></figure>
-<h2 id="运行"><a class="markdownIt-Anchor" href="#运行"></a> 运行</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#使用 --master参数指定 一个分部式系统的主URL，或者 local指定本地单线程运行， 或 local[N]指定本地N线程。</span><br><span class="line">#Scala </span><br><span class="line">./bin/spark-shell --master local[2]</span><br><span class="line">#Python</span><br><span class="line">./bin/pyspark --master local[2]</span><br><span class="line">#通用的 spark-submit 脚本来启动示例程序</span><br><span class="line">./bin/spark-submit examples/src/main/python/pi.py 10</span><br></pre></td></tr></table></figure>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#使用 --master参数指定 一个分部式系统的主URL，或者 local指定本地单线程运行， 或 local[N]指定本地N线程。</span><br><span class="line">#Scala </span><br><span class="line">./bin/spark-shell --master local[2]</span><br><span class="line">#Python</span><br><span class="line">./bin/pyspark --master local[2]</span><br><span class="line">#通用的 spark-submit 脚本来启动示例程序</span><br><span class="line">./bin/spark-submit examples/src/main/python/pi.py 10</span><br></pre></td></tr></table></figure>
 <p>为了看起来简洁，以下均为Python解释运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/pyspark --master local</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; textFile = sc.textFile(&quot;README.md&quot;)</span><br><span class="line">&gt;&gt;&gt; textFile.count()</span><br><span class="line">104</span><br><span class="line">&gt;&gt;&gt; textFile.first()</span><br><span class="line">u&apos;# Apache Spark&apos;</span><br><span class="line">&gt;&gt;&gt; linesWithSpark = textFile.filter(lambda line : &quot;Spark&quot; in line)</span><br><span class="line">&gt;&gt;&gt; linesWithSpark.count()</span><br><span class="line">20</span><br><span class="line">&gt;&gt;&gt; textFile.map(lambda line : len (line.split())).reduce(lambda a, b : a if ( a&gt;b)else b)</span><br><span class="line">22</span><br><span class="line">&gt;&gt;&gt; wordCounts = textFile.flatMap(lambda line : line.split()).map(lambda word : ( word , 1 )).reduceByKey(lambda a , b : a + b )</span><br><span class="line">&gt;&gt;&gt; wordCounts.collect()</span><br><span class="line">&gt;&gt;&gt; linesWithSpark.cache()</span><br><span class="line">&gt;&gt;&gt; linesWithSpark.count()</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
-<p>maven项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.spark.practice;</span><br><span class="line"></span><br><span class="line">import org.apache.spark.SparkConf;</span><br><span class="line">import org.apache.spark.api.java.JavaRDD;</span><br><span class="line">import org.apache.spark.api.java.JavaSparkContext;</span><br><span class="line">import org.apache.spark.api.java.function.Function;</span><br><span class="line"></span><br><span class="line">public class SimpleApp &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String logFile = &quot;/Users/wyq/spark/spark-2.1.1-bin-hadoop2.6/README.md&quot;;// 可以是你系统上任意的英文txt文件</span><br><span class="line">		SparkConf conf = new SparkConf().setAppName(&quot;Simple Application&quot;).setMaster(&quot;local&quot;);</span><br><span class="line">		JavaSparkContext sc = new JavaSparkContext(conf);</span><br><span class="line">		JavaRDD&lt;String&gt; logData = sc.textFile(logFile).cache();</span><br><span class="line">		long numAs = logData.filter(new Function&lt;String, Boolean&gt;() &#123;</span><br><span class="line">			public Boolean call(String s) &#123;</span><br><span class="line">				return s.contains(&quot;a&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;).count();</span><br><span class="line">		long numBs = logData.filter(new Function&lt;String, Boolean&gt;() &#123;</span><br><span class="line">			public Boolean call(String s) &#123;</span><br><span class="line">				return s.contains(&quot;b&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;).count();</span><br><span class="line">		System.out.println(&quot;Lines with a: &quot; + numAs + &quot;, lines with b: &quot; + numBs);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="运行结果lines-with-a-62-lines-with-b-30架构及原理"><a class="markdownIt-Anchor" href="#运行结果lines-with-a-62-lines-with-b-30架构及原理"></a> 运行结果：Lines with a: 62, lines with b: 30<br>
-架构及原理</h2>
-<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1506524100289&amp;di=9451b302322da49e3533bfadaaf4bde6&amp;imgtype=0&amp;src=http://images2015.cnblogs.com/blog/1004194/201608/1004194-20160829174157699-296881431.png" alt="这里写图片描述"><br>
-<img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1506524851070&amp;di=38c61b5d7c9b845e68fed0a5624097d3&amp;imgtype=0&amp;src=http://www.th7.cn/d/file/p/2013/09/16/6990330450aa29d4888ad23b37ea2197.jpg" alt="这里写图片描述"></p>
+<p>maven项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.spark.practice;</span><br><span class="line"></span><br><span class="line">import org.apache.spark.SparkConf;</span><br><span class="line">import org.apache.spark.api.java.JavaRDD;</span><br><span class="line">import org.apache.spark.api.java.JavaSparkContext;</span><br><span class="line">import org.apache.spark.api.java.function.Function;</span><br><span class="line"></span><br><span class="line">public class SimpleApp &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String logFile = &quot;/Users/wyq/spark/spark-2.1.1-bin-hadoop2.6/README.md&quot;;// 可以是你系统上任意的英文txt文件</span><br><span class="line">		SparkConf conf = new SparkConf().setAppName(&quot;Simple Application&quot;).setMaster(&quot;local&quot;);</span><br><span class="line">		JavaSparkContext sc = new JavaSparkContext(conf);</span><br><span class="line">		JavaRDD&lt;String&gt; logData = sc.textFile(logFile).cache();</span><br><span class="line">		long numAs = logData.filter(new Function&lt;String, Boolean&gt;() &#123;</span><br><span class="line">			public Boolean call(String s) &#123;</span><br><span class="line">				return s.contains(&quot;a&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;).count();</span><br><span class="line">		long numBs = logData.filter(new Function&lt;String, Boolean&gt;() &#123;</span><br><span class="line">			public Boolean call(String s) &#123;</span><br><span class="line">				return s.contains(&quot;b&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;).count();</span><br><span class="line">		System.out.println(&quot;Lines with a: &quot; + numAs + &quot;, lines with b: &quot; + numBs);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：Lines with a: 62, lines with b: 30</p>
+<h2 id="架构及原理"><a href="#架构及原理" class="headerlink" title="架构及原理"></a>架构及原理</h2><p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1506524100289&amp;di=9451b302322da49e3533bfadaaf4bde6&amp;imgtype=0&amp;src=http://images2015.cnblogs.com/blog/1004194/201608/1004194-20160829174157699-296881431.png" alt="这里写图片描述"><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1506524851070&amp;di=38c61b5d7c9b845e68fed0a5624097d3&amp;imgtype=0&amp;src=http://www.th7.cn/d/file/p/2013/09/16/6990330450aa29d4888ad23b37ea2197.jpg" alt="这里写图片描述"></p>
 <ul>
 <li>每一个 Spark 应用程序都包含一个 驱动程序(driver program)，它会运行 用户的 main函数，并在集群上执行各种 并行操作(parallel operations)。Spark 提供的最 主要的抽象概念是 弹性分布式数据集(resilient   distributed dataset) (RDD)， 它是一个元 素集合，被分区地分布到集群的不同节点上，可以并行操作。RDDs可以从   HDFS(或者 任意其他支持 Hadoop 的文件系统) 上的一个文件开始创建，或者通过转换驱动程序 (driver   program)中已经存在的 Scala 集合得到。 用户也可以让 Spark 将一个 RDD持  久化(persist)到内存中，使其能在并行操作中被有效地重复使用。最后，RDD能自动从节点 故障中恢复。</li>
 <li>Spark 的第二个抽象概念是共享变量(shared variables)，它可以在并行操作中使用。 在默认情况下，当 Spark 将一个函数以任务集(a set of tasks)的形式在不同节点上并行运 行时， 会将该函数所使用的每个变量的拷贝传递给每一个任务(task)中。有时候，一个 变量需要在任务之间，或任务与驱动程序之间进行共享。 Spark 支持两种类型的共享变 量: 广播变量(broadcast variables)，它可以在所有节点的内存中缓存一个值;累加器 (accumulators):只能用于做加法的变量，例如计数器(counters)或求和器(sums)。</li>
 </ul>
-<h2 id="rdd"><a class="markdownIt-Anchor" href="#rdd"></a> RDD</h2>
-<ul>
+<h2 id="RDD"><a href="#RDD" class="headerlink" title="RDD"></a>RDD</h2><ul>
 <li>RDDs 支持两种操作:转换(transformations)和 动作(actions)</li>
 <li>所有转换都是 惰性的(lazy)</li>
 <li>可以使用 持久化(persist)(或者 缓存(cache) )方法，把一个 RDD 持久化 (persist)到内存</li>
-<li>转换(Transformation)<br>
-filter(func)<br>
-flatMap(func)<br>
-mapPartitions(func)<br>
-mapPartitionsWithIndex(func)<br>
-sample(withReplacement, fraction, seed)<br>
-union(otherDataset)<br>
-intersection(otherDataset) distinct([numTasks])) groupByKey([numTasks])<br>
-reduceByKey(func, [numTasks])<br>
-aggregateByKey(zeroValue)(seqOp, combOp, [numTasks])<br>
-sortByKey([ascending], [numTasks])<br>
-join(otherDataset, [numTasks])<br>
-动作(Action)<br>
-reduce(func)<br>
-collect()<br>
-count() first() take(n)<br>
-takeSample(withReplacement, num, [seed])<br>
-takeOrdered(n, [ordering]) saveAsTextFile(path)<br>
-saveAsSequenceFile(path) (Java and Scala)<br>
-saveAsObjectFile(path) (Java and Scala) countByKey()<br>
-foreach(func)</li>
+<li>转换(Transformation)<br>filter(func)<br>flatMap(func)<br>mapPartitions(func)<br>mapPartitionsWithIndex(func)<br>sample(withReplacement, fraction, seed)<br>union(otherDataset)<br>intersection(otherDataset) distinct([numTasks])) groupByKey([numTasks])<br>reduceByKey(func, [numTasks])<br>aggregateByKey(zeroValue)(seqOp, combOp, [numTasks])<br>sortByKey([ascending], [numTasks])<br>join(otherDataset, [numTasks])<br>动作(Action)<br>reduce(func)<br>collect()<br>count() first() take(n)<br>takeSample(withReplacement, num, [seed])<br>takeOrdered(n, [ordering]) saveAsTextFile(path)<br>saveAsSequenceFile(path) (Java and Scala)<br>saveAsObjectFile(path) (Java and Scala) countByKey()<br>foreach(func)</li>
 </ul>
-<h2 id="spark-streaming"><a class="markdownIt-Anchor" href="#spark-streaming"></a> Spark Streaming</h2>
-<p><img src="http://img.blog.csdn.net/20170927202240124?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="Spark-Streaming"><a href="#Spark-Streaming" class="headerlink" title="Spark Streaming"></a>Spark Streaming</h2><p><img src="http://img.blog.csdn.net/20170927202240124?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <ul>
 <li>Spark Streaming提供了一个称为 离散流 或 DStream的高层次的抽象，它代表一个持 续的流数据</li>
-<li>Spark Streaming还提供了 窗口的计算 ，它允许你通过滑动窗口对数据进行转 换<br>
-<img src="http://img.blog.csdn.net/20170928085951718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>Spark Streaming还提供了 窗口的计算 ，它允许你通过滑动窗口对数据进行转 换<br><img src="http://img.blog.csdn.net/20170928085951718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
 </ul>
-<h2 id="spark-sql"><a class="markdownIt-Anchor" href="#spark-sql"></a> Spark SQL</h2>
-<ul>
+<h2 id="Spark-SQL"><a href="#Spark-SQL" class="headerlink" title="Spark SQL"></a>Spark SQL</h2><ul>
 <li>Spark SQL 允许在 Spark 中执行以 SQL、HiveQL 或 Scala 表示的关系型查询语句。 此组件的核心是一种新型的  RDD:SchemaRDD。SchemaRDDs 由行对象(Row objects)  组成，同时还有一个描述每行中列元素数据类型的模式(schema)。一个 SchemaRDD 类 似于一个传统关系型数据库中的表。一   SchemaRDD 可以从现有的 RDD、Parquet 文件， JSON 数据集，或运行 HiveQL 以处理存储在 Apache   Hive 中的数据中创建。</li>
 </ul>
 
@@ -585,7 +550,7 @@ foreach(func)</li>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -656,8 +621,7 @@ foreach(func)</li>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text"> 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#速度"><span class="nav-number">2.</span> <span class="nav-text"> 速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#易用"><span class="nav-number">3.</span> <span class="nav-text"> 易用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用"><span class="nav-number">4.</span> <span class="nav-text"> 通用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成-hadoop"><span class="nav-number">5.</span> <span class="nav-text"> 集成 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-spark"><span class="nav-number">6.</span> <span class="nav-text"> 下载 Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">7.</span> <span class="nav-text"> 运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果lines-with-a-62-lines-with-b-30架构及原理"><span class="nav-number">8.</span> <span class="nav-text"> 运行结果：Lines with a: 62, lines with b: 30
-架构及原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdd"><span class="nav-number">9.</span> <span class="nav-text"> RDD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark-streaming"><span class="nav-number">10.</span> <span class="nav-text"> Spark Streaming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark-sql"><span class="nav-number">11.</span> <span class="nav-text"> Spark SQL</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#速度"><span class="nav-number">2.</span> <span class="nav-text">速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#易用"><span class="nav-number">3.</span> <span class="nav-text">易用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用"><span class="nav-number">4.</span> <span class="nav-text">通用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成-Hadoop"><span class="nav-number">5.</span> <span class="nav-text">集成 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-Spark"><span class="nav-number">6.</span> <span class="nav-text">下载 Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">7.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构及原理"><span class="nav-number">8.</span> <span class="nav-text">架构及原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDD"><span class="nav-number">9.</span> <span class="nav-text">RDD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-Streaming"><span class="nav-number">10.</span> <span class="nav-text">Spark Streaming</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark-SQL"><span class="nav-number">11.</span> <span class="nav-text">Spark SQL</span></a></li></ol></div>
             
 
           </div>

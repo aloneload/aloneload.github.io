@@ -86,19 +86,19 @@
 
 
 
-<meta name="description" content="jdk8  Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。  1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &amp;#123;	public static void main(String[] args) &amp;#123;">
+<meta name="description" content="jdk8 Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。  1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &amp;#123;	public static void main(String[] args) &amp;#123;		Ma">
 <meta name="keywords" content="lambda,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK各个版本特性介绍">
 <meta property="og:url" content="http://aloneload.github.io/2018/05/07/JDKFurture/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="jdk8  Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。  1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &amp;#123;	public static void main(String[] args) &amp;#123;">
+<meta property="og:description" content="jdk8 Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。  1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &amp;#123;	public static void main(String[] args) &amp;#123;		Ma">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.blog.csdn.net/20170926154056708?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:updated_time" content="2018-05-07T12:01:39.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK各个版本特性介绍">
-<meta name="twitter:description" content="jdk8  Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。  1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &amp;#123;	public static void main(String[] args) &amp;#123;">
+<meta name="twitter:description" content="jdk8 Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。  1234567891011121314151617181920212223242526272829package jdk8;public class LambdaPractice &amp;#123;	public static void main(String[] args) &amp;#123;		Ma">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170926154056708?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -371,8 +371,7 @@
       
 
       
-        <h2 id="jdk8"><a class="markdownIt-Anchor" href="#jdk8"></a> jdk8</h2>
-<ul>
+        <h2 id="jdk8"><a href="#jdk8" class="headerlink" title="jdk8"></a>jdk8</h2><ul>
 <li>Lambda 表达式 − Lambda允许把函数作为一个方法的参数（函数作为参数传递进方法中。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package jdk8;</span><br><span class="line"></span><br><span class="line">public class LambdaPractice &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		MathOperation addition = (int a, int b) -&gt; a + b;</span><br><span class="line">		MathOperation subtraction = (a, b) -&gt; a - b;</span><br><span class="line">		MathOperation multiplication = (int a, int b) -&gt; &#123;</span><br><span class="line">			return a * b;</span><br><span class="line">		&#125;;</span><br><span class="line">		MathOperation division = (int a, int b) -&gt; a / b;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;60 + 12 = &quot; + operate(60, 12, addition));</span><br><span class="line">		System.out.println(&quot;60 - 12 = &quot; + operate(60, 12, subtraction));</span><br><span class="line">		System.out.println(&quot;60 x 12 = &quot; + operate(60, 12, multiplication));</span><br><span class="line">		System.out.println(&quot;60 / 12 = &quot; + operate(60, 12, division));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static int operate(int a, int b, MathOperation mathOperation) &#123;</span><br><span class="line">		return mathOperation.operation(a, b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface MathOperation &#123;</span><br><span class="line">	int operation(int a, int b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -381,22 +380,13 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">构造器引用：它的语法是Class::new</span><br><span class="line">静态方法引用：它的语法是Class::static_method</span><br><span class="line">特定类的任意对象的方法引用：它的语法是Class::method</span><br><span class="line">特定对象的方法引用：它的语法是instance::method</span><br></pre></td></tr></table></figure>
 <ul>
-<li>默认方法 − 默认方法就是一个在接口里面有了一个实现的方法。<br>
-<strong>默认方法就是接口可以有实现方法，而且不需要实现类去实现其方法。只需在方法名前面加个default关键字即可实现默认方法</strong></li>
+<li>默认方法 − 默认方法就是一个在接口里面有了一个实现的方法。<br><strong>默认方法就是接口可以有实现方法，而且不需要实现类去实现其方法。只需在方法名前面加个default关键字即可实现默认方法</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">package jdk8;</span><br><span class="line"></span><br><span class="line">public class DefaultAndStaticMethod implements A &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		DefaultAndStaticMethod defaultAndStaticMethod = new DefaultAndStaticMethod();</span><br><span class="line">		// 调用默认方法</span><br><span class="line">		defaultAndStaticMethod.print();</span><br><span class="line">		//调用静态方法</span><br><span class="line">		A.born();</span><br><span class="line">		//调用继承的默认方法</span><br><span class="line">		defaultAndStaticMethod.inherit();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void inherit() &#123;</span><br><span class="line">		System.out.println(&quot;继承自A的方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface A &#123;</span><br><span class="line">	default void print() &#123;</span><br><span class="line">		System.out.println(&quot;我是A默认方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	default  void inherit() &#123;</span><br><span class="line">		System.out.println(&quot;我是A需要被继承的方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	static void born() &#123;</span><br><span class="line">		System.out.println(&quot;我是A静态方法&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Stream API −新添加的Stream API（java.util.stream） 把真正的函数式编程风格引入到Java中。</li>
-</ul>
-<p>增加了一些新的 IO/NIO 方法，使用这些方法可以从文件或者输入流中获取流（java.util.stream.Stream），通过对流的操作，可以简化文本行处理、目录遍历和文件查找。<br>
-新增的 API 如下：<br>
-BufferedReader.line(): 返回文本行的流 Stream<string><br>
-File.lines(Path, Charset):返回文本行的流 Stream<string><br>
-File.list(Path): 遍历当前目录下的文件和目录<br>
-File.walk(Path, int, FileVisitOption): 遍历某一个目录下的所有文件和指定深度的子目录<br>
-File.find(Path, int, BiPredicate, FileVisitOption… ): 查找相应的文件<br>
-<em>见http://blog.csdn.net/aloneload/article/details/78091860</em></string></string></p>
-<ul>
+<li><p>Stream API −新添加的Stream API（java.util.stream） 把真正的函数式编程风格引入到Java中。</p>
+<p>增加了一些新的 IO/NIO 方法，使用这些方法可以从文件或者输入流中获取流（java.util.stream.Stream），通过对流的操作，可以简化文本行处理、目录遍历和文件查找。<br>新增的 API 如下：<br>BufferedReader.line(): 返回文本行的流 Stream<string><br>File.lines(Path, Charset):返回文本行的流 Stream<string><br>File.list(Path): 遍历当前目录下的文件和目录<br>File.walk(Path, int, FileVisitOption): 遍历某一个目录下的所有文件和指定深度的子目录<br>File.find(Path, int, BiPredicate, FileVisitOption… ): 查找相应的文件<br><em>见<a href="http://blog.csdn.net/aloneload/article/details/78091860" target="_blank" rel="noopener">http://blog.csdn.net/aloneload/article/details/78091860</a></em></string></string></p>
+</li>
 <li>Date Time API − 加强对日期与时间的处理。</li>
 </ul>
 <p><strong>java.time 中包含了所有关于时钟（Clock），本地日期（LocalDate）、本地时间（LocalTime）、本地日期时间（LocalDateTime）、时区（ZonedDateTime）和持续时间（Duration）的类</strong></p>
@@ -407,35 +397,31 @@ File.find(Path, int, BiPredicate, FileVisitOption… ): 查找相应的文件<br
 <p>Optional将对象和null包装起来，使得null有迹可循</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package jdk8;</span><br><span class="line"></span><br><span class="line">import java.util.Optional;</span><br><span class="line"></span><br><span class="line">public class OptionalTest &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		test();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void test() &#123;</span><br><span class="line">		Optional&lt;String&gt; optional = Optional.of(&quot;java8&quot;);</span><br><span class="line">		// Optional&lt;String&gt; optional2 = Optional.of(null); 报错</span><br><span class="line">		Optional&lt;String&gt; optional2 = Optional.ofNullable(null);</span><br><span class="line">		String name = optional2.orElse(&quot;default&quot;);</span><br><span class="line">		System.out.println(&quot;name:&quot; + name);// 输出default</span><br><span class="line">		// 如果不包装，将得不到有用的信息</span><br><span class="line">		// optional2.get();// ava.util.NoSuchElementException: No value present</span><br><span class="line"></span><br><span class="line">		// orElseThrow与orElse方法类似，区别在于返回值。</span><br><span class="line">		// orElseThrow抛出由传入的lambda表达式/方法生成异常。</span><br><span class="line">		try &#123;</span><br><span class="line">			optional2.orElseThrow(Exception::new);</span><br><span class="line">		&#125; catch (Throwable ex) &#123;</span><br><span class="line">			System.out.println(ex.getMessage());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		// lambda表达式返回值会包装为Optional实例。</span><br><span class="line">		Optional&lt;String&gt; upperName = optional.map((value) -&gt; value.toUpperCase());</span><br><span class="line">		// 如果满足返回Optional实例值，否则返回空Optional。</span><br><span class="line">		Optional&lt;String&gt; longName = optional2.filter((value) -&gt; value.length() &gt; 6);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>Nashorn, JavaScript 引擎 − Java 8提供了一个新的Nashorn<br>
-javascript引擎，它允许我们在JVM上运行特定的javascript应用。</li>
+<li>Nashorn, JavaScript 引擎 − Java 8提供了一个新的Nashorn<pre><code>javascript引擎，它允许我们在JVM上运行特定的javascript应用。
+</code></pre></li>
 <li>新工具 − 新的编译工具，如：Nashorn引擎 jjs、 类依赖分析器jdeps。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdeps LambdaPractice.class</span><br></pre></td></tr></table></figure>
-<h2 id="这里写图片描述jdk7"><a class="markdownIt-Anchor" href="#这里写图片描述jdk7"></a> <img src="http://img.blog.csdn.net/20170926154056708?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
-jdk7</h2>
-<ul>
+<p><img src="http://img.blog.csdn.net/20170926154056708?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWxvbmVsb2Fk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="jdk7"><a href="#jdk7" class="headerlink" title="jdk7"></a>jdk7</h2><ul>
 <li>在Switch中可用String</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;java8&quot;;</span><br><span class="line">		switch (s) &#123;</span><br><span class="line">		case &quot;java8&quot;:</span><br><span class="line">			System.out.println(&quot;java8&quot;);</span><br><span class="line">			break;</span><br><span class="line">		case &quot;java7&quot;:</span><br><span class="line">			System.out.println(&quot;java7&quot;);</span><br><span class="line">			break;</span><br><span class="line">		default:</span><br><span class="line">			System.out.println(&quot;default&quot;);</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>数值可加下划线用作分隔符（编译时自动被忽略）</li>
+<li>数值可加下划线用作分隔符（编译时自动被忽略）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int add=1_342_000;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int add=1_342_000;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>增强的try<br>
-资源管理器自动调用资源的close()函数。和Python里的with语句差不多,再也不用担心忘关资源了</li>
+<li>增强的try<br>资源管理器自动调用资源的close()函数。和Python里的with语句差不多,再也不用担心忘关资源了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// try-with-resource</span><br><span class="line">		try (BufferedReader br = new BufferedReader(new FileReader(&quot;data/nio-data.txt&quot;))) &#123;</span><br><span class="line">			</span><br><span class="line">			String line;</span><br><span class="line">			while((line=br.readLine())!=null) &#123;</span><br><span class="line">			System.out.println(line);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (IOException|NumberFormatException e) &#123;//此处演示多个异常</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// try-with-resource</span><br><span class="line">		try (BufferedReader br = new BufferedReader(new FileReader(&quot;data/nio-data.txt&quot;))) &#123;</span><br><span class="line">			</span><br><span class="line">			String line;</span><br><span class="line">			while((line=br.readLine())!=null) &#123;</span><br><span class="line">			System.out.println(line);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (IOException|NumberFormatException e) &#123;//此处演示多个异常</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p><em><strong>另网传的对Java集合（Collections）的增强支持，可直接采用[]、{}的形式存入对象，采用[]的形式按照索引、键值来获取集合中的对象。此特性并不支持</strong></em></p>
-<h2 id="jdk5"><a class="markdownIt-Anchor" href="#jdk5"></a> jdk5</h2>
-<ul>
+<p><strong><em>另网传的对Java集合（Collections）的增强支持，可直接采用[]、{}的形式存入对象，采用[]的形式按照索引、键值来获取集合中的对象。此特性并不支持</em></strong></p>
+<h2 id="jdk5"><a href="#jdk5" class="headerlink" title="jdk5"></a>jdk5</h2><ul>
 <li>自动装箱与拆箱</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 4;</span><br><span class="line">Integer b = 5;// 装箱 5-》integer	System.out.println(a + b);// 拆箱 //计算 int 的4+5</span><br></pre></td></tr></table></figure>
 <ul>
-<li>枚举<br>
-单例模式最好的实现</li>
+<li>枚举<br>单例模式最好的实现</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enum Version &#123;</span><br><span class="line">	JDK8(8), JDK7(7);</span><br><span class="line">	private int attibute;</span><br><span class="line">	public int getAttibute() &#123;</span><br><span class="line">		return this.attibute;</span><br><span class="line">	&#125;</span><br><span class="line">	private Version(int attibute) &#123;</span><br><span class="line">		this.attibute = attibute;</span><br><span class="line">	&#125;</span><br><span class="line">//使用Version.JDK8.getAttibute();得到属性</span><br></pre></td></tr></table></figure>
 <ul>
@@ -443,11 +429,11 @@ jdk7</h2>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import static java.lang.Math.*;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>可变参数</li>
-</ul>
+<li><p>可变参数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 可变参数</span><br><span class="line">	private static int sum(int... intlist) &#123;</span><br><span class="line">		int sum;</span><br><span class="line">		sum = 0;</span><br><span class="line">		for (int i = 0; i &lt; intlist.length; i++) &#123;</span><br><span class="line">			sum += intlist[i];</span><br><span class="line">		&#125;</span><br><span class="line">		return sum;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	//System.out.println(sum(1, 2, 3));</span><br><span class="line">	//System.out.println(sum(1, 2));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>内省，主要用于操作JavaBean中的属性，通过getXxx/setXxx。一般的做法是通过类Introspector来获取某个对象的BeanInfo信息，然后通过BeanInfo来获取属性的描述器（PropertyDescriptor），通过这个属性描述器就可以获取某个属性对应的getter/setter方法，然后我们就可以通过反射机制来调用这些方法。</li>
+</li>
+<li><p>内省，主要用于操作JavaBean中的属性，通过getXxx/setXxx。一般的做法是通过类Introspector来获取某个对象的BeanInfo信息，然后通过BeanInfo来获取属性的描述器（PropertyDescriptor），通过这个属性描述器就可以获取某个属性对应的getter/setter方法，然后我们就可以通过反射机制来调用这些方法。</p>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">People people = new People(1,&quot;zhangsan&quot;);</span><br><span class="line">		BeanInfo beanInfo=Introspector.getBeanInfo(people.getClass());</span><br><span class="line">		PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();</span><br><span class="line">		for (PropertyDescriptor propertyDescriptor : pds) &#123;</span><br><span class="line">			Object out2 = propertyDescriptor.getReadMethod().invoke(people);</span><br><span class="line">			System.out.println(out2);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -590,7 +576,7 @@ jdk7</h2>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -661,8 +647,7 @@ jdk7</h2>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk8"><span class="nav-number">1.</span> <span class="nav-text"> jdk8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#这里写图片描述jdk7"><span class="nav-number">2.</span> <span class="nav-text"> 
-jdk7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk5"><span class="nav-number">3.</span> <span class="nav-text"> jdk5</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk8"><span class="nav-number">1.</span> <span class="nav-text">jdk8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk7"><span class="nav-number">2.</span> <span class="nav-text">jdk7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk5"><span class="nav-number">3.</span> <span class="nav-text">jdk5</span></a></li></ol></div>
             
 
           </div>
