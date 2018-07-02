@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="go语言特性介绍  go是一门支持并发编程和内存垃圾回收的编译型静态类型语言 go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效  1. 清晰的依赖关系  1. 清晰的语法  1. 清晰的语义  1. 偏向组合而不是继承  1. 编程模型（垃圾回收、并发）的简单性  1. 易于为它编写工具（gotool/gofmt/godoc/gofix）   依赖处理  在编译阶段，将">
+<meta name="description" content="go语言特性介绍 go是一门支持并发编程和内存垃圾回收的编译型静态类型语言 go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效 清晰的依赖关系 清晰的语法 清晰的语义 偏向组合而不是继承 编程模型（垃圾回收、并发）的简单性 易于为它编写工具（gotool/gofmt/godoc/gofix）    依赖处理 在编译阶段，将未被使用的依赖视为错误 import 导入代码而不是">
 <meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go语言介绍">
 <meta property="og:url" content="http://aloneload.github.io/2018/05/07/go/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="go语言特性介绍  go是一门支持并发编程和内存垃圾回收的编译型静态类型语言 go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效  1. 清晰的依赖关系  1. 清晰的语法  1. 清晰的语义  1. 偏向组合而不是继承  1. 编程模型（垃圾回收、并发）的简单性  1. 易于为它编写工具（gotool/gofmt/godoc/gofix）   依赖处理  在编译阶段，将">
+<meta property="og:description" content="go语言特性介绍 go是一门支持并发编程和内存垃圾回收的编译型静态类型语言 go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效 清晰的依赖关系 清晰的语法 清晰的语义 偏向组合而不是继承 编程模型（垃圾回收、并发）的简单性 易于为它编写工具（gotool/gofmt/godoc/gofix）    依赖处理 在编译阶段，将未被使用的依赖视为错误 import 导入代码而不是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-16T07:40:43.386Z">
+<meta property="og:updated_time" content="2018-06-12T09:36:36.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go语言介绍">
-<meta name="twitter:description" content="go语言特性介绍  go是一门支持并发编程和内存垃圾回收的编译型静态类型语言 go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效  1. 清晰的依赖关系  1. 清晰的语法  1. 清晰的语义  1. 偏向组合而不是继承  1. 编程模型（垃圾回收、并发）的简单性  1. 易于为它编写工具（gotool/gofmt/godoc/gofix）   依赖处理  在编译阶段，将">
+<meta name="twitter:description" content="go语言特性介绍 go是一门支持并发编程和内存垃圾回收的编译型静态类型语言 go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效 清晰的依赖关系 清晰的语法 清晰的语义 偏向组合而不是继承 编程模型（垃圾回收、并发）的简单性 易于为它编写工具（gotool/gofmt/godoc/gofix）    依赖处理 在编译阶段，将未被使用的依赖视为错误 import 导入代码而不是">
 
 
 
@@ -369,212 +369,186 @@
       
 
       
-        <h2 id="go语言特性介绍"><a class="markdownIt-Anchor" href="#go语言特性介绍"></a> go语言特性介绍</h2>
-<ul>
+        <h2 id="go语言特性介绍"><a href="#go语言特性介绍" class="headerlink" title="go语言特性介绍"></a>go语言特性介绍</h2><ul>
 <li>go是一门支持并发编程和内存垃圾回收的编译型静态类型语言</li>
-<li>go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效<br>
- 1. 清晰的依赖关系<br>
- 1. 清晰的语法<br>
- 1. 清晰的语义<br>
- 1. 偏向组合而不是继承<br>
- 1. 编程模型（垃圾回收、并发）的简单性<br>
- 1. 易于为它编写工具（gotool/gofmt/godoc/gofix）</li>
+<li>go是以软件工程为目的的语言设计，同大多数通用型编程语言相比，清晰简洁高效<ol>
+<li>清晰的依赖关系</li>
+<li>清晰的语法</li>
+<li>清晰的语义</li>
+<li>偏向组合而不是继承</li>
+<li>编程模型（垃圾回收、并发）的简单性</li>
+<li>易于为它编写工具（gotool/gofmt/godoc/gofix）</li>
+</ol>
+</li>
 </ul>
-<h2 id="依赖处理"><a class="markdownIt-Anchor" href="#依赖处理"></a> 依赖处理</h2>
-<ul>
+<h2 id="依赖处理"><a href="#依赖处理" class="headerlink" title="依赖处理"></a>依赖处理</h2><ul>
 <li>在编译阶段，将未被使用的依赖视为错误</li>
 <li>import 导入代码而不是整个库，清晰依赖关系要比代码重用重要</li>
 </ul>
-<h2 id="语法命名"><a class="markdownIt-Anchor" href="#语法命名"></a> 语法命名</h2>
-<ul>
+<h2 id="语法命名"><a href="#语法命名" class="headerlink" title="语法命名"></a>语法命名</h2><ul>
 <li>语法就是编程语言的用户界面</li>
 <li>首字母大写：名字对于包使用者可见</li>
 <li>其余：名字对于包使用者不可见</li>
 </ul>
-<h2 id="并发"><a class="markdownIt-Anchor" href="#并发"></a> 并发</h2>
-<ul>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><ul>
 <li>不要通过共享内存来通信，要通过通信来共享内存</li>
 </ul>
-<h2 id="要组合不要继承"><a class="markdownIt-Anchor" href="#要组合不要继承"></a> 要组合，不要继承</h2>
-<ul>
+<h2 id="要组合，不要继承"><a href="#要组合，不要继承" class="headerlink" title="要组合，不要继承"></a>要组合，不要继承</h2><ul>
 <li>面向对象支持：允许添加方法到任意类型，没有类型体系</li>
 <li>接口组合</li>
 </ul>
-<h2 id="错误"><a class="markdownIt-Anchor" href="#错误"></a> 错误</h2>
-<p>if和return处理错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f, err := os.Open(fileName)</span><br><span class="line">if err != nil &#123;</span><br><span class="line">    return err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="工具"><a class="markdownIt-Anchor" href="#工具"></a> 工具</h2>
-<ul>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>if和return处理错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f, err := os.Open(fileName)</span><br><span class="line">if err != nil &#123;</span><br><span class="line">    return err</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
 <li>gofmt 格式化代码</li>
 <li>gofix 重构</li>
 </ul>
-<h2 id="包与导入导出"><a class="markdownIt-Anchor" href="#包与导入导出"></a> 包与导入导出</h2>
-<ul>
+<h2 id="包与导入导出"><a href="#包与导入导出" class="headerlink" title="包与导入导出"></a>包与导入导出</h2><ul>
 <li>每个 Go 程序都是由包构成的</li>
 <li>程序从 main 包开始运行</li>
-<li>按照约定，包名与导入路径的最后一个元素一致<br>
--使用分组导入语句是更好的形式</li>
-</ul>
+<li><p>按照约定，包名与导入路径的最后一个元素一致<br>-使用分组导入语句是更好的形式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;math&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在 Go 中，如果一个名字以大写字母开头，那么它就是已导出的</li>
+</li>
+<li><p>在 Go 中，如果一个名字以大写字母开头，那么它就是已导出的</p>
+</li>
 <li>在导入一个包时，你只能引用其中已导出的名字</li>
 </ul>
-<h2 id="函数"><a class="markdownIt-Anchor" href="#函数"></a> 函数</h2>
-<ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
 <li>类型在变量名之后</li>
 <li>函数可以返回任意数量的返回值</li>
 <li>函数也是值。它们可以像其它值一样传递</li>
-<li>函数值可以用作函数的参数或返回值</li>
+<li>函数值可以用作函数的参数或返回值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func swap(x, y string) (string, string) &#123;</span><br><span class="line">	return y, x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func swap(x, y string) (string, string) &#123;</span><br><span class="line">	return y, x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>– 在使用闭包访问外部变量的时候，问问你自己这个变量时候会发生改变，这样的改变对闭包的运行有什么影响。</p>
-<h2 id="变量"><a class="markdownIt-Anchor" href="#变量"></a> 变量</h2>
-<ul>
+<p>— 在使用闭包访问外部变量的时候，问问你自己这个变量时候会发生改变，这样的改变对闭包的运行有什么影响。</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ul>
 <li>var 语句用于声明一个变量列表</li>
 <li>var 语句可以出现在包或函数级别</li>
 <li>在函数中，简洁赋值语句 := 可在类型明确的地方代替 var 声明</li>
 </ul>
-<h2 id="基本类型"><a class="markdownIt-Anchor" href="#基本类型"></a> 基本类型</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bool</span><br><span class="line">string</span><br><span class="line">int  int8  int16  int32  int64</span><br><span class="line">uint uint8 uint16 uint32 uint64 uintptr</span><br><span class="line">byte // uint8 的别名</span><br><span class="line">rune // int32 的别名</span><br><span class="line">    // 表示一个 Unicode 码点</span><br><span class="line">float32 float64</span><br><span class="line">complex64 complex128</span><br></pre></td></tr></table></figure>
+<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bool</span><br><span class="line">string</span><br><span class="line">int  int8  int16  int32  int64</span><br><span class="line">uint uint8 uint16 uint32 uint64 uintptr</span><br><span class="line">byte // uint8 的别名</span><br><span class="line">rune // int32 的别名</span><br><span class="line">    // 表示一个 Unicode 码点</span><br><span class="line">float32 float64</span><br><span class="line">complex64 complex128</span><br></pre></td></tr></table></figure>
 <ul>
-<li>零值</li>
-</ul>
-<ol>
+<li>零值<ol>
 <li>数值类型为 0</li>
 <li>布尔类型为 false</li>
 <li>字符串为 “”（空字符串）</li>
 </ol>
-<ul>
+</li>
 <li>表达式 T(v) 将值 v 转换为类型 T</li>
 <li>常量的声明与变量类似，只不过是使用 const 关键字</li>
+<li>零值是非常有用的。如 bytes.Buffer的文档所述 “Buffer 的零值是一个准备好了的空缓冲。” 类似的，sync.Mutex 也没有明确的构造函数或 Init 方法。取而代之，sync.Mutex 的零值被定义为非锁定的互斥量。 </li>
 </ul>
-<h2 id="for"><a class="markdownIt-Anchor" href="#for"></a> for</h2>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><ul>
+<li><p>基本的 for 循环由三部分组成，它们用分号隔开：</p>
 <ul>
-<li>
-<p>基本的 for 循环由三部分组成，它们用分号隔开：</p>
-<ul>
-<li>初始化语句：在第一次迭代前执行(可选)</li>
+<li>初始化语句：在第一次迭代前执行(可选)<ul>
 <li>条件表达式：在每次迭代前求值（false退出）</li>
-<li>后置语句：在每次迭代的结尾执行（可选）</li>
 </ul>
 </li>
-<li>
-<p>无限循环</p>
+<li><p>后置语句：在每次迭代的结尾执行（可选）</p>
 </li>
-</ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>if同 for 一样， if 语句可以在条件表达式前执行一个简单的语句</li>
+<li><p>无限循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if同 for 一样， if 语句可以在条件表达式前执行一个简单的语句</p>
+</li>
 <li>switch 是编写一连串 if - else 语句的简便方法。它运行第一个值等于条件表达式的 case 语句</li>
 <li>switch 的 case 语句从上到下顺次执行，直到匹配成功时停止</li>
-<li>没有条件的 switch 同 switch true 一样。这种形式能将一长串 if-then-else 写得更加清晰</li>
+<li>没有条件的 switch 同 switch true 一样。这种形式能将一长串 if-then-else 写得更加清晰<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  func main() &#123;</span><br><span class="line">	t := time.Now()</span><br><span class="line">	switch &#123;</span><br><span class="line">	case t.Hour() &lt; 12:</span><br><span class="line">		fmt.Println(&quot;Good morning!&quot;)</span><br><span class="line">	case t.Hour() &lt; 17:</span><br><span class="line">		fmt.Println(&quot;Good afternoon.&quot;)</span><br><span class="line">	default:</span><br><span class="line">		fmt.Println(&quot;Good evening.&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  func main() &#123;</span><br><span class="line">	t := time.Now()</span><br><span class="line">	switch &#123;</span><br><span class="line">	case t.Hour() &lt; 12:</span><br><span class="line">		fmt.Println(&quot;Good morning!&quot;)</span><br><span class="line">	case t.Hour() &lt; 17:</span><br><span class="line">		fmt.Println(&quot;Good afternoon.&quot;)</span><br><span class="line">	default:</span><br><span class="line">		fmt.Println(&quot;Good evening.&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <ul>
-<li>defer 使用规则（golang当中，defer代码块会在函数调用链表中增加一个函数调用。这个函数调用不是普通的函数调用，而是会在函数正常返回，也就是return之后添加一个函数调用。因此，defer通常用来释放函数内部变量。）
-<ol>
+<li>defer 使用规则（golang当中，defer代码块会在函数调用链表中增加一个函数调用。这个函数调用不是普通的函数调用，而是会在函数正常返回，也就是return之后添加一个函数调用。因此，defer通常用来释放函数内部变量。）<ol>
 <li>defer被声明时，其参数就会被实时解析</li>
 <li>defer执行顺序为先进后出</li>
 <li>defer可以读取有名返回值</li>
 </ol>
 </li>
 </ul>
-<h2 id="指针"><a class="markdownIt-Anchor" href="#指针"></a> 指针</h2>
-<ul>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><ul>
 <li>类型 *T 是指向 T 类型值的指针。其零值为 nil</li>
 <li>&amp; 操作符会生成一个指向其操作数的指针</li>
 </ul>
 <ul>
 <li>操作符表示指针指向的底层值</li>
 </ul>
-<h2 id="结构体"><a class="markdownIt-Anchor" href="#结构体"></a> 结构体</h2>
-<ul>
+<h2 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h2><ul>
 <li>一个结构体（struct）就是一个字段的集合</li>
 <li>结构体字段使用点号来访问</li>
-<li>结构体字段可以通过结构体指针来访问<code>p := &amp;v p.X = 1e9</code></li>
+<li>结构体字段可以通过结构体指针来访问<code>p := &amp;v    p.X = 1e9</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v1 = Vertex&#123;1, 2&#125;  // has type Vertex</span><br><span class="line">v2 = Vertex&#123;X: 1&#125;  // Y:0 is implicit</span><br><span class="line">v3 = Vertex&#123;&#125;      // X:0 and Y:0</span><br><span class="line">p  = &amp;Vertex&#123;1, 2&#125; // has type *Vertex</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v1 = Vertex&#123;1, 2&#125;  // has type Vertex</span><br><span class="line">v2 = Vertex&#123;X: 1&#125;  // Y:0 is implicit</span><br><span class="line">v3 = Vertex&#123;&#125;      // X:0 and Y:0</span><br><span class="line">p  = &amp;Vertex&#123;1, 2&#125; // has type *Vertex</span><br></pre></td></tr></table></figure>
-<h2 id="数组与切片"><a class="markdownIt-Anchor" href="#数组与切片"></a> 数组与切片</h2>
-<ul>
+<h2 id="数组与切片"><a href="#数组与切片" class="headerlink" title="数组与切片"></a>数组与切片</h2><ul>
 <li>类型 [n]T 表示拥有 n 个 T 类型的值的数组</li>
 <li>类型 []T 表示一个元素类型为 T 的切片</li>
 <li>切片通过两个下标来界定，即一个上界和一个下界，二者以冒号分隔</li>
 <li>切片就像数组的引用</li>
 <li>在进行切片时，你可以利用它的默认行为来忽略上下界</li>
 <li>切片 s 的长度和容量可通过表达式 len(s) 和 cap(s) 来获取</li>
-<li>切片可以用内建函数 make 来创建 <code>a := make([]int, 5) // len(a)=5</code></li>
+<li>切片可以用内建函数 make 来创建 <code>a := make([]int, 5)  // len(a)=5</code></li>
 <li>为切片追加新的元素是种常用的操作，为此 Go 提供了内建的 append 函数<code>func append(s []T, vs ...T) []T</code></li>
 <li>for 循环的 range 形式可遍历切片或映射</li>
 </ul>
-<h2 id="map"><a class="markdownIt-Anchor" href="#map"></a> map</h2>
-<ul>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><ul>
 <li>映射的文法与结构体相似，不过必须有键名</li>
 <li>在映射 m 中插入或修改元素<code>m[key] = elem</code></li>
 <li>获取元素 <code>elem = m[key]</code></li>
-<li>删除元素<code>delete(m, key)</code></li>
+<li>删除元素<code>delete(m, key)</code> </li>
 <li>通过双赋值检测某个键是否存在 <code>elem, ok = m[key]</code></li>
 </ul>
-<h2 id="方法"><a class="markdownIt-Anchor" href="#方法"></a> 方法</h2>
-<ul>
-<li>Go 没有类。不过你可以为结构体类型定义方法</li>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>Go 没有类。不过你可以为结构体类型定义方法 </li>
 <li>方法就是一类带特殊的 接收者 参数的函数</li>
 <li>方法只是个带接收者参数的函数</li>
 <li>就是接收者的类型定义和方法声明必须在同一包内；不能为内建类型声明方法</li>
 <li>你可以为指针接收者声明方法</li>
 <li>带指针参数的函数必须接受一个指针</li>
 <li>而以指针为接收者的方法被调用时，接收者既能为值又能为指针（传值无区别，调用有区别）</li>
-<li>使用指针接收者的原因有二：
-<ol>
+<li>使用指针接收者的原因有二：<ol>
 <li>首先，方法能够修改其接收者指向的值</li>
 <li>其次，这样可以避免在每次调用方法时复制该值</li>
 </ol>
 </li>
 </ul>
-<h2 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h2>
-<ul>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><ul>
 <li>接口类型 是由一组方法签名定义的集合</li>
 <li>接口类型的值可以保存任何实现了这些方法的值</li>
 <li>隐式接口从接口的实现中解耦了定义，这样接口的实现可以出现在任何包中，无需提前准备</li>
 <li>在内部，接口值可以看做包含值和具体类型的元组<code>(value, type)</code>接口值调用方法时会执行其底层类型的同名方法</li>
-<li>即便接口内的具体值为 nil，方法仍然会被 nil 接收者调用,在一些语言中，这会触发一个空指针异常,Go 中通常会写一些方法来优雅地处理它</li>
-</ul>
+<li><p>即便接口内的具体值为 nil，方法仍然会被 nil 接收者调用,在一些语言中，这会触发一个空指针异常,Go 中通常会写一些方法来优雅地处理它</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func (t *T) M() &#123;</span><br><span class="line">	if t == nil &#123;</span><br><span class="line">		fmt.Println(&quot;&lt;nil&gt;&quot;)</span><br><span class="line">		return</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(t.S)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>nil 接口值既不保存值也不保存具体类型</li>
+</li>
+<li><p>nil 接口值既不保存值也不保存具体类型</p>
+</li>
 <li>指定了零个方法的接口值被称为 <em>空接口：</em><code>interface{}</code></li>
 <li>类型断言 提供了访问接口值底层具体值的方式。<code>t := i.(T)``t, ok := i.(T)//不会panic</code></li>
-<li>类型选择 是一种按顺序从几个类型断言中选择分支的结构</li>
-</ul>
+<li><p>类型选择 是一种按顺序从几个类型断言中选择分支的结构</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">switch v := i.(type) &#123;</span><br><span class="line">case T:</span><br><span class="line">    // v 的类型为 T</span><br><span class="line">case S:</span><br><span class="line">    // v 的类型为 S</span><br><span class="line">default:</span><br><span class="line">    // 没有匹配，v 与 i 的类型相同</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>fmt 包中定义的 Stringer 是最普遍的接口之一</li>
-</ul>
+</li>
+<li><p>fmt 包中定义的 Stringer 是最普遍的接口之一</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type Stringer interface &#123;</span><br><span class="line">    String() string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>error</li>
-</ul>
+</li>
+<li><p>error</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type error interface &#123;</span><br><span class="line">    Error() string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>通常函数会返回一个 error 值，调用的它的代码应当判断这个错误是否等于 nil 来进行错误处理</li>
-</ul>
+</li>
+<li><p>通常函数会返回一个 error 值，调用的它的代码应当判断这个错误是否等于 nil 来进行错误处理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i, err := strconv.Atoi(&quot;42&quot;)</span><br><span class="line">if err != nil &#123;</span><br><span class="line">    fmt.Printf(&quot;couldn&apos;t convert number: %v\n&quot;, err)</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(&quot;Converted integer:&quot;, i)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>io.Reader 接口有一个 Read 方法</li>
-</ul>
+</li>
+<li><p>io.Reader 接口有一个 Read 方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func (T) Read(b []byte) (n int, err error)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在遇到数据流的结尾时，它会返回一个 io.EOF 错误</li>
+</li>
+<li><p>在遇到数据流的结尾时，它会返回一个 io.EOF 错误</p>
+</li>
 </ul>
-<h2 id="goroutine"><a class="markdownIt-Anchor" href="#goroutine"></a> goroutine</h2>
-<ul>
+<h2 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h2><ul>
 <li>Go 运行时管理的轻量级线程</li>
 <li>go go f(x, y, z) 会启动一个新的 Go 程并执行,x, y 和 z 的求值发生在当前的 Go 程中，而 f 的执行发生在新的 Go 程中。</li>
-<li>信道是带有类型的管道，你可以通过它用信道操作符 &lt;- 来发送或者接收值</li>
-</ul>
+<li><p>信道是带有类型的管道，你可以通过它用信道操作符 &lt;- 来发送或者接收值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ch &lt;- v    // 将 v 发送至信道 ch。</span><br><span class="line">v := &lt;-ch  // 从 ch 接收值并赋予 v。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>和映射与切片一样，信道在使用前必须创建<code>ch := make(chan int)</code></li>
+</li>
+<li><p>和映射与切片一样，信道在使用前必须创建<code>ch := make(chan int)</code></p>
+</li>
 <li>默认情况下，发送和接收操作在另一端准备好之前都会阻塞。这使得 Go 程可以在没有显式的锁或竞态变量的情况下进行同步</li>
 <li>信道可以是 带缓冲的。将缓冲长度作为第二个参数提供给 make 来初始化一个带缓冲的信道<code>ch := make(chan int, 100)</code></li>
 <li>仅当信道的缓冲区填满后，向其发送数据时才会阻塞。当缓冲区为空时，接受方会阻塞</li>
@@ -582,18 +556,16 @@
 <li>循环 <code>for i := range c</code>会不断从信道接收值，直到它被关闭</li>
 <li>select 语句使一个 Go 程可以等待多个通信操作</li>
 <li>select 会阻塞到某个分支可以继续执行为止，这时就会执行该分支。当多个分支都准备好时会随机选择一个执行</li>
-<li>为了在尝试发送或者接收时不发生阻塞，可使用 default 分支</li>
+<li>为了在尝试发送或者接收时不发生阻塞，可使用 default 分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select &#123;</span><br><span class="line">case i := &lt;-c:</span><br><span class="line">    // 使用 i</span><br><span class="line">default:</span><br><span class="line">    // 从 c 中接收会阻塞时执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select &#123;</span><br><span class="line">case i := &lt;-c:</span><br><span class="line">    // 使用 i</span><br><span class="line">default:</span><br><span class="line">    // 从 c 中接收会阻塞时执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="syncmutex"><a class="markdownIt-Anchor" href="#syncmutex"></a> sync.Mutex</h2>
-<ul>
+<h2 id="sync-Mutex"><a href="#sync-Mutex" class="headerlink" title="sync.Mutex"></a>sync.Mutex</h2><ul>
 <li>Go 标准库中提供了 sync.Mutex 互斥锁类型及其两个方法<code>Lock Unlock</code></li>
 <li>可以通过在代码前调用 Lock 方法，在代码后调用 Unlock 方法来保证一段代码的互斥执行</li>
-<li>可以用 defer 语句来保证互斥锁一定会被解锁</li>
+<li>可以用 defer 语句来保证互斥锁一定会被解锁 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// SafeCounter 的并发使用是安全的。</span><br><span class="line">type SafeCounter struct &#123;</span><br><span class="line">	v   map[string]int</span><br><span class="line">	mux sync.Mutex</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Inc 增加给定 key 的计数器的值。</span><br><span class="line">func (c *SafeCounter) Inc(key string) &#123;</span><br><span class="line">	c.mux.Lock()</span><br><span class="line">	// Lock 之后同一时刻只有一个 goroutine 能访问 c.v</span><br><span class="line">	c.v[key]++</span><br><span class="line">	c.mux.Unlock()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Value 返回给定 key 的计数器的当前值。</span><br><span class="line">func (c *SafeCounter) Value(key string) int &#123;</span><br><span class="line">	c.mux.Lock()</span><br><span class="line">	// Lock 之后同一时刻只有一个 goroutine 能访问 c.v</span><br><span class="line">	defer c.mux.Unlock()</span><br><span class="line">	return c.v[key]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	c := SafeCounter&#123;v: make(map[string]int)&#125;</span><br><span class="line">	for i := 0; i &lt; 1000; i++ &#123;</span><br><span class="line">		go c.Inc(&quot;somekey&quot;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	time.Sleep(time.Second)</span><br><span class="line">	fmt.Println(c.Value(&quot;somekey&quot;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// SafeCounter 的并发使用是安全的。</span><br><span class="line">type SafeCounter struct &#123;</span><br><span class="line">	v   map[string]int</span><br><span class="line">	mux sync.Mutex</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Inc 增加给定 key 的计数器的值。</span><br><span class="line">func (c *SafeCounter) Inc(key string) &#123;</span><br><span class="line">	c.mux.Lock()</span><br><span class="line">	// Lock 之后同一时刻只有一个 goroutine 能访问 c.v</span><br><span class="line">	c.v[key]++</span><br><span class="line">	c.mux.Unlock()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Value 返回给定 key 的计数器的当前值。</span><br><span class="line">func (c *SafeCounter) Value(key string) int &#123;</span><br><span class="line">	c.mux.Lock()</span><br><span class="line">	// Lock 之后同一时刻只有一个 goroutine 能访问 c.v</span><br><span class="line">	defer c.mux.Unlock()</span><br><span class="line">	return c.v[key]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	c := SafeCounter&#123;v: make(map[string]int)&#125;</span><br><span class="line">	for i := 0; i &lt; 1000; i++ &#123;</span><br><span class="line">		go c.Inc(&quot;somekey&quot;)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	time.Sleep(time.Second)</span><br><span class="line">	fmt.Println(c.Value(&quot;somekey&quot;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="web服务"><a class="markdownIt-Anchor" href="#web服务"></a> web服务</h2>
-<p>目前主流的web服务：REST/SOAP</p>
+<h2 id="web服务"><a href="#web服务" class="headerlink" title="web服务"></a>web服务</h2><p>目前主流的web服务：REST/SOAP</p>
 <p>网络进程三元组（ip地址，协议，端口）</p>
 
       
@@ -725,7 +697,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -747,7 +719,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -796,7 +768,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#go语言特性介绍"><span class="nav-number">1.</span> <span class="nav-text"> go语言特性介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖处理"><span class="nav-number">2.</span> <span class="nav-text"> 依赖处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法命名"><span class="nav-number">3.</span> <span class="nav-text"> 语法命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-number">4.</span> <span class="nav-text"> 并发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要组合不要继承"><span class="nav-number">5.</span> <span class="nav-text"> 要组合，不要继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误"><span class="nav-number">6.</span> <span class="nav-text"> 错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">7.</span> <span class="nav-text"> 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包与导入导出"><span class="nav-number">8.</span> <span class="nav-text"> 包与导入导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">9.</span> <span class="nav-text"> 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">10.</span> <span class="nav-text"> 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型"><span class="nav-number">11.</span> <span class="nav-text"> 基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for"><span class="nav-number">12.</span> <span class="nav-text"> for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-number">13.</span> <span class="nav-text"> 指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体"><span class="nav-number">14.</span> <span class="nav-text"> 结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组与切片"><span class="nav-number">15.</span> <span class="nav-text"> 数组与切片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">16.</span> <span class="nav-text"> map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">17.</span> <span class="nav-text"> 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">18.</span> <span class="nav-text"> 接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goroutine"><span class="nav-number">19.</span> <span class="nav-text"> goroutine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#syncmutex"><span class="nav-number">20.</span> <span class="nav-text"> sync.Mutex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web服务"><span class="nav-number">21.</span> <span class="nav-text"> web服务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#go语言特性介绍"><span class="nav-number">1.</span> <span class="nav-text">go语言特性介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖处理"><span class="nav-number">2.</span> <span class="nav-text">依赖处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法命名"><span class="nav-number">3.</span> <span class="nav-text">语法命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-number">4.</span> <span class="nav-text">并发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要组合，不要继承"><span class="nav-number">5.</span> <span class="nav-text">要组合，不要继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误"><span class="nav-number">6.</span> <span class="nav-text">错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具"><span class="nav-number">7.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包与导入导出"><span class="nav-number">8.</span> <span class="nav-text">包与导入导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">9.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">10.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型"><span class="nav-number">11.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for"><span class="nav-number">12.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-number">13.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体"><span class="nav-number">14.</span> <span class="nav-text">结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组与切片"><span class="nav-number">15.</span> <span class="nav-text">数组与切片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">16.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">17.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">18.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goroutine"><span class="nav-number">19.</span> <span class="nav-text">goroutine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sync-Mutex"><span class="nav-number">20.</span> <span class="nav-text">sync.Mutex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web服务"><span class="nav-number">21.</span> <span class="nav-text">web服务</span></a></li></ol></div>
             
 
           </div>
