@@ -86,18 +86,22 @@
 
 
 
-<meta name="description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster global add generator-jhipster```11. 创建一个新目录并进入它 ```mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 123456789101. 具体参数见下图（生成">
+<meta name="description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
 <meta name="keywords" content="编程语言 jhipster">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jhipster初探">
 <meta property="og:url" content="http://aloneload.github.io/2018/07/03/jhipster/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster global add generator-jhipster```11. 创建一个新目录并进入它 ```mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 123456789101. 具体参数见下图（生成">
+<meta property="og:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-03T06:26:50.978Z">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster2.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster3.png">
+<meta property="og:updated_time" content="2018-07-03T06:37:14.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jhipster初探">
-<meta name="twitter:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster global add generator-jhipster```11. 创建一个新目录并进入它 ```mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 123456789101. 具体参数见下图（生成">
+<meta name="twitter:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
+<meta name="twitter:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
 
 
 
@@ -377,14 +381,36 @@
 </ul>
 <ol>
 <li>
-<p>安装JHipster <figure class="highlight plain"><figcaption><span>global add generator-jhipster```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. 创建一个新目录并进入它 ```mkdir myApp &amp;&amp; cd myApp</span><br></pre></td></tr></table></figure></p>
+<p>安装JHipster <code>yarn global add generator-jhipster</code></p>
 </li>
 <li>
-<p>运行JHipster并按照屏幕上的说明操作 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 具体参数见下图（生成单体应用）：</span><br><span class="line">    [](!jhipster1.png) </span><br><span class="line"></span><br><span class="line">    生成spring boot + augular5的单体架构应用</span><br><span class="line">1. 等下载完成后输入```mvnw(linux下为./mvnw)```即可在8080提供服务</span><br><span class="line">    [](!jhipster2.png)</span><br><span class="line">1. 自带一些监控运维相关应用</span><br><span class="line">    [](!jhipster3.png)</span><br><span class="line">1. 下载[jdl-studio](https://start.jhipster.tech/jdl-studio/)</span><br><span class="line">1. 生成代码```jhipster import-jdl ./my-jdl-file.jdl --json-only</span><br></pre></td></tr></table></figure></p>
+<p>创建一个新目录并进入它 <code>mkdir myApp &amp;&amp; cd myApp</code></p>
+</li>
+<li>
+<p>运行JHipster并按照屏幕上的说明操作 <code>jhipster</code></p>
+</li>
+<li>
+<p>具体参数见下图（生成单体应用）：<br>
+<img src="jhipster1.png" alt=""></p>
+<p>生成spring boot + augular5的单体架构应用</p>
+</li>
+<li>
+<p>等下载完成后输入<code>mvnw(linux下为./mvnw)</code>即可在8080提供服务<br>
+<img src="jhipster2.png" alt=""></p>
+</li>
+<li>
+<p>自带一些监控运维相关应用<br>
+<img src="jhipster3.png" alt=""></p>
+</li>
+<li>
+<p>下载<a href="https://start.jhipster.tech/jdl-studio/" target="_blank" rel="noopener">jdl-studio</a></p>
+</li>
+<li>
+<p>生成代码<code>jhipster import-jdl ./my-jdl-file.jdl --json-only</code></p>
 </li>
 </ol>
 <h4 id="在线生成"><a class="markdownIt-Anchor" href="#在线生成"></a> 在线生成</h4>
-<p>在线生成的好处就是不需要本次安装那么多软件<a href="https://start.jhipster.tech/#/generate-application" target="_blank" rel="noopener">地址</a><br>
+<p>在线生成的好处就是不需要本次安装那么多软件  <a href="https://start.jhipster.tech/#/generate-application" target="_blank" rel="noopener">地址</a><br>
 <a href="!jhipster4.png"></a></p>
 
       
