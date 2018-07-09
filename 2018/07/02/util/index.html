@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Java里面给一个类的操作工具惯用的设计是给这个类后缀加s(Object-&amp;gt;Objects,Array-&amp;gt;Arrays,collection-&amp;gt;collections) Objects1234567891011121314151617181920212223242526//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）pub">
+<meta name="description" content="Java里面给一个类的操作工具惯用的设计是给这个类后缀加s(Object-&amp;gt;Objects,Array-&amp;gt;Arrays,collection-&amp;gt;collections)  Objects 1234567891011121314151617181920212223242526//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）p">
 <meta name="keywords" content="java 编程语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jdk常用工具类">
 <meta property="og:url" content="http://aloneload.github.io/2018/07/02/util/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="Java里面给一个类的操作工具惯用的设计是给这个类后缀加s(Object-&amp;gt;Objects,Array-&amp;gt;Arrays,collection-&amp;gt;collections) Objects1234567891011121314151617181920212223242526//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）pub">
+<meta property="og:description" content="Java里面给一个类的操作工具惯用的设计是给这个类后缀加s(Object-&amp;gt;Objects,Array-&amp;gt;Arrays,collection-&amp;gt;collections)  Objects 1234567891011121314151617181920212223242526//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）p">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-07-09T03:24:48.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jdk常用工具类">
-<meta name="twitter:description" content="Java里面给一个类的操作工具惯用的设计是给这个类后缀加s(Object-&amp;gt;Objects,Array-&amp;gt;Arrays,collection-&amp;gt;collections) Objects1234567891011121314151617181920212223242526//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）pub">
+<meta name="twitter:description" content="Java里面给一个类的操作工具惯用的设计是给这个类后缀加s(Object-&amp;gt;Objects,Array-&amp;gt;Arrays,collection-&amp;gt;collections)  Objects 1234567891011121314151617181920212223242526//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）p">
 
 
 
@@ -396,8 +396,8 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
           
 
@@ -419,19 +419,25 @@
 
       
         <p>Java里面给一个类的操作工具惯用的设计是给这个类后缀加s(Object-&gt;Objects,Array-&gt;Arrays,collection-&gt;collections)</p>
-<h3 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object a, Object b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//深度比较两个对象是否相等(首先比较内存地址,相同返回true;如果传入的是数组，则比较数组内的对应下标值是否相同)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">deepEquals</span><span class="params">(Object a, Object b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回对象的hashCode，若传入的为null，返回0</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(Object o)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回传入可变参数的所有值的hashCode的总和（这里说总和有点牵强，具体参考Arrays.hashCode()方法）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object... values)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回对象的String表示，若传入null，返回null字符串</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(Object o)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//返回对象的String表示，若传入null，返回默认值nullDefault</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(Object o, String nullDefault)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//使用指定的比较器c 比较参数a和参数b的大小（相等返回0，a大于b返回整数，a小于b返回负数）</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="keyword">int</span> <span class="title">compare</span><span class="params">(T a, T b, Comparator&lt;? <span class="keyword">super</span> T&gt; c)</span> </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//如果传入的obj为null抛出NullPointerException,否者返回obj</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title">requireNonNull</span><span class="params">(T obj)</span> </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//如果传入的obj为null抛出NullPointerException并可以指定错误信息message,否者返回obj</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title">requireNonNull</span><span class="params">(T obj, String message)</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><ol>
-<li><p>List转换成为数组</p>
+<h3 id="objects"><a class="markdownIt-Anchor" href="#objects"></a> Objects</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//比较两个对象是否相等（首先比较内存地址，然后比较a.equals(b)，只要符合其中之一返回true）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object a, Object b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//深度比较两个对象是否相等(首先比较内存地址,相同返回true;如果传入的是数组，则比较数组内的对应下标值是否相同)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">deepEquals</span><span class="params">(Object a, Object b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回对象的hashCode，若传入的为null，返回0</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">(Object o)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回传入可变参数的所有值的hashCode的总和（这里说总和有点牵强，具体参考Arrays.hashCode()方法）</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object... values)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回对象的String表示，若传入null，返回null字符串</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(Object o)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//返回对象的String表示，若传入null，返回默认值nullDefault</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toString</span><span class="params">(Object o, String nullDefault)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//使用指定的比较器c 比较参数a和参数b的大小（相等返回0，a大于b返回整数，a小于b返回负数）</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="keyword">int</span> <span class="title">compare</span><span class="params">(T a, T b, Comparator&lt;? <span class="keyword">super</span> T&gt; c)</span> </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//如果传入的obj为null抛出NullPointerException,否者返回obj</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title">requireNonNull</span><span class="params">(T obj)</span> </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">//如果传入的obj为null抛出NullPointerException并可以指定错误信息message,否者返回obj</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title">requireNonNull</span><span class="params">(T obj, String message)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="arrays"><a class="markdownIt-Anchor" href="#arrays"></a> Arrays</h3>
+<ol>
+<li>
+<p>List转换成为数组</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] arr = (String[])list.toArray(<span class="keyword">new</span> String[size]);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数组转换成为List</p>
+<li>
+<p>数组转换成为List</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] arr = <span class="keyword">new</span> String[] &#123;<span class="string">"1"</span>, <span class="string">"2"</span>&#125;;</span><br><span class="line">List list = Arrays.asList(arr);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数组的复制</p>
+<li>
+<p>数组的复制</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">java.lang.System</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src,</span></span></span><br><span class="line"><span class="function"><span class="params">                         <span class="keyword">int</span> srcPos,</span></span></span><br><span class="line"><span class="function"><span class="params">                         Object dest,</span></span></span><br><span class="line"><span class="function"><span class="params">                         <span class="keyword">int</span> destPos,</span></span></span><br><span class="line"><span class="function"><span class="params">                         <span class="keyword">int</span> length)</span></span></span><br></pre></td></tr></table></figure>
-<p> 还有常用的copyof(array,length)：把数组array复制成一个长度为length的新数组</p>
-<h3 id="Files-amp-amp-Paths"><a href="#Files-amp-amp-Paths" class="headerlink" title="Files &amp;&amp; Paths"></a>Files &amp;&amp; Paths</h3></li>
+<p>还有常用的copyof(array,length)：把数组array复制成一个长度为length的新数组</p>
+</li>
 </ol>
+<h3 id="files-paths"><a class="markdownIt-Anchor" href="#files-paths"></a> Files &amp;&amp; Paths</h3>
 <ul>
 <li>Paths.get()</li>
 <li>Path.normallize()</li>
@@ -649,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Objects"><span class="nav-number">1.</span> <span class="nav-text">Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrays"><span class="nav-number">2.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Files-amp-amp-Paths"><span class="nav-number">3.</span> <span class="nav-text">Files &amp;&amp; Paths</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#objects"><span class="nav-number">1.</span> <span class="nav-text"> Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arrays"><span class="nav-number">2.</span> <span class="nav-text"> Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#files-paths"><span class="nav-number">3.</span> <span class="nav-text"> Files &amp;&amp; Paths</span></a></li></ol></div>
             
 
           </div>
@@ -700,9 +706,9 @@
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>
+      <i class="fa fa-eye">本站总访问量</i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
+      次
     </span>
   
 </div>

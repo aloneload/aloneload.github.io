@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="安装本地生成官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman   安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）：    生成spri">
+<meta name="description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
 <meta name="keywords" content="编程语言 jhipster">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jhipster初探">
 <meta property="og:url" content="http://aloneload.github.io/2018/07/03/jhipster/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="安装本地生成官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman   安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）：    生成spri">
+<meta property="og:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster2.png">
@@ -100,7 +100,7 @@
 <meta property="og:updated_time" content="2018-07-03T06:37:14.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jhipster初探">
-<meta name="twitter:description" content="安装本地生成官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman   安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）：    生成spri">
+<meta name="twitter:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
 <meta name="twitter:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
 
 
@@ -400,8 +400,8 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
           
 
@@ -422,22 +422,45 @@
       
 
       
-        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="本地生成"><a href="#本地生成" class="headerlink" title="本地生成"></a>本地生成</h4><p><a href="https://www.jhipster.tech/" target="_blank" rel="noopener">官网介绍</a></p>
+        <h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
+<h4 id="本地生成"><a class="markdownIt-Anchor" href="#本地生成"></a> 本地生成</h4>
+<p><a href="https://www.jhipster.tech/" target="_blank" rel="noopener">官网介绍</a></p>
 <ul>
 <li>先决：安装 Java， Git， Node.js， Yarn和 Yeoman</li>
 </ul>
 <ol>
-<li>安装JHipster <code>yarn global add generator-jhipster</code></li>
-<li>创建一个新目录并进入它 <code>mkdir myApp &amp;&amp; cd myApp</code></li>
-<li>运行JHipster并按照屏幕上的说明操作 <code>jhipster</code></li>
-<li><p>具体参数见下图（生成单体应用）：<br> <img src="jhipster1.png" alt=""> </p>
-<p> 生成spring boot + augular5的单体架构应用</p>
+<li>
+<p>安装JHipster <code>yarn global add generator-jhipster</code></p>
 </li>
-<li>等下载完成后输入<code>mvnw(linux下为./mvnw)</code>即可在8080提供服务<br> <img src="jhipster2.png" alt=""></li>
-<li>自带一些监控运维相关应用<br> <img src="jhipster3.png" alt=""></li>
-<li>下载<a href="https://start.jhipster.tech/jdl-studio/" target="_blank" rel="noopener">jdl-studio</a></li>
-<li>生成代码<code>jhipster import-jdl ./my-jdl-file.jdl --json-only</code><h4 id="在线生成"><a href="#在线生成" class="headerlink" title="在线生成"></a>在线生成</h4>在线生成的好处就是不需要本次安装那么多软件  <a href="https://start.jhipster.tech/#/generate-application" target="_blank" rel="noopener">地址</a><br> <a href="!jhipster4.png"></a></li>
+<li>
+<p>创建一个新目录并进入它 <code>mkdir myApp &amp;&amp; cd myApp</code></p>
+</li>
+<li>
+<p>运行JHipster并按照屏幕上的说明操作 <code>jhipster</code></p>
+</li>
+<li>
+<p>具体参数见下图（生成单体应用）：<br>
+<img src="jhipster1.png" alt=""></p>
+<p>生成spring boot + augular5的单体架构应用</p>
+</li>
+<li>
+<p>等下载完成后输入<code>mvnw(linux下为./mvnw)</code>即可在8080提供服务<br>
+<img src="jhipster2.png" alt=""></p>
+</li>
+<li>
+<p>自带一些监控运维相关应用<br>
+<img src="jhipster3.png" alt=""></p>
+</li>
+<li>
+<p>下载<a href="https://start.jhipster.tech/jdl-studio/" target="_blank" rel="noopener">jdl-studio</a></p>
+</li>
+<li>
+<p>生成代码<code>jhipster import-jdl ./my-jdl-file.jdl --json-only</code></p>
+</li>
 </ol>
+<h4 id="在线生成"><a class="markdownIt-Anchor" href="#在线生成"></a> 在线生成</h4>
+<p>在线生成的好处就是不需要本次安装那么多软件  <a href="https://start.jhipster.tech/#/generate-application" target="_blank" rel="noopener">地址</a><br>
+<a href="!jhipster4.png"></a></p>
 
       
     </div>
@@ -645,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地生成"><span class="nav-number">1.1.</span> <span class="nav-text">本地生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线生成"><span class="nav-number">1.2.</span> <span class="nav-text">在线生成</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text"> 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地生成"><span class="nav-number">1.1.</span> <span class="nav-text"> 本地生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线生成"><span class="nav-number">1.2.</span> <span class="nav-text"> 在线生成</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -696,9 +719,9 @@
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>
+      <i class="fa fa-eye">本站总访问量</i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
+      次
     </span>
   
 </div>
