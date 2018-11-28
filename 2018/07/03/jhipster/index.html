@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster2.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster3.png">
-<meta property="og:updated_time" content="2018-07-03T06:37:14.669Z">
+<meta property="og:updated_time" content="2018-11-23T07:19:46.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jhipster初探">
 <meta name="twitter:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
@@ -461,6 +461,28 @@
 <h4 id="在线生成"><a class="markdownIt-Anchor" href="#在线生成"></a> 在线生成</h4>
 <p>在线生成的好处就是不需要本次安装那么多软件  <a href="https://start.jhipster.tech/#/generate-application" target="_blank" rel="noopener">地址</a><br>
 <a href="!jhipster4.png"></a></p>
+<h4 id="微服务"><a class="markdownIt-Anchor" href="#微服务"></a> 微服务</h4>
+<h5 id="consul-服务发现与注册"><a class="markdownIt-Anchor" href="#consul-服务发现与注册"></a> Consul 服务发现与注册</h5>
+<pre><code>jhipster 微服务注册与发现可以采用consul,网关代理可以采用Traefik
+![](consul.png)
+![](consul2.png)
+![](consul3.png)
+</code></pre>
+<h5 id="jhipster-服务发现与注册"><a class="markdownIt-Anchor" href="#jhipster-服务发现与注册"></a> jhipster 服务发现与注册</h5>
+<pre><code>1. 创建顺序
+    1. JHipster UAA server
+    1. 一个微服务
+    1. 一个 JHipster 网关
+    1. `./mvnw verify -Pprod dockerfile:build dockerfile:tag@version dockerfile:tag@commit`生成各个服务的docker镜像
+    1. 生成docker-compose管理各个服务
+
+    ![](uaa.png)
+    ![](app2.png)
+    ![](getway.png)
+    ![](docker-compose.png)
+</code></pre>
+<p>####备注</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dto A, B with mapstruct</span><br><span class="line">paginate A, C with infinite-scroll</span><br><span class="line">paginate Job with pagination</span><br><span class="line">paginate B with pager</span><br><span class="line">service A with serviceClass</span><br><span class="line">service C with serviceImpl</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -597,7 +619,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -608,7 +630,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -619,7 +641,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -668,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text"> 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地生成"><span class="nav-number">1.1.</span> <span class="nav-text"> 本地生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线生成"><span class="nav-number">1.2.</span> <span class="nav-text"> 在线生成</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text"> 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地生成"><span class="nav-number">1.1.</span> <span class="nav-text"> 本地生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线生成"><span class="nav-number">1.2.</span> <span class="nav-text"> 在线生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微服务"><span class="nav-number">1.3.</span> <span class="nav-text"> 微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#consul-服务发现与注册"><span class="nav-number">1.3.1.</span> <span class="nav-text"> Consul 服务发现与注册</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jhipster-服务发现与注册"><span class="nav-number">1.3.2.</span> <span class="nav-text"> jhipster 服务发现与注册</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

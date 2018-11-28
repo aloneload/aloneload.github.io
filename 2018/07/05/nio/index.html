@@ -86,20 +86,22 @@
 
 
 
-<meta name="description" content="Java NIO和IO的主要区别    IO NIO     面向流 面向缓冲   阻塞IO 非阻塞IO   无 选择器     Buffer的基本用法   写入数据到Buffer   调用flip()方法   从Buffer中读取数据   调用clear()方法或者compact()方法（compact()方法只会清除已经读过的数据，clear()方法会清空整个缓冲区）  1234567891">
+<meta name="description" content="I/O模型  阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。   5 种IO模型 1. 阻塞式I/O 模型（blocking i/o） 2">
 <meta name="keywords" content="java 编程语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java NIO">
 <meta property="og:url" content="http://aloneload.github.io/2018/07/05/nio/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="Java NIO和IO的主要区别    IO NIO     面向流 面向缓冲   阻塞IO 非阻塞IO   无 选择器     Buffer的基本用法   写入数据到Buffer   调用flip()方法   从Buffer中读取数据   调用clear()方法或者compact()方法（compact()方法只会清除已经读过的数据，clear()方法会清空整个缓冲区）  1234567891">
+<meta property="og:description" content="I/O模型  阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。   5 种IO模型 1. 阻塞式I/O 模型（blocking i/o） 2">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/05/nio/IOModel.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/05/nio/BIO.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/05/nio/nio1.png">
-<meta property="og:updated_time" content="2018-07-05T08:41:19.248Z">
+<meta property="og:updated_time" content="2018-09-18T01:53:18.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java NIO">
-<meta name="twitter:description" content="Java NIO和IO的主要区别    IO NIO     面向流 面向缓冲   阻塞IO 非阻塞IO   无 选择器     Buffer的基本用法   写入数据到Buffer   调用flip()方法   从Buffer中读取数据   调用clear()方法或者compact()方法（compact()方法只会清除已经读过的数据，clear()方法会清空整个缓冲区）  1234567891">
-<meta name="twitter:image" content="http://aloneload.github.io/2018/07/05/nio/nio1.png">
+<meta name="twitter:description" content="I/O模型  阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。   5 种IO模型 1. 阻塞式I/O 模型（blocking i/o） 2">
+<meta name="twitter:image" content="http://aloneload.github.io/2018/07/05/nio/IOModel.png">
 
 
 
@@ -420,7 +422,28 @@
       
 
       
-        <h2 id="java-nio和io的主要区别"><a class="markdownIt-Anchor" href="#java-nio和io的主要区别"></a> Java NIO和IO的主要区别</h2>
+        <h2 id="io模型"><a class="markdownIt-Anchor" href="#io模型"></a> I/O模型</h2>
+<ul>
+<li>阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。</li>
+<li>异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。</li>
+</ul>
+<h3 id="5-种io模型"><a class="markdownIt-Anchor" href="#5-种io模型"></a> 5 种IO模型</h3>
+<pre><code>1. 阻塞式I/O 模型（blocking i/o）
+2. 非阻塞I/O 模型（non-blocking i/o）
+3. I/O 复用 （I/O multiplexing）
+4. 信号驱动式I/O 模型（signal-dirven I/O)
+5. 异步I/O 模型（asynchronous I/O）
+</code></pre>
+<p><img src="IOModel.png" alt=""></p>
+<h2 id="线程模型"><a class="markdownIt-Anchor" href="#线程模型"></a> 线程模型</h2>
+<pre><code>1.传统阻塞I/O服务模型
+2.针对1改进方案a:基于I/O复用模型
+3.针对1改进方案b:基于线程池复用线程资源
+4.结合2和3的Reactor（Dispatch）模型
+5.常见模型主从reactor+多线程池（Nginx）
+6.异步Proactor模型
+</code></pre>
+<h2 id="java-nio和io的主要区别"><a class="markdownIt-Anchor" href="#java-nio和io的主要区别"></a> Java NIO和IO的主要区别</h2>
 <table>
 <thead>
 <tr>
@@ -443,6 +466,8 @@
 </tr>
 </tbody>
 </table>
+<h2 id="bio-常见类图"><a class="markdownIt-Anchor" href="#bio-常见类图"></a> BIO 常见类图</h2>
+<p><img src="BIO.png" alt="BIO"></p>
 <h2 id="buffer的基本用法"><a class="markdownIt-Anchor" href="#buffer的基本用法"></a> Buffer的基本用法</h2>
 <ol>
 <li>
@@ -512,7 +537,11 @@
 <h2 id="asynchronousfilechannel"><a class="markdownIt-Anchor" href="#asynchronousfilechannel"></a> AsynchronousFileChannel</h2>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">        Path path = Paths.get(<span class="string">"c:"</span>, <span class="string">"/test/test.txt"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ);</span><br><span class="line">            ByteBuffer buffer=ByteBuffer.allocate(<span class="number">100</span>);</span><br><span class="line">        <span class="comment">// ByteBuffer buffer2=ByteBuffer.allocate(2);</span></span><br><span class="line">            <span class="keyword">long</span> position=<span class="number">0</span>;</span><br><span class="line">            fileChannel.read(buffer, position, buffer, <span class="keyword">new</span> CompletionHandler&lt;Integer, ByteBuffer&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">completed</span><span class="params">(Integer result, ByteBuffer attachment)</span> </span>&#123;</span><br><span class="line">                    System.out.println(<span class="string">"result:"</span>+result);</span><br><span class="line">                    attachment.flip();</span><br><span class="line">                    <span class="keyword">byte</span>[] data=<span class="keyword">new</span> <span class="keyword">byte</span>[attachment.limit()];</span><br><span class="line">                    attachment.get(data);</span><br><span class="line">                    System.out.println(<span class="string">"sdf"</span>+<span class="keyword">new</span> String(data));</span><br><span class="line">                    attachment.clear();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failed</span><span class="params">(Throwable exc, ByteBuffer attachment)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <pre><code>## 参考
-[java NIO](http://tutorials.jenkov.com/java-nio/files.html)</code></pre>
+</code></pre>
+<p><a href="https://mp.weixin.qq.com/s/xmSn9Xz6MiFb2s_0J7iXwQ" target="_blank" rel="noopener">I/O网络模型</a><br>
+<a href="https://docs.oracle.com/javase/tutorial/essential/io/index.html" target="_blank" rel="noopener">I/O api</a><br>
+<a href="http://tutorials.jenkov.com/java-nio/index.html" target="_blank" rel="noopener">java NIO tutorials</a><br>
+<a href="https://mp.weixin.qq.com/s/IqnpDX4BE3aQUnx9K6lXHA" target="_blank" rel="noopener">有人要将“高并发”拉下“神坛”!</a></p>
 
       
     </div>
@@ -552,6 +581,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/19/oracle/" rel="prev" title="oracle笔记">
+                oracle笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -645,7 +678,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -656,7 +689,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -667,7 +700,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -716,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-nio和io的主要区别"><span class="nav-number">1.</span> <span class="nav-text"> Java NIO和IO的主要区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#buffer的基本用法"><span class="nav-number">2.</span> <span class="nav-text"> Buffer的基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filechannel"><span class="nav-number">3.</span> <span class="nav-text"> FileChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socketchannel"><span class="nav-number">4.</span> <span class="nav-text"> SocketChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selector"><span class="nav-number">5.</span> <span class="nav-text"> Selector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#asynchronousfilechannel"><span class="nav-number">6.</span> <span class="nav-text"> AsynchronousFileChannel</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#io模型"><span class="nav-number">1.</span> <span class="nav-text"> I/O模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-种io模型"><span class="nav-number">1.1.</span> <span class="nav-text"> 5 种IO模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程模型"><span class="nav-number">2.</span> <span class="nav-text"> 线程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-nio和io的主要区别"><span class="nav-number">3.</span> <span class="nav-text"> Java NIO和IO的主要区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bio-常见类图"><span class="nav-number">4.</span> <span class="nav-text"> BIO 常见类图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#buffer的基本用法"><span class="nav-number">5.</span> <span class="nav-text"> Buffer的基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filechannel"><span class="nav-number">6.</span> <span class="nav-text"> FileChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socketchannel"><span class="nav-number">7.</span> <span class="nav-text"> SocketChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selector"><span class="nav-number">8.</span> <span class="nav-text"> Selector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#asynchronousfilechannel"><span class="nav-number">9.</span> <span class="nav-text"> AsynchronousFileChannel</span></a></li></ol></div>
             
 
           </div>

@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://aloneload.github.io/2018/05/07/git/git.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/05/07/git/flow.png">
-<meta property="og:updated_time" content="2018-05-29T09:42:05.808Z">
+<meta property="og:updated_time" content="2018-09-05T10:00:33.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git命令速记">
 <meta name="twitter:description" content="git笔记    通过点击页面右上角的’Fork’按钮来分叉[项目存储库]   从你的GitHub账户克隆scikit-learn repo的分支到你的本地磁盘 12$ git clone git@github.com：YourLogin / scikit-learn.git$ cd scikit-learn   创建一个feature分支来保存你的发展变化 1git checkout -b m">
@@ -542,6 +542,12 @@
 <li>完成hotfix</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge --no-ff hotfix-1.0</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">git checkout develop</span><br><span class="line">git merge --no-ff hotfix-1.0</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">git branch -d hotfix-1.0</span><br><span class="line">git tag -a v1.0 master</span><br><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+<ul>
+<li>合并<br>
+git merge --squash dev<br>
+git commit -m “”</li>
+</ul>
+
       
     </div>
     
@@ -677,7 +683,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -688,7 +694,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -699,7 +705,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
