@@ -97,7 +97,14 @@
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster2.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster3.png">
-<meta property="og:updated_time" content="2018-11-23T07:19:46.949Z">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/consul.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/consul2.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/consul3.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/uaa.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/app2.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/getway.png">
+<meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/docker-compose.png">
+<meta property="og:updated_time" content="2018-12-05T02:19:27.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jhipster初探">
 <meta name="twitter:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
@@ -464,10 +471,10 @@
 <h4 id="微服务"><a class="markdownIt-Anchor" href="#微服务"></a> 微服务</h4>
 <h5 id="consul-服务发现与注册"><a class="markdownIt-Anchor" href="#consul-服务发现与注册"></a> Consul 服务发现与注册</h5>
 <pre><code>jhipster 微服务注册与发现可以采用consul,网关代理可以采用Traefik
-![](consul.png)
-![](consul2.png)
-![](consul3.png)
 </code></pre>
+<p><img src="consul.png" alt=""><br>
+<img src="consul2.png" alt=""><br>
+<img src="consul3.png" alt=""></p>
 <h5 id="jhipster-服务发现与注册"><a class="markdownIt-Anchor" href="#jhipster-服务发现与注册"></a> jhipster 服务发现与注册</h5>
 <pre><code>1. 创建顺序
     1. JHipster UAA server
@@ -475,12 +482,11 @@
     1. 一个 JHipster 网关
     1. `./mvnw verify -Pprod dockerfile:build dockerfile:tag@version dockerfile:tag@commit`生成各个服务的docker镜像
     1. 生成docker-compose管理各个服务
-
-    ![](uaa.png)
-    ![](app2.png)
-    ![](getway.png)
-    ![](docker-compose.png)
 </code></pre>
+<p><img src="uaa.png" alt=""><br>
+<img src="app2.png" alt=""><br>
+<img src="getway.png" alt=""><br>
+<img src="docker-compose.png" alt=""></p>
 <p>####备注</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dto A, B with mapstruct</span><br><span class="line">paginate A, C with infinite-scroll</span><br><span class="line">paginate Job with pagination</span><br><span class="line">paginate B with pager</span><br><span class="line">service A with serviceClass</span><br><span class="line">service C with serviceImpl</span><br></pre></td></tr></table></figure>
 
@@ -619,7 +625,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

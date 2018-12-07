@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql]]></title>
+    <url>%2F2018%2F12%2F06%2Fmysql%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[oauth2]]></title>
+    <url>%2F2018%2F11%2F29%2Foauth2%2F</url>
+    <content type="text"><![CDATA[备注 /oauth/token 密码授权请求access_token /oauth/token_key 获取public_key 用于验证jwt的无篡改性 修改不支持swagger-ui ,暂时关闭csrf 1http.csrf().disable(); 解决Jhipster创建实体后，Gateway数据菜单为空 微服务创建完成后，打开网关服务，执行yo jhipster:entity NAME 选择Do you want to generate this entity from an existing microservice? Y]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[activiti实战]]></title>
     <url>%2F2018%2F11%2F28%2Factiviti%2F</url>
     <content type="text"><![CDATA[activiti能干啥 1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化 核心知识点 几大接口 1. RepositoryService，提供一系列管理流程部署和流程定义的API 1. RuntimeService，在流程运行时对流程实例进行管理与控制 1. TaskService，对流程任务进行管理，例如任务提醒、任务完成和创建任务等 1. HistoryService,对流程的历史数据进行操作，包括查询、删除这些历史数据 表结构 1. act_hi_ 历史数据表，hi是history的缩写，对应HistoryService接口 1. act_re_ 流程存储表，re是repository的缩写，对应RepositoryService接口，存储流程部署和流程定义等静态数据 1. act_ru_ 运行时数据表，ru是runtime的缩写，对应RuntimeService接口和TaskService接口，存储流程实例和用户任务等动态数据 代码实战 [github代码]() 1. spring-boot maven 支持 123456&lt;!-- https://mvnrepository.com/artifact/org.activiti/activiti-spring --&gt; &lt;dependency&gt; &lt;groupId&gt;org.activiti&lt;/groupId&gt; &lt;artifactId&gt;activiti-spring&lt;/artifactId&gt; &lt;version&gt;6.0.0&lt;/version&gt; &lt;/dependency&gt; 2. 配置关键代码 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647@Configurationpublic class ActivitiConfig &#123; @Bean public ProcessEngine processEngine(DataSourceTransactionManager transactionManager, DataSource dataSource) throws IOException &#123; SpringProcessEngineConfiguration configuration = new SpringProcessEngineConfiguration(); //自动部署已有的流程文件 Resource[] resources = new PathMatchingResourcePatternResolver().getResources(ResourceLoader.CLASSPATH_URL_PREFIX + &quot;processes/*.bpmn&quot;); configuration.setTransactionManager(transactionManager); configuration.setDataSource(dataSource); configuration.setDatabaseSchemaUpdate(&quot;true&quot;); configuration.setDeploymentResources(resources); configuration.setDbIdentityUsed(false); return configuration.buildProcessEngine(); &#125; @Bean public RepositoryService repositoryService(ProcessEngine processEngine) &#123; return processEngine.getRepositoryService(); &#125; @Bean public RuntimeService runtimeService(ProcessEngine processEngine) &#123; return processEngine.getRuntimeService(); &#125; @Bean public TaskService taskService(ProcessEngine processEngine) &#123; return processEngine.getTaskService(); &#125; @Bean public HistoryService historyService(ProcessEngine processEngine) &#123; return processEngine.getHistoryService(); &#125; @Bean public ManagementService managementService(ProcessEngine processEngine) &#123; return processEngine.getManagementService(); &#125; @Bean public IdentityService identityService(ProcessEngine processEngine) &#123; return processEngine.getIdentityService(); &#125;&#125; 3. 流程文件定义，路径resources/processes/*.bpmn 4. application.properties属性设置 1234#保存历史数据级别设置为full最高级别，便于历史数据的追溯spring.activiti.history-level=full# 自动部署验证设置:true-开启（默认）、false-关闭spring.activiti.check-process-definitions=true 5. 代码测试 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849//发布流程@Testpublic void startFlow() &#123; Map&lt;String, Object&gt; variables = new HashMap&lt;String, Object&gt;(); variables.put(&quot;applyId&quot;, 1); variables.put(&quot;masterId&quot;, 2); variables.put(&quot;archivorId&quot;, 3); variables.put(&quot;archiveMasterId&quot;, 4); variables.put(&quot;obligateId&quot;, 5); variables.put(&quot;next&quot;, true); //参数businessKey, variables为可选参数 ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(&quot;integral&quot;, variables); System.out.println(&quot;id:&quot; + processInstance.getId() + &quot;,activitiId:&quot; + processInstance.getActivityId());//22501 Task task1 = taskService.createTaskQuery().taskAssignee(String.valueOf(1)).list().get(0); Map&lt;String, Object&gt; variables1 = new HashMap&lt;&gt;(); variables1.put(&quot;pass1&quot;, true); variables1.put(&quot;type&quot;, 1); taskService.setVariableLocal(task1.getId(), &quot;applyId&quot;, 1); taskService.complete(task1.getId(), variables1); //部长 Task task2 = taskService.createTaskQuery().taskAssignee(String.valueOf(2)).list().get(0); taskService.setAssignee(task2.getId(), String.valueOf(6)); Task task21 = taskService.createTaskQuery().taskAssignee(String.valueOf(6)).list().get(0); Map&lt;String, Object&gt; variables2 = new HashMap&lt;&gt;(); variables2.put(&quot;pass2&quot;, true); taskService.complete(task21.getId(), variables2); //归口 Task task3 = taskService.createTaskQuery().taskAssignee(String.valueOf(3)).list().get(0); Map&lt;String, Object&gt; variables3 = new HashMap&lt;&gt;(); variables3.put(&quot;pass3&quot;, true); taskService.complete(task3.getId(), variables3); //归口部长 Task task4 = taskService.createTaskQuery().taskAssignee(String.valueOf(4)).list().get(0); Map&lt;String, Object&gt; variables4 = new HashMap&lt;&gt;(); variables4.put(&quot;pass4&quot;, true); variables4.put(&quot;price&quot;, 10); taskService.complete(task4.getId(), variables4); // Task task5 = taskService.createTaskQuery().taskAssignee(String.valueOf(5)).list().get(0); Map&lt;String, Object&gt; variables5 = new HashMap&lt;&gt;(); variables5.put(&quot;pass6&quot;, true); taskService.complete(task5.getId(), variables5); historyTaskList(processInstance.getId());&#125; 6. 监听类设置 12345678910public class ObligateAuditListener implements TaskListener &#123;@Overridepublic void notify(DelegateTask delegateTask) &#123; if (delegateTask.getEventName().equals(&quot;create&quot;)) &#123; &#125; if (delegateTask.getEventName().equals(&quot;complete&quot;)) &#123; &#125;&#125; 参考 官网 Activiti6简明教程 详细文档]]></content>
@@ -55,7 +65,7 @@
   <entry>
     <title><![CDATA[jhipster初探]]></title>
     <url>%2F2018%2F07%2F03%2Fjhipster%2F</url>
-    <content type="text"><![CDATA[安装 本地生成 官网介绍 先决：安装 Java， Git， Node.js， Yarn和 Yeoman 安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;&amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）： 生成spring boot + augular5的单体架构应用 等下载完成后输入mvnw(linux下为./mvnw)即可在8080提供服务 自带一些监控运维相关应用 下载jdl-studio 生成代码jhipster import-jdl ./my-jdl-file.jdl --json-only 在线生成 在线生成的好处就是不需要本次安装那么多软件 地址 微服务 Consul 服务发现与注册 jhipster 微服务注册与发现可以采用consul,网关代理可以采用Traefik ![](consul.png) ![](consul2.png) ![](consul3.png) jhipster 服务发现与注册 1. 创建顺序 1. JHipster UAA server 1. 一个微服务 1. 一个 JHipster 网关 1. `./mvnw verify -Pprod dockerfile:build dockerfile:tag@version dockerfile:tag@commit`生成各个服务的docker镜像 1. 生成docker-compose管理各个服务 ![](uaa.png) ![](app2.png) ![](getway.png) ![](docker-compose.png) ####备注 123456dto A, B with mapstructpaginate A, C with infinite-scrollpaginate Job with paginationpaginate B with pagerservice A with serviceClassservice C with serviceImpl]]></content>
+    <content type="text"><![CDATA[安装 本地生成 官网介绍 先决：安装 Java， Git， Node.js， Yarn和 Yeoman 安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;&amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）： 生成spring boot + augular5的单体架构应用 等下载完成后输入mvnw(linux下为./mvnw)即可在8080提供服务 自带一些监控运维相关应用 下载jdl-studio 生成代码jhipster import-jdl ./my-jdl-file.jdl --json-only 在线生成 在线生成的好处就是不需要本次安装那么多软件 地址 微服务 Consul 服务发现与注册 jhipster 微服务注册与发现可以采用consul,网关代理可以采用Traefik jhipster 服务发现与注册 1. 创建顺序 1. JHipster UAA server 1. 一个微服务 1. 一个 JHipster 网关 1. `./mvnw verify -Pprod dockerfile:build dockerfile:tag@version dockerfile:tag@commit`生成各个服务的docker镜像 1. 生成docker-compose管理各个服务 ####备注 123456dto A, B with mapstructpaginate A, C with infinite-scrollpaginate Job with paginationpaginate B with pagerservice A with serviceClassservice C with serviceImpl]]></content>
       <categories>
         <category>编程语言</category>
       </categories>
@@ -241,8 +251,8 @@
         <category>编程语言</category>
       </categories>
       <tags>
-        <tag>spark</tag>
         <tag>大数据</tag>
+        <tag>spark</tag>
       </tags>
   </entry>
   <entry>
@@ -265,8 +275,8 @@
         <category>编程语言</category>
       </categories>
       <tags>
-        <tag>lambda</tag>
         <tag>java</tag>
+        <tag>lambda</tag>
       </tags>
   </entry>
   <entry>
@@ -277,8 +287,8 @@
         <category>编程语言</category>
       </categories>
       <tags>
-        <tag>函数式编程</tag>
         <tag>lambda</tag>
+        <tag>函数式编程</tag>
       </tags>
   </entry>
   <entry>
@@ -289,8 +299,8 @@
         <category>编程语言</category>
       </categories>
       <tags>
-        <tag>函数式编程</tag>
         <tag>lambda</tag>
+        <tag>函数式编程</tag>
       </tags>
   </entry>
   <entry>
