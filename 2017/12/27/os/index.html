@@ -86,18 +86,20 @@
 
 
 
-<meta name="description" content="[toc]  进程管理  进程与线程   进程概念：就是一个具有独立功能的程序的一次动态执行。   进程的状态与转换： 进程的三个基本状态是就绪、执行、阻塞。就绪态到执行态的转换只需要cpu调度即可，阻塞态只能转为就绪态不能直接转为执行态。执行态如果时间片用完就转成了就绪态如果等待某事件发生就转成阻塞态。如果在这三个基本状态下进程发生挂起行为则从就绪态转为挂起或称静态就绪，从执行态转也转为静止就绪">
+<meta name="description" content="进程管理  进程与线程   进程概念：就是一个具有独立功能的程序的一次动态执行。   进程的状态与转换： 进程的三个基本状态是就绪、执行、阻塞。就绪态到执行态的转换只需要cpu调度即可，阻塞态只能转为就绪态不能直接转为执行态。执行态如果时间片用完就转成了就绪态如果等待某事件发生就转成阻塞态。如果在这三个基本状态下进程发生挂起行为则从就绪态转为挂起或称静态就绪，从执行态转也转为静止就绪，从阻塞态">
 <meta name="keywords" content="计算机组成原理和操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理和操作系统">
 <meta property="og:url" content="http://aloneload.github.io/2017/12/27/os/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="[toc]  进程管理  进程与线程   进程概念：就是一个具有独立功能的程序的一次动态执行。   进程的状态与转换： 进程的三个基本状态是就绪、执行、阻塞。就绪态到执行态的转换只需要cpu调度即可，阻塞态只能转为就绪态不能直接转为执行态。执行态如果时间片用完就转成了就绪态如果等待某事件发生就转成阻塞态。如果在这三个基本状态下进程发生挂起行为则从就绪态转为挂起或称静态就绪，从执行态转也转为静止就绪">
+<meta property="og:description" content="进程管理  进程与线程   进程概念：就是一个具有独立功能的程序的一次动态执行。   进程的状态与转换： 进程的三个基本状态是就绪、执行、阻塞。就绪态到执行态的转换只需要cpu调度即可，阻塞态只能转为就绪态不能直接转为执行态。执行态如果时间片用完就转成了就绪态如果等待某事件发生就转成阻塞态。如果在这三个基本状态下进程发生挂起行为则从就绪态转为挂起或称静态就绪，从执行态转也转为静止就绪，从阻塞态">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-27T08:14:39.626Z">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545908963655&di=bdde994bd006da2f0d790b8ce6f9f6b7&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F95eef01f3a292df529765ae7b7315c6035a8738f.jpg">
+<meta property="og:updated_time" content="2018-12-27T08:35:02.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机组成原理和操作系统">
-<meta name="twitter:description" content="[toc]  进程管理  进程与线程   进程概念：就是一个具有独立功能的程序的一次动态执行。   进程的状态与转换： 进程的三个基本状态是就绪、执行、阻塞。就绪态到执行态的转换只需要cpu调度即可，阻塞态只能转为就绪态不能直接转为执行态。执行态如果时间片用完就转成了就绪态如果等待某事件发生就转成阻塞态。如果在这三个基本状态下进程发生挂起行为则从就绪态转为挂起或称静态就绪，从执行态转也转为静止就绪">
+<meta name="twitter:description" content="进程管理  进程与线程   进程概念：就是一个具有独立功能的程序的一次动态执行。   进程的状态与转换： 进程的三个基本状态是就绪、执行、阻塞。就绪态到执行态的转换只需要cpu调度即可，阻塞态只能转为就绪态不能直接转为执行态。执行态如果时间片用完就转成了就绪态如果等待某事件发生就转成阻塞态。如果在这三个基本状态下进程发生挂起行为则从就绪态转为挂起或称静态就绪，从执行态转也转为静止就绪，从阻塞态">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1545908963655&di=bdde994bd006da2f0d790b8ce6f9f6b7&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F95eef01f3a292df529765ae7b7315c6035a8738f.jpg">
 
 
 
@@ -385,7 +387,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/12/27/os/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/12/27/os/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/27/os/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -418,7 +420,7 @@
       
 
       
-        <p>[toc]</p>
+        <p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1545908963655&amp;di=bdde994bd006da2f0d790b8ce6f9f6b7&amp;imgtype=0&amp;src=http%3A%2F%2Fhiphotos.baidu.com%2Ffeed%2Fpic%2Fitem%2F95eef01f3a292df529765ae7b7315c6035a8738f.jpg" alt=""></p>
 <h1 id="进程管理"><a class="markdownIt-Anchor" href="#进程管理"></a> 进程管理</h1>
 <h2 id="进程与线程"><a class="markdownIt-Anchor" href="#进程与线程"></a> 进程与线程</h2>
 <ol>
@@ -1229,11 +1231,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
     </div>
-
   
 
 
@@ -1286,7 +1284,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1308,7 +1306,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1377,7 +1375,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1557,50 +1555,30 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-      <style>
-        a.gitment-editor-footer-tip { display: none; }
-        .gitment-container.gitment-footer-container { display: none; }
-      </style>
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname,
-            owner: 'aloneload',
-            repo: 'blog',
-            
-            lang: "zh-CN" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'bc0757ab65b10582a3e2e37e33cdcf1e024ae027',
-            
-                client_id: '5939abb214d7d88700bd'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GOrnmG9CIPivAyEvEXBFye3k-gzGzoHsz',
+        appKey: 'V8LrtODcECPXsYr0wlWDBtj4',
+        placeholder: '说点什么吧',
+        avatar:'/images/touxiang.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
