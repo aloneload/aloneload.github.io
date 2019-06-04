@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="I/O模型  阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。   5 种IO模型 1. 阻塞式I/O 模型（blocking i/o） 2">
+<meta name="description" content="I/O模型 阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。5 种IO模型 阻塞式I/O 模型（blocking i/o） 非阻塞I/O 模型">
 <meta name="keywords" content="java 编程语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java NIO">
 <meta property="og:url" content="http://aloneload.github.io/2018/07/05/nio/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="I/O模型  阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。   5 种IO模型 1. 阻塞式I/O 模型（blocking i/o） 2">
+<meta property="og:description" content="I/O模型 阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。5 种IO模型 阻塞式I/O 模型（blocking i/o） 非阻塞I/O 模型">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/05/nio/IOModel.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/05/nio/BIO.png">
@@ -100,7 +100,7 @@
 <meta property="og:updated_time" content="2018-09-18T01:53:18.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java NIO">
-<meta name="twitter:description" content="I/O模型  阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。   5 种IO模型 1. 阻塞式I/O 模型（blocking i/o） 2">
+<meta name="twitter:description" content="I/O模型 阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。 异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。5 种IO模型 阻塞式I/O 模型（blocking i/o） 非阻塞I/O 模型">
 <meta name="twitter:image" content="http://aloneload.github.io/2018/07/05/nio/IOModel.png">
 
 
@@ -422,28 +422,25 @@
       
 
       
-        <h2 id="io模型"><a class="markdownIt-Anchor" href="#io模型"></a> I/O模型</h2>
-<ul>
+        <h2 id="I-O模型"><a href="#I-O模型" class="headerlink" title="I/O模型"></a>I/O模型</h2><ul>
 <li>阻塞与非阻塞：阻塞调用是指调用结果返回之前，当前线程被挂起。调用线程只有在得到结果之后才会继续。非阻塞是指调用方在未得到被调用方的结果，并不会发生阻塞。</li>
-<li>异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。</li>
+<li>异步同步：同步处理是指被调用方得到最终结果之后才返回给调用方；异步处理是指被调用方先返回应答，然后再计算调用结果，计算完最终结果后再通知并返回给调用方。<h3 id="5-种IO模型"><a href="#5-种IO模型" class="headerlink" title="5 种IO模型"></a>5 种IO模型</h3><ol>
+<li>阻塞式I/O 模型（blocking i/o）</li>
+<li>非阻塞I/O 模型（non-blocking i/o）</li>
+<li>I/O 复用 （I/O multiplexing）</li>
+<li>信号驱动式I/O 模型（signal-dirven I/O)</li>
+<li>异步I/O 模型（asynchronous I/O）</li>
+</ol>
+</li>
 </ul>
-<h3 id="5-种io模型"><a class="markdownIt-Anchor" href="#5-种io模型"></a> 5 种IO模型</h3>
-<pre><code>1. 阻塞式I/O 模型（blocking i/o）
-2. 非阻塞I/O 模型（non-blocking i/o）
-3. I/O 复用 （I/O multiplexing）
-4. 信号驱动式I/O 模型（signal-dirven I/O)
-5. 异步I/O 模型（asynchronous I/O）
-</code></pre>
 <p><img src="IOModel.png" alt=""></p>
-<h2 id="线程模型"><a class="markdownIt-Anchor" href="#线程模型"></a> 线程模型</h2>
-<pre><code>1.传统阻塞I/O服务模型
+<h2 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h2><pre><code>1.传统阻塞I/O服务模型
 2.针对1改进方案a:基于I/O复用模型
 3.针对1改进方案b:基于线程池复用线程资源
 4.结合2和3的Reactor（Dispatch）模型
 5.常见模型主从reactor+多线程池（Nginx）
 6.异步Proactor模型
-</code></pre>
-<h2 id="java-nio和io的主要区别"><a class="markdownIt-Anchor" href="#java-nio和io的主要区别"></a> Java NIO和IO的主要区别</h2>
+</code></pre><h2 id="Java-NIO和IO的主要区别"><a href="#Java-NIO和IO的主要区别" class="headerlink" title="Java NIO和IO的主要区别"></a>Java NIO和IO的主要区别</h2><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -466,62 +463,41 @@
 </tr>
 </tbody>
 </table>
-<h2 id="bio-常见类图"><a class="markdownIt-Anchor" href="#bio-常见类图"></a> BIO 常见类图</h2>
-<p><img src="BIO.png" alt="BIO"></p>
-<h2 id="buffer的基本用法"><a class="markdownIt-Anchor" href="#buffer的基本用法"></a> Buffer的基本用法</h2>
-<ol>
-<li>
-<p>写入数据到Buffer</p>
-</li>
-<li>
-<p>调用flip()方法</p>
-</li>
-<li>
-<p>从Buffer中读取数据</p>
-</li>
-<li>
-<p>调用clear()方法或者compact()方法（compact()方法只会清除已经读过的数据，clear()方法会清空整个缓冲区）</p>
+</div>
+<h2 id="BIO-常见类图"><a href="#BIO-常见类图" class="headerlink" title="BIO 常见类图"></a>BIO 常见类图</h2><p><img src="BIO.png" alt="BIO"></p>
+<h2 id="Buffer的基本用法"><a href="#Buffer的基本用法" class="headerlink" title="Buffer的基本用法"></a>Buffer的基本用法</h2><ol>
+<li>写入数据到Buffer</li>
+<li>调用flip()方法</li>
+<li>从Buffer中读取数据</li>
+<li><p>调用clear()方法或者compact()方法（compact()方法只会清除已经读过的数据，clear()方法会清空整个缓冲区）</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileChannelDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> (RandomAccessFile rw = <span class="keyword">new</span> RandomAccessFile(<span class="string">"c:/test/test.txt"</span>, <span class="string">"rw"</span>)) &#123;</span><br><span class="line">            FileChannel channel = rw.getChannel();</span><br><span class="line">            ByteBuffer byteBuffer = ByteBuffer.allocate(<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">int</span> read = channel.read(byteBuffer);</span><br><span class="line">            <span class="keyword">while</span> (read!=-<span class="number">1</span>)&#123;</span><br><span class="line">                System.out.println(read);</span><br><span class="line">                byteBuffer.flip();</span><br><span class="line">                <span class="keyword">while</span> (byteBuffer.hasRemaining())&#123;</span><br><span class="line">                    System.out.println((<span class="keyword">char</span>) byteBuffer.get());</span><br><span class="line">                &#125;</span><br><span class="line">                byteBuffer.clear();</span><br><span class="line">                read=channel.read(byteBuffer);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Buffer的capacity,position和limit<br>
-<img src="nio1.png" alt=""></p>
-<p>三种实现方式</p>
+<p> Buffer的capacity,position和limit<br> <img src="nio1.png" alt=""></p>
+<p> 三种实现方式</p>
 <ol>
 <li>HeapByteBuffer</li>
 <li>DirectByteBuffer</li>
-<li>MappedByteBuffer</li>
+<li>MappedByteBuffer<h2 id="FileChannel"><a href="#FileChannel" class="headerlink" title="FileChannel"></a>FileChannel</h2></li>
 </ol>
 </li>
 </ol>
-<h2 id="filechannel"><a class="markdownIt-Anchor" href="#filechannel"></a> FileChannel</h2>
 <ul>
-<li>
-<p>transferFrom()</p>
-</li>
-<li>
-<p>transferTo()</p>
+<li>transferFrom()</li>
+<li><p>transferTo()</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (RandomAccessFile rw = <span class="keyword">new</span> RandomAccessFile(<span class="string">"c:/test/test.txt"</span>, <span class="string">"rw"</span>);</span><br><span class="line">        RandomAccessFile rw1 = <span class="keyword">new</span> RandomAccessFile(<span class="string">"c:test/test1.txt"</span>, <span class="string">"rw"</span>)) &#123;</span><br><span class="line">       FileChannel from = rw.getChannel();</span><br><span class="line">       FileChannel to = rw1.getChannel();</span><br><span class="line">       <span class="keyword">long</span> position = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">long</span> count = from.size();</span><br><span class="line"></span><br><span class="line">       from.transferTo(position, count, to);</span><br><span class="line">       to.transferFrom(from,position, count);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>强制写进磁盘 <code>channel.force(true);</code></p>
-</li>
-</ul>
-<h2 id="socketchannel"><a class="markdownIt-Anchor" href="#socketchannel"></a> SocketChannel</h2>
-<ul>
+<li><p>强制写进磁盘 <code>channel.force(true);</code></p>
+<h2 id="SocketChannel"><a href="#SocketChannel" class="headerlink" title="SocketChannel"></a>SocketChannel</h2></li>
 <li>打开一个SocketChannel并连接到互联网上的某台服务器</li>
-<li>一个新连接到达ServerSocketChannel时，会创建一个SocketChannel</li>
-</ul>
-<h2 id="selector"><a class="markdownIt-Anchor" href="#selector"></a> Selector</h2>
-<ul>
-<li>
-<p>创建</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Selector selector = Selector.open();</span><br></pre></td></tr></table></figure>
+<li><p>一个新连接到达ServerSocketChannel时，会创建一个SocketChannel</p>
+<h2 id="Selector"><a href="#Selector" class="headerlink" title="Selector"></a>Selector</h2><ul>
+<li>创建<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Selector selector = Selector.open();</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>注册</p>
+</ul>
+</li>
+<li><p>注册</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">channel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line"> SelectionKey key = channel.register(selector,</span><br><span class="line">Selectionkey.OP_READ);</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>监听事件</p>
+<li><p>监听事件</p>
 <ol>
 <li>Connect(SelectionKey.OP_CONNECT)</li>
 <li>Accept(SelectionKey.OP_ACCEPT)</li>
@@ -529,19 +505,12 @@
 <li>Write(SelectionKey.OP_WRITE)</li>
 </ol>
 </li>
-<li>
-<p>SelectionKey</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Selector selector = Selector.open();</span><br><span class="line">   channel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">   SelectionKey key =channel.register(selector,SelectionKey.OP_READ);</span><br><span class="line">   <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">       <span class="keyword">int</span> ready = selector.select();</span><br><span class="line">       <span class="keyword">if</span> (ready==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">       <span class="comment">//一旦调用了select()方法，并且返回值表明有一个或更多个通道就绪了，然后可以通过调用selector的selectedKeys()方法，访问“已选择键集（selected key set）”中的就绪通道</span></span><br><span class="line">       Set&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys();</span><br><span class="line">       Iterator&lt;SelectionKey&gt; iterator = selectionKeys.iterator();</span><br><span class="line">       <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">           SelectionKey key1 = iterator.next();</span><br><span class="line">           <span class="keyword">if</span> (key.isAcceptable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key.isConnectable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key.isReadable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key.isWritable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//。必须在处理完通道时自己移除。下次该通道变成就绪时，Selector会再次将其放入已选择键集中。</span></span><br><span class="line">           iterator.remove();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<li>SelectionKey  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Selector selector = Selector.open();</span><br><span class="line">   channel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">   SelectionKey key =channel.register(selector,SelectionKey.OP_READ);</span><br><span class="line">   <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</span><br><span class="line">       <span class="keyword">int</span> ready = selector.select();</span><br><span class="line">       <span class="keyword">if</span> (ready==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">       <span class="comment">//一旦调用了select()方法，并且返回值表明有一个或更多个通道就绪了，然后可以通过调用selector的selectedKeys()方法，访问“已选择键集（selected key set）”中的就绪通道</span></span><br><span class="line">       Set&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys();</span><br><span class="line">       Iterator&lt;SelectionKey&gt; iterator = selectionKeys.iterator();</span><br><span class="line">       <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">           SelectionKey key1 = iterator.next();</span><br><span class="line">           <span class="keyword">if</span> (key.isAcceptable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key.isConnectable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key.isReadable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;<span class="keyword">else</span> <span class="keyword">if</span> (key.isWritable())&#123;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//。必须在处理完通道时自己移除。下次该通道变成就绪时，Selector会再次将其放入已选择键集中。</span></span><br><span class="line">           iterator.remove();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="asynchronousfilechannel"><a class="markdownIt-Anchor" href="#asynchronousfilechannel"></a> AsynchronousFileChannel</h2>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">        Path path = Paths.get(<span class="string">"c:"</span>, <span class="string">"/test/test.txt"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ);</span><br><span class="line">            ByteBuffer buffer=ByteBuffer.allocate(<span class="number">100</span>);</span><br><span class="line">        <span class="comment">// ByteBuffer buffer2=ByteBuffer.allocate(2);</span></span><br><span class="line">            <span class="keyword">long</span> position=<span class="number">0</span>;</span><br><span class="line">            fileChannel.read(buffer, position, buffer, <span class="keyword">new</span> CompletionHandler&lt;Integer, ByteBuffer&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">completed</span><span class="params">(Integer result, ByteBuffer attachment)</span> </span>&#123;</span><br><span class="line">                    System.out.println(<span class="string">"result:"</span>+result);</span><br><span class="line">                    attachment.flip();</span><br><span class="line">                    <span class="keyword">byte</span>[] data=<span class="keyword">new</span> <span class="keyword">byte</span>[attachment.limit()];</span><br><span class="line">                    attachment.get(data);</span><br><span class="line">                    System.out.println(<span class="string">"sdf"</span>+<span class="keyword">new</span> String(data));</span><br><span class="line">                    attachment.clear();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failed</span><span class="params">(Throwable exc, ByteBuffer attachment)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AsynchronousFileChannel"><a href="#AsynchronousFileChannel" class="headerlink" title="AsynchronousFileChannel"></a>AsynchronousFileChannel</h2> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">        Path path = Paths.get(<span class="string">"c:"</span>, <span class="string">"/test/test.txt"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path, StandardOpenOption.READ);</span><br><span class="line">            ByteBuffer buffer=ByteBuffer.allocate(<span class="number">100</span>);</span><br><span class="line">        <span class="comment">// ByteBuffer buffer2=ByteBuffer.allocate(2);</span></span><br><span class="line">            <span class="keyword">long</span> position=<span class="number">0</span>;</span><br><span class="line">            fileChannel.read(buffer, position, buffer, <span class="keyword">new</span> CompletionHandler&lt;Integer, ByteBuffer&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">completed</span><span class="params">(Integer result, ByteBuffer attachment)</span> </span>&#123;</span><br><span class="line">                    System.out.println(<span class="string">"result:"</span>+result);</span><br><span class="line">                    attachment.flip();</span><br><span class="line">                    <span class="keyword">byte</span>[] data=<span class="keyword">new</span> <span class="keyword">byte</span>[attachment.limit()];</span><br><span class="line">                    attachment.get(data);</span><br><span class="line">                    System.out.println(<span class="string">"sdf"</span>+<span class="keyword">new</span> String(data));</span><br><span class="line">                    attachment.clear();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failed</span><span class="params">(Throwable exc, ByteBuffer attachment)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <pre><code>## 参考
-</code></pre>
-<p><a href="https://mp.weixin.qq.com/s/xmSn9Xz6MiFb2s_0J7iXwQ" target="_blank" rel="noopener">I/O网络模型</a><br>
-<a href="https://docs.oracle.com/javase/tutorial/essential/io/index.html" target="_blank" rel="noopener">I/O api</a><br>
-<a href="http://tutorials.jenkov.com/java-nio/index.html" target="_blank" rel="noopener">java NIO tutorials</a><br>
-<a href="https://mp.weixin.qq.com/s/IqnpDX4BE3aQUnx9K6lXHA" target="_blank" rel="noopener">有人要将“高并发”拉下“神坛”!</a></p>
+</code></pre><p><a href="https://mp.weixin.qq.com/s/xmSn9Xz6MiFb2s_0J7iXwQ" target="_blank" rel="noopener">I/O网络模型</a><br><a href="https://docs.oracle.com/javase/tutorial/essential/io/index.html" target="_blank" rel="noopener">I/O api</a><br><a href="http://tutorials.jenkov.com/java-nio/index.html" target="_blank" rel="noopener">java NIO tutorials</a><br><a href="https://mp.weixin.qq.com/s/IqnpDX4BE3aQUnx9K6lXHA" target="_blank" rel="noopener">有人要将“高并发”拉下“神坛”!</a></p>
 
       
     </div>
@@ -745,7 +714,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#io模型"><span class="nav-number">1.</span> <span class="nav-text"> I/O模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-种io模型"><span class="nav-number">1.1.</span> <span class="nav-text"> 5 种IO模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程模型"><span class="nav-number">2.</span> <span class="nav-text"> 线程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-nio和io的主要区别"><span class="nav-number">3.</span> <span class="nav-text"> Java NIO和IO的主要区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bio-常见类图"><span class="nav-number">4.</span> <span class="nav-text"> BIO 常见类图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#buffer的基本用法"><span class="nav-number">5.</span> <span class="nav-text"> Buffer的基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filechannel"><span class="nav-number">6.</span> <span class="nav-text"> FileChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socketchannel"><span class="nav-number">7.</span> <span class="nav-text"> SocketChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selector"><span class="nav-number">8.</span> <span class="nav-text"> Selector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#asynchronousfilechannel"><span class="nav-number">9.</span> <span class="nav-text"> AsynchronousFileChannel</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O模型"><span class="nav-number">1.</span> <span class="nav-text">I/O模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-种IO模型"><span class="nav-number">1.1.</span> <span class="nav-text">5 种IO模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程模型"><span class="nav-number">2.</span> <span class="nav-text">线程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-NIO和IO的主要区别"><span class="nav-number">3.</span> <span class="nav-text">Java NIO和IO的主要区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIO-常见类图"><span class="nav-number">4.</span> <span class="nav-text">BIO 常见类图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Buffer的基本用法"><span class="nav-number">5.</span> <span class="nav-text">Buffer的基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FileChannel"><span class="nav-number">6.</span> <span class="nav-text">FileChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SocketChannel"><span class="nav-number">7.</span> <span class="nav-text">SocketChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selector"><span class="nav-number">8.</span> <span class="nav-text">Selector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AsynchronousFileChannel"><span class="nav-number">9.</span> <span class="nav-text">AsynchronousFileChannel</span></a></li></ol></div>
             
 
           </div>

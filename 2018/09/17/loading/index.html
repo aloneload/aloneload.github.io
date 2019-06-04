@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="类加载过程 1. 加载（loading） 2. 链接（linking）     2.1. 验证（Verification）     2.2. 准备（Preparation）     2.3 解析（Resolution） 3. 初始化（initialization）   双亲委派 - 目的 ：避免重复加载java类型   java 8 以前的类加载器 1.启动类加载器（BootStrap Clas">
+<meta name="description" content="类加载过程1. 加载（loading） 2. 链接（linking）     2.1. 验证（Verification）     2.2. 准备（Preparation）     2.3 解析（Resolution） 3. 初始化（initialization） 双亲委派- 目的 ：避免重复加载java类型 java 8 以前的类加载器1.启动类加载器（BootStrap Class-Loader">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java类加载">
 <meta property="og:url" content="http://aloneload.github.io/2018/09/17/loading/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="类加载过程 1. 加载（loading） 2. 链接（linking）     2.1. 验证（Verification）     2.2. 准备（Preparation）     2.3 解析（Resolution） 3. 初始化（initialization）   双亲委派 - 目的 ：避免重复加载java类型   java 8 以前的类加载器 1.启动类加载器（BootStrap Clas">
+<meta property="og:description" content="类加载过程1. 加载（loading） 2. 链接（linking）     2.1. 验证（Verification）     2.2. 准备（Preparation）     2.3 解析（Resolution） 3. 初始化（initialization） 双亲委派- 目的 ：避免重复加载java类型 java 8 以前的类加载器1.启动类加载器（BootStrap Class-Loader">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-09-18T01:53:20.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java类加载">
-<meta name="twitter:description" content="类加载过程 1. 加载（loading） 2. 链接（linking）     2.1. 验证（Verification）     2.2. 准备（Preparation）     2.3 解析（Resolution） 3. 初始化（initialization）   双亲委派 - 目的 ：避免重复加载java类型   java 8 以前的类加载器 1.启动类加载器（BootStrap Clas">
+<meta name="twitter:description" content="类加载过程1. 加载（loading） 2. 链接（linking）     2.1. 验证（Verification）     2.2. 准备（Preparation）     2.3 解析（Resolution） 3. 初始化（initialization） 双亲委派- 目的 ：避免重复加载java类型 java 8 以前的类加载器1.启动类加载器（BootStrap Class-Loader">
 
 
 
@@ -418,29 +418,20 @@
       
 
       
-        <h2 id="类加载过程"><a class="markdownIt-Anchor" href="#类加载过程"></a> 类加载过程</h2>
-<pre><code>1. 加载（loading）
+        <h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><pre><code>1. 加载（loading）
 2. 链接（linking）
     2.1. 验证（Verification）
     2.2. 准备（Preparation）
     2.3 解析（Resolution）
 3. 初始化（initialization）
-</code></pre>
-<h2 id="双亲委派"><a class="markdownIt-Anchor" href="#双亲委派"></a> 双亲委派</h2>
-<pre><code>- 目的 ：避免重复加载java类型
-</code></pre>
-<h2 id="java-8-以前的类加载器"><a class="markdownIt-Anchor" href="#java-8-以前的类加载器"></a> java 8 以前的类加载器</h2>
-<pre><code>1.启动类加载器（BootStrap Class-Loader）,加载jre/lib,如rt.jar
+</code></pre><h2 id="双亲委派"><a href="#双亲委派" class="headerlink" title="双亲委派"></a>双亲委派</h2><pre><code>- 目的 ：避免重复加载java类型
+</code></pre><h2 id="java-8-以前的类加载器"><a href="#java-8-以前的类加载器" class="headerlink" title="java 8 以前的类加载器"></a>java 8 以前的类加载器</h2><pre><code>1.启动类加载器（BootStrap Class-Loader）,加载jre/lib,如rt.jar
 2.扩展类加载器（Extension or Ext Class-Loader）/jre/lib/ext（java9重命名为平台类加载器Platform Class-Loader）
 3.应用类加载器（Application or App Class-Loader）
-</code></pre>
-<h2 id="自定义类加载过程"><a class="markdownIt-Anchor" href="#自定义类加载过程"></a> 自定义类加载过程</h2>
-<pre><code>1. 通过指定名称，并加载二进制
+</code></pre><h2 id="自定义类加载过程"><a href="#自定义类加载过程" class="headerlink" title="自定义类加载过程"></a>自定义类加载过程</h2><pre><code>1. 通过指定名称，并加载二进制
 2. 创建class对象，二进制到class的转化
+</code></pre><h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><pre><code>- 当一个类或一个资源文件存在多个jar中，就会出现jar hell问题，解决办法就是自己加载手动通过cassloader加载类
 </code></pre>
-<h2 id="备注"><a class="markdownIt-Anchor" href="#备注"></a> 备注</h2>
-<pre><code>- 当一个类或一个资源文件存在多个jar中，就会出现jar hell问题，解决办法就是自己加载手动通过cassloader加载类</code></pre>
-
       
     </div>
     
@@ -643,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载过程"><span class="nav-number">1.</span> <span class="nav-text"> 类加载过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双亲委派"><span class="nav-number">2.</span> <span class="nav-text"> 双亲委派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-8-以前的类加载器"><span class="nav-number">3.</span> <span class="nav-text"> java 8 以前的类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载过程"><span class="nav-number">4.</span> <span class="nav-text"> 自定义类加载过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备注"><span class="nav-number">5.</span> <span class="nav-text"> 备注</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载过程"><span class="nav-number">1.</span> <span class="nav-text">类加载过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双亲委派"><span class="nav-number">2.</span> <span class="nav-text">双亲委派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-8-以前的类加载器"><span class="nav-number">3.</span> <span class="nav-text">java 8 以前的类加载器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义类加载过程"><span class="nav-number">4.</span> <span class="nav-text">自定义类加载过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备注"><span class="nav-number">5.</span> <span class="nav-text">备注</span></a></li></ol></div>
             
 
           </div>

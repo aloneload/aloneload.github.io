@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差   LinkList: 链表实现，插入删除高效，随机访问差   Queue/Deque: java 标准队列实现   TreeSet: 利用TreeMap实现，value为Dummy对象&amp;quot;PRESENT&amp;quot;,其插入元素以键的形式放入TreeMap里面   同步时可用Collections包装 stati">
+<meta name="description" content="ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差 LinkList: 链表实现，插入删除高效，随机访问差 Queue/Deque: java 标准队列实现 TreeSet: 利用TreeMap实现，value为Dummy对象”PRESENT”,其插入元素以键的形式放入TreeMap里面 同步时可用Collections包装  static List synchronize">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java集合">
 <meta property="og:url" content="http://aloneload.github.io/2018/09/06/java-collection/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差   LinkList: 链表实现，插入删除高效，随机访问差   Queue/Deque: java 标准队列实现   TreeSet: 利用TreeMap实现，value为Dummy对象&amp;quot;PRESENT&amp;quot;,其插入元素以键的形式放入TreeMap里面   同步时可用Collections包装 stati">
+<meta property="og:description" content="ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差 LinkList: 链表实现，插入删除高效，随机访问差 Queue/Deque: java 标准队列实现 TreeSet: 利用TreeMap实现，value为Dummy对象”PRESENT”,其插入元素以键的形式放入TreeMap里面 同步时可用Collections包装  static List synchronize">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://aloneload.github.io/2018/09/06/java-collection/list.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/09/06/java-collection/map.png">
 <meta property="og:updated_time" content="2018-09-07T10:25:07.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java集合">
-<meta name="twitter:description" content="ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差   LinkList: 链表实现，插入删除高效，随机访问差   Queue/Deque: java 标准队列实现   TreeSet: 利用TreeMap实现，value为Dummy对象&amp;quot;PRESENT&amp;quot;,其插入元素以键的形式放入TreeMap里面   同步时可用Collections包装 stati">
+<meta name="twitter:description" content="ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差 LinkList: 链表实现，插入删除高效，随机访问差 Queue/Deque: java 标准队列实现 TreeSet: 利用TreeMap实现，value为Dummy对象”PRESENT”,其插入元素以键的形式放入TreeMap里面 同步时可用Collections包装  static List synchronize">
 <meta name="twitter:image" content="http://aloneload.github.io/2018/09/06/java-collection/list.png">
 
 
@@ -422,56 +422,30 @@
 
       
         <ul>
-<li>
-<p>ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差</p>
-</li>
-<li>
-<p>LinkList: 链表实现，插入删除高效，随机访问差</p>
-</li>
-<li>
-<p>Queue/Deque: java 标准队列实现</p>
-</li>
-<li>
-<p>TreeSet: 利用TreeMap实现，value为Dummy对象&quot;PRESENT&quot;,其插入元素以键的形式放入TreeMap里面</p>
-</li>
-<li>
-<p>同步时可用Collections包装<br>
-<code>static List synchronize...</code></p>
-</li>
-<li>
-<p>Collections.sort(),底层调用Arrays.sort(),对于</p>
+<li>ArrayList:数组实现，适合随机访问，插入和删除除了尾部外性能较差</li>
+<li>LinkList: 链表实现，插入删除高效，随机访问差</li>
+<li>Queue/Deque: java 标准队列实现</li>
+<li>TreeSet: 利用TreeMap实现，value为Dummy对象”PRESENT”,其插入元素以键的形式放入TreeMap里面</li>
+<li>同步时可用Collections包装<br>  <code>static List synchronize...</code></li>
+<li><p>Collections.sort(),底层调用Arrays.sort(),对于</p>
 <ol>
 <li>小数据集，采用二分插入</li>
 <li>原始数据类型，采用双轴快速排序</li>
-<li>对象数据类型，采用TimSort,优化过的归并和二分插入排序<br>
-<img src="list.png" alt="list图"></li>
+<li>对象数据类型，采用TimSort,优化过的归并和二分插入排序<br><img src="list.png" alt="list图"></li>
 </ol>
 </li>
-<li>
-<p>HashMap: put,get操作可以达到常数时间的性能，所以是绝大多数利用键值存取场景的首选</p>
+<li><p>HashMap: put,get操作可以达到常数时间的性能，所以是绝大多数利用键值存取场景的首选</p>
 </li>
-<li>
-<p>TreeMap: 基于红黑树的一种顺序访问的Map,get,put,remove操作是O(log(n))</p>
-</li>
-<li>
-<p>基本约定:</p>
-<ol>
+<li>TreeMap: 基于红黑树的一种顺序访问的Map,get,put,remove操作是O(log(n))</li>
+<li>基本约定:<ol>
 <li>equals 相等，hashCode 一定要相等。</li>
 <li>重写了hashCode 也要重写equals</li>
 </ol>
 </li>
-<li>
-<p>LinkedHashMap顺序存储，例如重写removeEldestEntry可以实现定量过期删除</p>
-</li>
-<li>
-<p>负载因子*容量&gt;元素数量,同时元素数量应该是2的幂（确保hash 均匀），倍数扩容</p>
-</li>
-<li>
-<p>ConcurrentHashMap二级hash,进行分段加锁保证性能</p>
-</li>
-<li>
-<p>31*N可以被编译器优化为左移5位后减1，有较高的性能</p>
-</li>
+<li>LinkedHashMap顺序存储，例如重写removeEldestEntry可以实现定量过期删除</li>
+<li>负载因子*容量&gt;元素数量,同时元素数量应该是2的幂（确保hash 均匀），倍数扩容</li>
+<li>ConcurrentHashMap二级hash,进行分段加锁保证性能</li>
+<li>31*N可以被编译器优化为左移5位后减1，有较高的性能</li>
 </ul>
 <p><img src="map.png" alt="Map"></p>
 

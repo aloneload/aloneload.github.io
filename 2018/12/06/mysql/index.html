@@ -86,20 +86,20 @@
 
 
 
-<meta name="description" content="mysql体系结构和存储引擎  常用词定义  数据库（datebase）： 持久化的数据文件 实例(instance)：若干后台线程以及共享内存组成 mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分   体系结构  这是一个插件式的体系结构，所以存储引擎是可定制的。  InnoDB存储引擎支持事务，设计目标是支持OLTP（面向">
+<meta name="description" content="mysql体系结构和存储引擎常用词定义 数据库（datebase）： 持久化的数据文件 实例(instance)：若干后台线程以及共享内存组成mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分体系结构这是一个插件式的体系结构，所以存储引擎是可定制的。 InnoDB存储引擎支持事务，设计目标是支持OLTP（面向在线事务处理）的应用，">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql">
 <meta property="og:url" content="http://aloneload.github.io/2018/12/06/mysql/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="mysql体系结构和存储引擎  常用词定义  数据库（datebase）： 持久化的数据文件 实例(instance)：若干后台线程以及共享内存组成 mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分   体系结构  这是一个插件式的体系结构，所以存储引擎是可定制的。  InnoDB存储引擎支持事务，设计目标是支持OLTP（面向">
+<meta property="og:description" content="mysql体系结构和存储引擎常用词定义 数据库（datebase）： 持久化的数据文件 实例(instance)：若干后台线程以及共享内存组成mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分体系结构这是一个插件式的体系结构，所以存储引擎是可定制的。 InnoDB存储引擎支持事务，设计目标是支持OLTP（面向在线事务处理）的应用，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://aloneload.github.io/2018/12/06/mysql/1.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/12/06/mysql/2.png">
 <meta property="og:updated_time" content="2018-12-27T08:12:38.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
-<meta name="twitter:description" content="mysql体系结构和存储引擎  常用词定义  数据库（datebase）： 持久化的数据文件 实例(instance)：若干后台线程以及共享内存组成 mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分   体系结构  这是一个插件式的体系结构，所以存储引擎是可定制的。  InnoDB存储引擎支持事务，设计目标是支持OLTP（面向">
+<meta name="twitter:description" content="mysql体系结构和存储引擎常用词定义 数据库（datebase）： 持久化的数据文件 实例(instance)：若干后台线程以及共享内存组成mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分体系结构这是一个插件式的体系结构，所以存储引擎是可定制的。 InnoDB存储引擎支持事务，设计目标是支持OLTP（面向在线事务处理）的应用，">
 <meta name="twitter:image" content="http://aloneload.github.io/2018/12/06/mysql/1.png">
 
 
@@ -421,49 +421,29 @@
       
 
       
-        <h1 id="mysql体系结构和存储引擎"><a class="markdownIt-Anchor" href="#mysql体系结构和存储引擎"></a> mysql体系结构和存储引擎</h1>
-<h2 id="常用词定义"><a class="markdownIt-Anchor" href="#常用词定义"></a> 常用词定义</h2>
-<ol>
+        <h1 id="mysql体系结构和存储引擎"><a href="#mysql体系结构和存储引擎" class="headerlink" title="mysql体系结构和存储引擎"></a>mysql体系结构和存储引擎</h1><h2 id="常用词定义"><a href="#常用词定义" class="headerlink" title="常用词定义"></a>常用词定义</h2><ol>
 <li>数据库（datebase）： 持久化的数据文件</li>
-<li>实例(instance)：若干后台线程以及共享内存组成<br>
-mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分</li>
-</ol>
-<h2 id="体系结构"><a class="markdownIt-Anchor" href="#体系结构"></a> 体系结构</h2>
-<p><img src="1.png" alt=""><br>
-这是一个插件式的体系结构，所以存储引擎是可定制的。</p>
-<ol>
+<li>实例(instance)：若干后台线程以及共享内存组成<br>mysql被设计成单进程多线程，通常一个数据库对应一个实例（集群是一个数据库多个实例），一般情况下，这两个概念不做区分<h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><img src="1.png" alt=""><br>这是一个插件式的体系结构，所以存储引擎是可定制的。</li>
 <li>InnoDB存储引擎支持事务，设计目标是支持OLTP（面向在线事务处理）的应用，支持外键，读写锁，行锁等，高版本默认的存储引擎</li>
-<li>MyISAM 存储引擎不支持事务，表锁设计，设计目标是支持OLAP(面向联机分析处理)的应用</li>
-</ol>
-<h2 id="逻辑结构"><a class="markdownIt-Anchor" href="#逻辑结构"></a> 逻辑结构</h2>
-<p><img src="2.png" alt=""></p>
-<ol>
+<li>MyISAM 存储引擎不支持事务，表锁设计，设计目标是支持OLAP(面向联机分析处理)的应用<h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><img src="2.png" alt=""></li>
 <li>所有的数据逻辑地存放在一个表空间（tablespace）</li>
 <li>表空间由段（segment）区（extent）页（page）组成</li>
 <li>页是InnoDB最小的管理单位</li>
 <li>InnoDB是索引组织表</li>
-<li>InnoDB有聚集索引和辅助索引</li>
-</ol>
-<h1 id="事务四个特性acid"><a class="markdownIt-Anchor" href="#事务四个特性acid"></a> 事务四个特性（ACID）</h1>
-<ol>
+<li>InnoDB有聚集索引和辅助索引<h1 id="事务四个特性（ACID）"><a href="#事务四个特性（ACID）" class="headerlink" title="事务四个特性（ACID）"></a>事务四个特性（ACID）</h1></li>
 <li>原子性（Atomic）:对数据的操作，要么全执行，要么全不执行</li>
 <li>一致性（Consistent）:事务在完成时，数据必须保持一致状态，数据结构必须是正确的（最难理解，可以想象分布式下数据不一致的状态）</li>
 <li>隔离性（Isolation）:不用的事务修改不会影响彼此</li>
-<li>持久性（Duration）:事务完成，影响必须是永久性的<br>
-隔离性一般通过锁实现，其他三个特性通过相关事务日志文件实现，Mysql redo log记录修改后的数据，undo log记录修改前数据</li>
-</ol>
-<h1 id="隔离级别"><a class="markdownIt-Anchor" href="#隔离级别"></a> 隔离级别</h1>
-<ol>
+<li>持久性（Duration）:事务完成，影响必须是永久性的<br>隔离性一般通过锁实现，其他三个特性通过相关事务日志文件实现，Mysql redo log记录修改后的数据，undo log记录修改前数据<h1 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h1></li>
 <li>READ_UNCOMMITTED</li>
 <li>READ_COMMITTED</li>
 <li>REPEATABLE_READ</li>
-<li>SERIALIZABLE<br>
-从上到下，隔离性越高，并发性也就越差,死锁的记录也越大（gap间隙锁）设置这个级别是为了解决以下问题<br>
-参考<a href="https://my.oschina.net/huangyong/blog/160012" target="_blank" rel="noopener">Transaction 那点事儿</a></li>
+<li>SERIALIZABLE<br>从上到下，隔离性越高，并发性也就越差,死锁的记录也越大（gap间隙锁）设置这个级别是为了解决以下问题<br>参考<a href="https://my.oschina.net/huangyong/blog/160012" target="_blank" rel="noopener">Transaction 那点事儿</a></li>
 <li>Dirty Read(脏读)：事务A读取了事务B修改未提交的数据（脏数据），并在此基础上进行了修改</li>
 <li>Unrepeatable Read (不可重复读)：事务A读取了事务B已提交的更改数据</li>
 <li>Phantom Read (幻读)：事务A读取了事务B已提交的新增数据</li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -500,8 +480,8 @@ mysql被设计成单进程多线程，通常一个数据库对应一个实例（
 </tr>
 </tbody>
 </table>
-<h1 id="innodb锁类型"><a class="markdownIt-Anchor" href="#innodb锁类型"></a> InnoDB锁类型</h1>
-<ol>
+</div>
+<h1 id="InnoDB锁类型"><a href="#InnoDB锁类型" class="headerlink" title="InnoDB锁类型"></a>InnoDB锁类型</h1><ol>
 <li>共享锁，读锁，其他事务可以继续加此锁</li>
 <li>排它锁，写锁，排斥其他锁</li>
 <li>意向锁，想要获得几行的锁</li>
@@ -511,18 +491,9 @@ mysql被设计成单进程多线程，通常一个数据库对应一个实例（
 <ol>
 <li>记录锁（Record-Lock）:锁着索引记录</li>
 <li>间隙锁（gap）:锁住一段记录</li>
-<li>next-key 锁，在PR隔离级别下是记录锁+间隙锁，InnoDB行的扫描锁定使用此算法</li>
-</ol>
-<h1 id="mvcc"><a class="markdownIt-Anchor" href="#mvcc"></a> MVCC</h1>
-<p>多版本并发控制系统，在InnoDB中，在每行记录的后面增加两个隐藏列，记录创建版本号和删除版本号。<br>
-在 MVCC 中，对于读操作可以分为两种读：</p>
-<ol>
+<li>next-key 锁，在PR隔离级别下是记录锁+间隙锁，InnoDB行的扫描锁定使用此算法<h1 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h1>多版本并发控制系统，在InnoDB中，在每行记录的后面增加两个隐藏列，记录创建版本号和删除版本号。<br>在 MVCC 中，对于读操作可以分为两种读：</li>
 <li>快照读：读取的历史数据，简单的 select 语句，不加锁，MVCC 实现可重复读，使用的是 MVCC 机制读取 undo 中的已经提交的数据。所以它的读取是非阻塞的。</li>
-<li>当前读：需要加锁的语句，update，insert，delete，select…for update 等等都是当前读。<br>
-这种机制用来防止幻读</li>
-</ol>
-<h1 id="spring事务传播机制"><a class="markdownIt-Anchor" href="#spring事务传播机制"></a> spring事务传播机制</h1>
-<ol>
+<li>当前读：需要加锁的语句，update，insert，delete，select…for update 等等都是当前读。<br>这种机制用来防止幻读<h1 id="spring事务传播机制"><a href="#spring事务传播机制" class="headerlink" title="spring事务传播机制"></a>spring事务传播机制</h1></li>
 <li>PROPAGATION_REQUIRED</li>
 <li>RROPAGATION_REQUIRES_NEW</li>
 <li>PROPAGATION_NESTED</li>
@@ -746,7 +717,7 @@ mysql被设计成单进程多线程，通常一个数据库对应一个实例（
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql体系结构和存储引擎"><span class="nav-number">1.</span> <span class="nav-text"> mysql体系结构和存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用词定义"><span class="nav-number">1.1.</span> <span class="nav-text"> 常用词定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.2.</span> <span class="nav-text"> 体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑结构"><span class="nav-number">1.3.</span> <span class="nav-text"> 逻辑结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事务四个特性acid"><span class="nav-number">2.</span> <span class="nav-text"> 事务四个特性（ACID）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#隔离级别"><span class="nav-number">3.</span> <span class="nav-text"> 隔离级别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#innodb锁类型"><span class="nav-number">4.</span> <span class="nav-text"> InnoDB锁类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mvcc"><span class="nav-number">5.</span> <span class="nav-text"> MVCC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spring事务传播机制"><span class="nav-number">6.</span> <span class="nav-text"> spring事务传播机制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql体系结构和存储引擎"><span class="nav-number">1.</span> <span class="nav-text">mysql体系结构和存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用词定义"><span class="nav-number">1.1.</span> <span class="nav-text">常用词定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.2.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑结构"><span class="nav-number">1.3.</span> <span class="nav-text">逻辑结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事务四个特性（ACID）"><span class="nav-number">2.</span> <span class="nav-text">事务四个特性（ACID）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#隔离级别"><span class="nav-number">3.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#InnoDB锁类型"><span class="nav-number">4.</span> <span class="nav-text">InnoDB锁类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVCC"><span class="nav-number">5.</span> <span class="nav-text">MVCC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spring事务传播机制"><span class="nav-number">6.</span> <span class="nav-text">spring事务传播机制</span></a></li></ol></div>
             
 
           </div>

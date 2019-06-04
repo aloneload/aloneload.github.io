@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
+<meta name="description" content="安装本地生成官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman   安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）：    生成spri">
 <meta name="keywords" content="编程语言 jhipster">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jhipster初探">
 <meta property="og:url" content="http://aloneload.github.io/2018/07/03/jhipster/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
+<meta property="og:description" content="安装本地生成官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman   安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）：    生成spri">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster2.png">
@@ -107,7 +107,7 @@
 <meta property="og:updated_time" content="2018-12-05T02:19:27.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jhipster初探">
-<meta name="twitter:description" content="安装  本地生成 官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman    安装JHipster yarn global add generator-jhipster   创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp   运行JHipster并按照屏幕上的说明操作 jhipster   具体参数见下图（生成单体应用）">
+<meta name="twitter:description" content="安装本地生成官网介绍  先决：安装 Java， Git， Node.js， Yarn和 Yeoman   安装JHipster yarn global add generator-jhipster 创建一个新目录并进入它 mkdir myApp &amp;amp;&amp;amp; cd myApp 运行JHipster并按照屏幕上的说明操作 jhipster 具体参数见下图（生成单体应用）：    生成spri">
 <meta name="twitter:image" content="http://aloneload.github.io/2018/07/03/jhipster/jhipster1.png">
 
 
@@ -429,66 +429,33 @@
       
 
       
-        <h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
-<h4 id="本地生成"><a class="markdownIt-Anchor" href="#本地生成"></a> 本地生成</h4>
-<p><a href="https://www.jhipster.tech/" target="_blank" rel="noopener">官网介绍</a></p>
+        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="本地生成"><a href="#本地生成" class="headerlink" title="本地生成"></a>本地生成</h4><p><a href="https://www.jhipster.tech/" target="_blank" rel="noopener">官网介绍</a></p>
 <ul>
 <li>先决：安装 Java， Git， Node.js， Yarn和 Yeoman</li>
 </ul>
 <ol>
-<li>
-<p>安装JHipster <code>yarn global add generator-jhipster</code></p>
+<li>安装JHipster <code>yarn global add generator-jhipster</code></li>
+<li>创建一个新目录并进入它 <code>mkdir myApp &amp;&amp; cd myApp</code></li>
+<li>运行JHipster并按照屏幕上的说明操作 <code>jhipster</code></li>
+<li><p>具体参数见下图（生成单体应用）：<br> <img src="jhipster1.png" alt=""> </p>
+<p> 生成spring boot + augular5的单体架构应用</p>
 </li>
-<li>
-<p>创建一个新目录并进入它 <code>mkdir myApp &amp;&amp; cd myApp</code></p>
-</li>
-<li>
-<p>运行JHipster并按照屏幕上的说明操作 <code>jhipster</code></p>
-</li>
-<li>
-<p>具体参数见下图（生成单体应用）：<br>
-<img src="jhipster1.png" alt=""></p>
-<p>生成spring boot + augular5的单体架构应用</p>
-</li>
-<li>
-<p>等下载完成后输入<code>mvnw(linux下为./mvnw)</code>即可在8080提供服务<br>
-<img src="jhipster2.png" alt=""></p>
-</li>
-<li>
-<p>自带一些监控运维相关应用<br>
-<img src="jhipster3.png" alt=""></p>
-</li>
-<li>
-<p>下载<a href="https://start.jhipster.tech/jdl-studio/" target="_blank" rel="noopener">jdl-studio</a></p>
-</li>
-<li>
-<p>生成代码<code>jhipster import-jdl ./my-jdl-file.jdl --json-only</code></p>
+<li>等下载完成后输入<code>mvnw(linux下为./mvnw)</code>即可在8080提供服务<br> <img src="jhipster2.png" alt=""></li>
+<li>自带一些监控运维相关应用<br> <img src="jhipster3.png" alt=""></li>
+<li>下载<a href="https://start.jhipster.tech/jdl-studio/" target="_blank" rel="noopener">jdl-studio</a></li>
+<li><p>生成代码<code>jhipster import-jdl ./my-jdl-file.jdl --json-only</code></p>
+<h4 id="在线生成"><a href="#在线生成" class="headerlink" title="在线生成"></a>在线生成</h4><p>在线生成的好处就是不需要本次安装那么多软件  <a href="https://start.jhipster.tech/#/generate-application" target="_blank" rel="noopener">地址</a><br> <a href="!jhipster4.png"></a></p>
+<h4 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h4><h5 id="Consul-服务发现与注册"><a href="#Consul-服务发现与注册" class="headerlink" title="Consul 服务发现与注册"></a>Consul 服务发现与注册</h5><p> jhipster 微服务注册与发现可以采用consul,网关代理可以采用Traefik<br><img src="consul.png" alt=""><br><img src="consul2.png" alt=""><br><img src="consul3.png" alt=""></p>
 </li>
 </ol>
-<h4 id="在线生成"><a class="markdownIt-Anchor" href="#在线生成"></a> 在线生成</h4>
-<p>在线生成的好处就是不需要本次安装那么多软件  <a href="https://start.jhipster.tech/#/generate-application" target="_blank" rel="noopener">地址</a><br>
-<a href="!jhipster4.png"></a></p>
-<h4 id="微服务"><a class="markdownIt-Anchor" href="#微服务"></a> 微服务</h4>
-<h5 id="consul-服务发现与注册"><a class="markdownIt-Anchor" href="#consul-服务发现与注册"></a> Consul 服务发现与注册</h5>
-<pre><code>jhipster 微服务注册与发现可以采用consul,网关代理可以采用Traefik
-</code></pre>
-<p><img src="consul.png" alt=""><br>
-<img src="consul2.png" alt=""><br>
-<img src="consul3.png" alt=""></p>
-<h5 id="jhipster-服务发现与注册"><a class="markdownIt-Anchor" href="#jhipster-服务发现与注册"></a> jhipster 服务发现与注册</h5>
-<pre><code>1. 创建顺序
+<h5 id="jhipster-服务发现与注册"><a href="#jhipster-服务发现与注册" class="headerlink" title="jhipster 服务发现与注册"></a>jhipster 服务发现与注册</h5><pre><code>1. 创建顺序
     1. JHipster UAA server
     1. 一个微服务
     1. 一个 JHipster 网关
     1. `./mvnw verify -Pprod dockerfile:build dockerfile:tag@version dockerfile:tag@commit`生成各个服务的docker镜像
     1. 生成docker-compose管理各个服务
-</code></pre>
-<p><img src="uaa.png" alt=""><br>
-<img src="app2.png" alt=""><br>
-<img src="getway.png" alt=""><br>
-<img src="docker-compose.png" alt=""></p>
-<p>####备注</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dto A, B with mapstruct</span><br><span class="line">paginate A, C with infinite-scroll</span><br><span class="line">paginate Job with pagination</span><br><span class="line">paginate B with pager</span><br><span class="line">service A with serviceClass</span><br><span class="line">service C with serviceImpl</span><br></pre></td></tr></table></figure>
+</code></pre><p><img src="uaa.png" alt=""><br><img src="app2.png" alt=""><br><img src="getway.png" alt=""><br><img src="docker-compose.png" alt=""></p>
+<h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dto A, B with mapstruct</span><br><span class="line">paginate A, C with infinite-scroll</span><br><span class="line">paginate Job with pagination</span><br><span class="line">paginate B with pager</span><br><span class="line">service A with serviceClass</span><br><span class="line">service C with serviceImpl</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -692,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text"> 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地生成"><span class="nav-number">1.1.</span> <span class="nav-text"> 本地生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线生成"><span class="nav-number">1.2.</span> <span class="nav-text"> 在线生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微服务"><span class="nav-number">1.3.</span> <span class="nav-text"> 微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#consul-服务发现与注册"><span class="nav-number">1.3.1.</span> <span class="nav-text"> Consul 服务发现与注册</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jhipster-服务发现与注册"><span class="nav-number">1.3.2.</span> <span class="nav-text"> jhipster 服务发现与注册</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地生成"><span class="nav-number">1.1.</span> <span class="nav-text">本地生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线生成"><span class="nav-number">1.2.</span> <span class="nav-text">在线生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#微服务"><span class="nav-number">1.3.</span> <span class="nav-text">微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Consul-服务发现与注册"><span class="nav-number">1.3.1.</span> <span class="nav-text">Consul 服务发现与注册</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jhipster-服务发现与注册"><span class="nav-number">1.3.2.</span> <span class="nav-text">jhipster 服务发现与注册</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备注"><span class="nav-number">1.4.</span> <span class="nav-text">备注</span></a></li></ol></li></ol></div>
             
 
           </div>

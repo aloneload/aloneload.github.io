@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（12345678910111213141516171819### Optional的方法 |方法|描述||-|-||empty">
+<meta name="description" content="Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（12345678910111213141516171819### Optional的方法 |方法|描述||-|-||emp">
 <meta name="keywords" content="java 编程语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java积极使用optional替代null">
 <meta property="og:url" content="http://aloneload.github.io/2018/07/02/option/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（12345678910111213141516171819### Optional的方法 |方法|描述||-|-||empty">
+<meta property="og:description" content="Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（12345678910111213141516171819### Optional的方法 |方法|描述||-|-||emp">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-07-03T06:32:30.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java积极使用optional替代null">
-<meta name="twitter:description" content="Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（12345678910111213141516171819### Optional的方法 |方法|描述||-|-||empty">
+<meta name="twitter:description" content="Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（12345678910111213141516171819### Optional的方法 |方法|描述||-|-||emp">
 
 
 
@@ -418,38 +418,32 @@
       
 
       
-        <p>Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Optional的方法 </span><br><span class="line"></span><br><span class="line">|方法|描述|</span><br><span class="line">|-|-|</span><br><span class="line">|empty |返回一个空的 Optional 实例|</span><br><span class="line">|filter|如果值存在并且满足提供的词，就返回包含该值的 Optional 对象；否则返回一个空的 Optional 对象|</span><br><span class="line">|flatMap| 如果值存在，就对该值执行提供的 mapping函数调用，返回一个 Optional 类型的值，否则就返 回一个空的Optional 对象 </span><br><span class="line">|get| 如果该值存在，将该值用 Optional 封装返回，否则出一个 NoSuchElementException 异常 |</span><br><span class="line">|ifPresent| 如果值存在，就执行使用该值的方法调用，否则什么也不做| </span><br><span class="line">|isPresent| 如果值存在就返回 true，否则返回 false |</span><br><span class="line">|map |如果值存在，就对该值执行提供的 mapping函数调用| </span><br><span class="line">|of| 将指定值用 Optional 封装之后返回，如果该值为 null，则出一个 NullPointerException 异常 |ofNullable| 将指定值用 Optional 封装之后返回，如果该值为 null，则返回一个空的 Optional 对象 </span><br><span class="line">|orElse| 如果有值则将其返回，否则返回一个认值 orElseGet 如果有值则将其返回，否则返回一个由指定的 Supplier 接口生成的值 </span><br><span class="line">|orElseThrow| 如果有值则将其返回，否则出一个由指定的 Supplier 接口生成的异常</span><br><span class="line">### 创建optional对象</span><br><span class="line">1.  创建空Optional</span><br><span class="line">    ```java</span><br><span class="line">    Optional&lt;Object&gt; empty = Optional.empty();</span><br></pre></td></tr></table></figure></p>
+        <p>  Java中有值类型和引用类型，null是引用类型的默认值，是对于不确定指针的建模，正常情况下，堆中的对象解引用调用，当声明的变量不指向任何堆中的对象时，此时调用任何方法都将引发过NullPointerException，因此在Java对象调用时，理论上必须要判断此对象为空（<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Optional的方法 </span><br><span class="line"></span><br><span class="line">|方法|描述|</span><br><span class="line">|-|-|</span><br><span class="line">|empty |返回一个空的 Optional 实例|</span><br><span class="line">|filter|如果值存在并且满足提供的词，就返回包含该值的 Optional 对象；否则返回一个空的 Optional 对象|</span><br><span class="line">|flatMap| 如果值存在，就对该值执行提供的 mapping函数调用，返回一个 Optional 类型的值，否则就返 回一个空的Optional 对象 </span><br><span class="line">|get| 如果该值存在，将该值用 Optional 封装返回，否则出一个 NoSuchElementException 异常 |</span><br><span class="line">|ifPresent| 如果值存在，就执行使用该值的方法调用，否则什么也不做| </span><br><span class="line">|isPresent| 如果值存在就返回 true，否则返回 false |</span><br><span class="line">|map |如果值存在，就对该值执行提供的 mapping函数调用| </span><br><span class="line">|of| 将指定值用 Optional 封装之后返回，如果该值为 null，则出一个 NullPointerException 异常 |ofNullable| 将指定值用 Optional 封装之后返回，如果该值为 null，则返回一个空的 Optional 对象 </span><br><span class="line">|orElse| 如果有值则将其返回，否则返回一个认值 orElseGet 如果有值则将其返回，否则返回一个由指定的 Supplier 接口生成的值 </span><br><span class="line">|orElseThrow| 如果有值则将其返回，否则出一个由指定的 Supplier 接口生成的异常</span><br><span class="line">### 创建optional对象</span><br><span class="line">1.  创建空Optional</span><br><span class="line">    ```java</span><br><span class="line">    Optional&lt;Object&gt; empty = Optional.empty();</span><br></pre></td></tr></table></figure></p>
 <ol>
-<li>
-<p>据一个空值创建Optional</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Car&gt; optCar = Optional.of(car);</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>可接null的Optional</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Person&gt; optperson = Optional.ofNullable(person);</span><br></pre></td></tr></table></figure>
+<li>据一个空值创建Optional <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Car&gt; optCar = Optional.of(car);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="实践"><a class="markdownIt-Anchor" href="#实践"></a> 实践</h3>
-<ul>
-<li>
-<p>使用Optional定义数据模型</p>
+<ol>
+<li>可接null的Optional  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Optional&lt;Person&gt; optperson = Optional.ofNullable(person);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><ul>
+<li><p>使用Optional定义数据模型</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Optional&lt;Car&gt; car;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Optional&lt;Car&gt; <span class="title">getCar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> car;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ``` </span><br><span class="line">- 注意，上述字段并不能序列化，对于要序列化的数据模型，可改写成如下</span><br><span class="line">    ```java</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Car car;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Optional&lt;Car&gt; <span class="title">getCarAsOptional</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> Optional.ofNullable(car);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>重构以下常见代码</p>
+<li><p>重构以下常见代码</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">(Person p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> p.gerName();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getNameOpt</span><span class="params">(Person p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(p)</span><br><span class="line">            .map(v-&gt;v.gerName())</span><br><span class="line">            .orElse(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>使用option重构后的代码可以进行链式调用了，相当简洁，查看Java8新增的流api,比如map,fiter其返回值都是optional这种null类型安全的</p>
-<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
-<ul>
-<li>null引用在历上被引入到程序设计语言中，目的是为了表示变量值的缺失。</li>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>null引用在历上被引入到程序设计语言中，目的是为了表示变量值的缺失。 </li>
 <li>Java 8中引入了一个新的类java.util.Optional<t>，对存在或缺失的变量值进行 建模。</t></li>
-<li>你可以使用静态工厂方法Optional.empty、Optional.of以及Optional.ofNull- able创建Optional对象。</li>
-<li>Optional类支持多种方法，比如map、flatMap、filter，它们在概念上与Stream类 中对应的方法分相似。</li>
-<li>使用Optional会使你更积极地解引用Optional对象，以应对变量值缺失的问题， 最终，你能更有效地防止代码中出现不期而至的空指针异常。</li>
-<li>使用Optional能帮助你设计更好的API，用户只需要读方法签名，就能了解该方法是 否接受一个Optional类型的值。</li>
+<li>你可以使用静态工厂方法Optional.empty、Optional.of以及Optional.ofNull- able创建Optional对象。 </li>
+<li>Optional类支持多种方法，比如map、flatMap、filter，它们在概念上与Stream类 中对应的方法分相似。 </li>
+<li>使用Optional会使你更积极地解引用Optional对象，以应对变量值缺失的问题， 最终，你能更有效地防止代码中出现不期而至的空指针异常。 </li>
+<li>使用Optional能帮助你设计更好的API，用户只需要读方法签名，就能了解该方法是 否接受一个Optional类型的值。 </li>
 </ul>
 
       
@@ -654,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-number">1.</span> <span class="nav-text"> 实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text"> 总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实践"><span class="nav-number">1.</span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

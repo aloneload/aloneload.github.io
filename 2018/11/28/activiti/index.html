@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="activiti能干啥 1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化   核心知识点   几大接口 1. RepositoryService，提供一系列管理流程部署和流程定义的API 1. RuntimeService，在流程运行时对流程实例进行管理与控制 1. TaskService，对流程">
+<meta name="description" content="activiti能干啥1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化 核心知识点  几大接口1. RepositoryService，提供一系列管理流程部署和流程定义的API 1. RuntimeService，在流程运行时对流程实例进行管理与控制 1. TaskService，对流程任务进行管理">
 <meta name="keywords" content="activiti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="activiti实战">
 <meta property="og:url" content="http://aloneload.github.io/2018/11/28/activiti/index.html">
 <meta property="og:site_name" content="aloneload的博客">
-<meta property="og:description" content="activiti能干啥 1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化   核心知识点   几大接口 1. RepositoryService，提供一系列管理流程部署和流程定义的API 1. RuntimeService，在流程运行时对流程实例进行管理与控制 1. TaskService，对流程">
+<meta property="og:description" content="activiti能干啥1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化 核心知识点  几大接口1. RepositoryService，提供一系列管理流程部署和流程定义的API 1. RuntimeService，在流程运行时对流程实例进行管理与控制 1. TaskService，对流程任务进行管理">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://aloneload.github.io/2018/11/28/activiti/1.png">
 <meta property="og:image" content="http://aloneload.github.io/2018/11/28/activiti/2.png">
@@ -106,7 +106,7 @@
 <meta property="og:updated_time" content="2018-11-28T06:50:22.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="activiti实战">
-<meta name="twitter:description" content="activiti能干啥 1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化   核心知识点   几大接口 1. RepositoryService，提供一系列管理流程部署和流程定义的API 1. RuntimeService，在流程运行时对流程实例进行管理与控制 1. TaskService，对流程">
+<meta name="twitter:description" content="activiti能干啥1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化 核心知识点  几大接口1. RepositoryService，提供一系列管理流程部署和流程定义的API 1. RuntimeService，在流程运行时对流程实例进行管理与控制 1. TaskService，对流程任务进行管理">
 <meta name="twitter:image" content="http://aloneload.github.io/2018/11/28/activiti/1.png">
 
 
@@ -406,25 +406,17 @@
       
 
       
-        <h2 id="activiti能干啥"><a class="markdownIt-Anchor" href="#activiti能干啥"></a> activiti能干啥</h2>
-<pre><code>1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架
+        <h2 id="activiti能干啥"><a href="#activiti能干啥" class="headerlink" title="activiti能干啥"></a>activiti能干啥</h2><pre><code>1. activiti 是一种使用*.bpmn文件定义流程，管理流程的一种框架
 1. 我们只需定义工作流，部署工作流就能执行工作流，实现工作流自动化
-</code></pre>
-<h2 id="核心知识点"><a class="markdownIt-Anchor" href="#核心知识点"></a> 核心知识点</h2>
-<p><img src="1.png" alt="ss"></p>
-<h3 id="几大接口"><a class="markdownIt-Anchor" href="#几大接口"></a> 几大接口</h3>
-<pre><code>1. RepositoryService，提供一系列管理流程部署和流程定义的API
+</code></pre><h2 id="核心知识点"><a href="#核心知识点" class="headerlink" title="核心知识点"></a>核心知识点</h2><p> <img src="1.png" alt="ss"></p>
+<h3 id="几大接口"><a href="#几大接口" class="headerlink" title="几大接口"></a>几大接口</h3><pre><code>1. RepositoryService，提供一系列管理流程部署和流程定义的API
 1. RuntimeService，在流程运行时对流程实例进行管理与控制
 1. TaskService，对流程任务进行管理，例如任务提醒、任务完成和创建任务等 
 1. HistoryService,对流程的历史数据进行操作，包括查询、删除这些历史数据
-</code></pre>
-<h3 id="表结构"><a class="markdownIt-Anchor" href="#表结构"></a> 表结构</h3>
-<pre><code>1. act_hi_ 历史数据表，hi是history的缩写，对应HistoryService接口
+</code></pre><h3 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h3><pre><code>1. act_hi_ 历史数据表，hi是history的缩写，对应HistoryService接口
 1. act_re_ 流程存储表，re是repository的缩写，对应RepositoryService接口，存储流程部署和流程定义等静态数据
 1. act_ru_ 运行时数据表，ru是runtime的缩写，对应RuntimeService接口和TaskService接口，存储流程实例和用户任务等动态数据
-</code></pre>
-<h3 id="代码实战"><a class="markdownIt-Anchor" href="#代码实战"></a> 代码实战</h3>
-<pre><code>[github代码]()
+</code></pre><h3 id="代码实战"><a href="#代码实战" class="headerlink" title="代码实战"></a>代码实战</h3><pre><code>[github代码]()
 1. spring-boot maven 支持
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https://mvnrepository.com/artifact/org.activiti/activiti-spring --&gt;</span><br><span class="line">   &lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;org.activiti&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;activiti-spring&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;6.0.0&lt;/version&gt;</span><br><span class="line">   &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 
@@ -432,14 +424,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class ActivitiConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public ProcessEngine processEngine(DataSourceTransactionManager transactionManager, DataSource dataSource) throws IOException &#123;</span><br><span class="line">        SpringProcessEngineConfiguration configuration = new SpringProcessEngineConfiguration();</span><br><span class="line">        //自动部署已有的流程文件</span><br><span class="line">        Resource[] resources = new PathMatchingResourcePatternResolver().getResources(ResourceLoader.CLASSPATH_URL_PREFIX + &quot;processes/*.bpmn&quot;);</span><br><span class="line">        configuration.setTransactionManager(transactionManager);</span><br><span class="line">        configuration.setDataSource(dataSource);</span><br><span class="line">        configuration.setDatabaseSchemaUpdate(&quot;true&quot;);</span><br><span class="line">        configuration.setDeploymentResources(resources);</span><br><span class="line">        configuration.setDbIdentityUsed(false);</span><br><span class="line">        return configuration.buildProcessEngine();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public RepositoryService repositoryService(ProcessEngine processEngine) &#123;</span><br><span class="line">        return processEngine.getRepositoryService();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public RuntimeService runtimeService(ProcessEngine processEngine) &#123;</span><br><span class="line">        return processEngine.getRuntimeService();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public TaskService taskService(ProcessEngine processEngine) &#123;</span><br><span class="line">        return processEngine.getTaskService();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public HistoryService historyService(ProcessEngine processEngine) &#123;</span><br><span class="line">        return processEngine.getHistoryService();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public ManagementService managementService(ProcessEngine processEngine) &#123;</span><br><span class="line">        return processEngine.getManagementService();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public IdentityService identityService(ProcessEngine processEngine) &#123;</span><br><span class="line">        return processEngine.getIdentityService();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 3. 流程文件定义，路径resources/processes/*.bpmn
-</code></pre>
-<p><img src="2.png" alt=""><br>
-<img src="3.png" alt=""><br>
-<img src="4.png" alt=""><br>
-<img src="5.png" alt=""><br>
-<img src="6.png" alt=""><br>
-<img src="7.png" alt=""><br>
-<img src="8.png" alt=""></p>
+</code></pre><p><img src="2.png" alt=""><br><img src="3.png" alt=""><br><img src="4.png" alt=""><br><img src="5.png" alt=""><br><img src="6.png" alt=""><br><img src="7.png" alt=""><br><img src="8.png" alt=""></p>
 <pre><code>4. application.properties属性设置
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#保存历史数据级别设置为full最高级别，便于历史数据的追溯</span><br><span class="line">spring.activiti.history-level=full</span><br><span class="line"># 自动部署验证设置:true-开启（默认）、false-关闭</span><br><span class="line">spring.activiti.check-process-definitions=true</span><br></pre></td></tr></table></figure>
 
@@ -449,12 +434,8 @@
 6. 监听类设置
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class ObligateAuditListener implements TaskListener &#123;</span><br><span class="line">@Override</span><br><span class="line">public void notify(DelegateTask delegateTask) &#123;</span><br><span class="line">    if (delegateTask.getEventName().equals(&quot;create&quot;)) &#123;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">    if (delegateTask.getEventName().equals(&quot;complete&quot;)) &#123;</span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
-<p><img src="9.png" alt=""></p>
-<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
-<p><a href="https://activiti.gitbook.io/activiti-7-developers-guide/getting-started/getting-started-activiti-core" target="_blank" rel="noopener">官网</a><br>
-<a href="https://www.jianshu.com/p/701056e672a4" target="_blank" rel="noopener">Activiti6简明教程</a><br>
-<a href="https://www.activiti.org/userguide/" target="_blank" rel="noopener">详细文档</a></p>
+</code></pre><p><img src="9.png" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://activiti.gitbook.io/activiti-7-developers-guide/getting-started/getting-started-activiti-core" target="_blank" rel="noopener">官网</a><br><a href="https://www.jianshu.com/p/701056e672a4" target="_blank" rel="noopener">Activiti6简明教程</a><br><a href="https://www.activiti.org/userguide/" target="_blank" rel="noopener">详细文档</a></p>
 
       
     </div>
@@ -658,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#activiti能干啥"><span class="nav-number">1.</span> <span class="nav-text"> activiti能干啥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心知识点"><span class="nav-number">2.</span> <span class="nav-text"> 核心知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#几大接口"><span class="nav-number">2.1.</span> <span class="nav-text"> 几大接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表结构"><span class="nav-number">2.2.</span> <span class="nav-text"> 表结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实战"><span class="nav-number">2.3.</span> <span class="nav-text"> 代码实战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text"> 参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#activiti能干啥"><span class="nav-number">1.</span> <span class="nav-text">activiti能干啥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心知识点"><span class="nav-number">2.</span> <span class="nav-text">核心知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#几大接口"><span class="nav-number">2.1.</span> <span class="nav-text">几大接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表结构"><span class="nav-number">2.2.</span> <span class="nav-text">表结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实战"><span class="nav-number">2.3.</span> <span class="nav-text">代码实战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
